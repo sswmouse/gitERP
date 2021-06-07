@@ -1,0 +1,39 @@
+<!--pages/homePage/homePage.wxml-->
+<view class="top">
+  <swiper class="swiper" indicator-dots="true" autoplay="true" interval="3000" duration="500" circular="true">
+    <swiper-item wx:for="{{imgs}}" wx:key="*this">
+      <image class="img" src="{{item}}"></image>
+    </swiper-item>
+  </swiper>
+</view>
+
+<view class="function">
+  <view class="flex-item demo-text-1">
+    <image class="icon" src="{{icon1}}"></image>
+    <view class="icon_text">入库管理</view>
+  </view>
+  <view class="flex-item demo-text-2">
+    <image class="icon" src="{{icon2}}"></image>
+    <view class="icon_text">出库管理</view>
+  </view>
+  <view class="flex-item demo-text-3">
+    <image class="icon" src="{{icon3}}"></image>
+    <view class="icon_text">库存管理</view>
+  </view>
+  <view class="flex-item demo-text-4">
+    <image class="icon" src="{{icon4}}"></image>
+    <view class="icon_text">商品分类</view>
+  </view>
+</view>
+<view class="function">
+  <view class="flex-item demo-text-1">
+    <image class="icon" src="{{icon5}}"></image>
+    <view class="icon_text">人员管理</view>
+  </view>
+  <view class="flex-item demo-text-2">
+  </view>
+  <view class="flex-item demo-text-3">
+  </view>
+  <view class="flex-item demo-text-4">
+  </view>
+</view>

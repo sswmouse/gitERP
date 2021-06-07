@@ -1,0 +1,58 @@
+/* pages/find/find.wxss */
+/* 货品统计 */
+.huopin{
+  width: 100vw;
+  height: 100vh;
+  /* border: 1px solid red; */
+  /* box-sizing: border-box; */
+}
+.content{
+  width: 90%;
+  height: 100vh;
+  /* border: 1px solid blue; */
+  margin: 0 auto;
+  padding: 10px 0;
+}
+
+/* 进销与统计 */
+.jx{
+  /* border: 1px solid red; */
+  margin-bottom: 20px;
+}
+.ry{
+  margin: 20px 0;
+}
+.icon{
+  /* border: 1px solid red; */
+  width: 20px;
+  height: 20px;
+  /* display: inline-block; */
+  vertical-align: top;
+  margin-right: 10px;
+}
+.text1{
+  font-size: 14px;
+  font-weight: bold;
+  /* border: 1px solid red; */
+}
+/* 进销与统计下的功能 */
+.jx_gn1{
+  /* border: 1px solid red; */
+  width: 80%;
+  margin: 20px auto;
+  display: flex;
+}
+.gn{
+  flex: 1;
+  /* border: 1px solid cyan; */
+}
+.text2{
+  font-size: 12px;
+  font-weight: bold;
+}
+.jx_gn2{
+  /* border: 1px solid red; */
+  width: 80%;
+  margin: 15px auto;
+  display: flex;
+}
