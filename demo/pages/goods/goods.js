@@ -6,8 +6,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    jxtj_img: APP.globalUrl.url + "images/" + "statistical1.png",  //进销统计图标
-    kczl_img: APP.globalUrl.url + "images/" + "statistical1-1.png",  //库存总量图标
+    icon1: [APP.globalUrl.url + "images/statistical1.png", APP.globalUrl.url + "images/statistical2.png"],
+    icon2: [
+      [APP.globalUrl.url + "images/statistical1-1.png", APP.globalUrl.url + "images/statistical1-2.png", APP.globalUrl.url + "images/statistical1-3.png"],
+      [APP.globalUrl.url + "images/statistical2-1.png", APP.globalUrl.url + "images/statistical2-2.png", APP.globalUrl.url + "images/statistical2-3.png"]
+    ],
+    text1:['进销与统计','人员统计'],
+    text2:[
+      ['库存总量','入库数量','出库数量'],
+      ['员工数量','供应商数量','客户数量']
+    ],
+    jxtj_img: APP.globalUrl.url + "images/statistical1.png",  //进销统计图标
+    kczl_img: APP.globalUrl.url + "images/statistical1-1.png",  //库存总量图标
     rksl_img: APP.globalUrl.url + "images/" + "statistical1-2.png",  //入库数量图标
     cksl_img: APP.globalUrl.url + "images/" + "statistical1-3.png",  //出库数量图标
     rytj_img: APP.globalUrl.url + "images/" + "statistical2.png",  //人员统计图标

@@ -66,7 +66,7 @@
 /* 登录 */
 .login{
   background-color: #665004;
-  text-align: right;
+  text-align: center;
   width: 80%;
   float: right;
   padding: 5px 3px 5px 4px;
@@ -80,8 +80,10 @@
 /* 信息卡片下方的功能 */
 .function{
   /* border: 1px solid black; */
-  width: 94%;
+  width: 100%;
   margin: 0 auto;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: white;
 }
 /* 功能 */
 .fn{
@@ -182,4 +184,9 @@
   margin: 12px;
   position: absolute;
   right: 3px;
+}
+
+.one{
+  width: 94%;
+  margin: 0 auto;
 }

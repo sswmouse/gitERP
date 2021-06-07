@@ -1,53 +1,15 @@
 <!--pages/find/find.wxml-->
-<!-- <view>
-  <image class="j_t_icon" src="{{j_t}}"></image>进销与统计
-</view> -->
-
 <view class="huopin">
   <view class="content">
-    <!-- 进销与统计 -->
-    <view class="jx">
-      <image src="{{jxtj_img}}" class="icon"></image>
-      <text class="text1">进销与统计</text>
-    </view>
-    <view class="jx_gn1">
-      <view class="gn">
-        <image src="{{kczl_img}}" class="icon"></image>
-        <text class="text2">库存总量</text>
+    <view wx:for="{{icon1}}" class="one">
+      <image src="{{item}}" class="icon"></image>
+      <text class="text1">{{text1[index]}}</text>
+      <view class="two">
+        <view wx:for="{{icon2[index]}}" wx:for-item="item1" wx:for-index='index1' class="three">
+          <image src="{{item1}}" class="icon"></image>
+          <text class="text2">{{text2[index][index1]}}</text>
+        </view>
       </view>
-      <view class="gn">
-        <image src="{{rksl_img}}" class="icon"></image>
-        <text class="text2">入库数量</text>
-      </view>
-    </view>
-    <view class="jx_gn2">
-      <view class="gn">
-        <image src="{{cksl_img}}" class="icon"></image>
-        <text class="text2">出库数量</text>
-      </view>
-      <view class="gn"></view>
-    </view>
-    <!-- 人员统计 -->
-    <view class="ry">
-      <image src="{{rytj_img}}" class="icon"></image>
-      <text class="text1">人员统计</text>
-    </view>
-    <view class="jx_gn1">
-      <view class="gn">
-        <image src="{{ygsl_img}}" class="icon"></image>
-        <text class="text2">员工数量</text>
-      </view>
-      <view class="gn">
-        <image src="{{gyssl_img}}" class="icon"></image>
-        <text class="text2">供应商数量</text>
-      </view>
-    </view>
-    <view class="jx_gn2">
-      <view class="gn">
-        <image src="{{khsl_img}}" class="icon"></image>
-        <text class="text2">客户数量</text>
-      </view>
-      <view class="gn"></view>
     </view>
   </view>
 </view>

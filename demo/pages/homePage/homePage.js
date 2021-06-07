@@ -6,13 +6,12 @@ Page({
    * 页面的初始数据
    */
   data: {
-    // img: "http://localhost:3000/images/banner.png",
-    imgs: [APP.globalUrl.url + "images/" + "index_banner.png",APP.globalUrl.url + "images/" + "banner.png"],
-    icon1:APP.globalUrl.url + "images/" + "ruku.png",
-    icon2:APP.globalUrl.url + "images/" + "chuku.png",
-    icon3:APP.globalUrl.url + "images/" + "ks.png",
-    icon4:APP.globalUrl.url + "images/" + "spfl.png",
-    icon5:APP.globalUrl.url + "images/" + "member.png",
+    // 轮播图
+    imgs: [APP.globalUrl.url + "images/index_banner.png",APP.globalUrl.url + "images/banner.png"],
+    // 选项图标，文字
+    icon:[APP.globalUrl.url + "images/ruku.png",APP.globalUrl.url + "images/chuku.png",APP.globalUrl.url + "images/ks.png",APP.globalUrl.url + "images/spfl.png",APP.globalUrl.url + "images/member.png"],
+    text:['入库管理','出库管理','库存管理','商品分类','人员管理'],
+
   },
 
   /**
