@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "货品统计",
+  "backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#fccd05",
+  "navigationBarTextStyle":"black",
+  "enablePullDownRefresh": true
+}
