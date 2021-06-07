@@ -4,19 +4,20 @@
   <view class="mine_card">
     <view class="my">
       <view class="my_flex1">
-        <image class="head" src="{{head_img}}"></image>
+        <image wx:if="{{hasUserInfo}}" class="head" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <image wx:else class="head" src="{{head_img}}"></image>
       </view>
       <view class="my_flex2">
-        <view wx:if="{{ssss}}">
-        <text class="name">小库先生</text>
+        <view wx:if="{{hasUserInfo}}">
+          <text class="name">{{userInfo.nickName}}</text>
           <view class="role">超级管理员</view>
           <text class="info">18164887900</text>
-          <text class="info">上海市A动漫门店</text>
+          <text class="info">{{userInfo.city}}</text>
         </view>
       </view>
       <view class="my_flex3">
-        <view wx:if="{{ssss}}" class="login">退出登录</view>
-        <view class="login" bindtap="getUserProfile">登录</view>
+        <view wx:if="{{hasUserInfo}}" class="login" bindtap="exit">退出登录</view>
+        <view wx:else class="login" bindtap="getUserProfile">登录</view>
       </view>
     </view>
   </view>
@@ -35,7 +36,7 @@
         </view>
       </view>
       <!-- 关于我们功能 -->
-      <view class="fn">
+      <view  wx:if="{{hasUserInfo}}" class="fn">
         <view class="fn1">
           <image class="icon" src="{{gywm_icon}}"></image>
           <text class="icon_text">关于我们</text>

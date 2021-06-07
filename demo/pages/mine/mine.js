@@ -6,7 +6,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    ssss:false,
     userInfo: {},
     hasUserInfo: false,
     canIUseGetUserProfile: false,
@@ -15,6 +14,11 @@ Page({
     gywm_icon: APP.globalUrl.url + "images/" + "about_us_icon.png",  //关于我们图标
     set_icon: APP.globalUrl.url + "images/" + "set_icon.png",  //设置图标
     arrow_icon: APP.globalUrl.url + "images/" + "gray_arrow.png",  //箭头图标
+  },
+  exit() {
+    this.setData({ 
+      hasUserInfo: false 
+    })
   },
   getUserProfile(e) {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认

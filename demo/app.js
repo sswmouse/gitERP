@@ -43,6 +43,28 @@ App({
       })
     } else {
       console.log('session_key 不存在，请先登录')
+      wx.login({
+        success(res) {
+          if (res.code) {
+            //发起网络请求
+            wx.request({
+              url: 'http://127.0.0.1:3000/onLogin',
+              data: {
+                code: res.code
+              },
+              method: "POST",
+              header: {
+                'content-type': 'application/json' // 默认值
+              },
+              success(res) {
+                wx.setStorageSync('token', res.data.desc)
+              }
+            })
+          } else {
+            console.log('登录失败！' + res.errMsg)
+          }
+        }
+      })
     }
   },
   globalData: {
