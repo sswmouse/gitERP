@@ -1,8 +1,0 @@
-{
-  "usingComponents": {},
-  "navigationBarTitleText": "局部地区ERP系统",
-  "backgroundTextStyle":"light",
-  "navigationBarBackgroundColor": "#fccd05",
-  "navigationBarTextStyle":"black",
-  "enablePullDownRefresh": true
-}
