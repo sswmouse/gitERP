@@ -1,0 +1,9 @@
+{
+  "usingComponents": {
+    "tdt":"/components/toast/toast"
+  },
+
+  
+  "navigationBarTitleText": "主页"
+  
+}

@@ -1,0 +1,76 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <block wx:if="{{canIUseOpenData}}" calss="userinfo-opendata">
+      <view class="userinfo-avatar" bindtap="bindViewTap">
+        <open-data type="userAvatarUrl"></open-data>
+      </view>
+      <open-data type="userNickName"></open-data>
+    </block>
+    <block wx:elif="{{1==0}}">
+      <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile"> 获取头像昵称 </button>
+      <button wx:elif="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <view wx:else> 请使用1.4.4及以上版本基础库 </view>
+    </block>
+    <block wx:else>
+      <!-- <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text> -->
+      <view>
+        <!-- <button bindtap="sprk">商品入库</button> -->
+        <navigator url="/pages/index/newrklist/newrklist" open-type="navigateTo">
+          商品入库
+        </navigator>
+      </view>  
+      <view class="page-body">
+        <view class="page-section page-section-spacing swiper">
+          <swiper indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" interval="{{interval}}"
+            duration="{{duration}}">
+            <block wx:for="{{background}}" wx:key="*this">
+              <swiper-item>
+                <image class="sb" src="http://47.117.1.106:3000/img/banner.png" mode="scaleToFill"></image>
+              </swiper-item>
+            </block>
+          </swiper>
+        </view>
+        <view class="page-section" style="margin-top: 40rpx;margin-bottom: 0;">
+          <view class="weui-cells weui-cells_after-title">
+            <view class="weui-cell weui-cell_switch">
+              <view class="weui-cell__bd">指示点</view>
+              <view class="weui-cell__ft">
+                <switch checked="{{indicatorDots}}" bindchange="changeIndicatorDots" />
+              </view>
+            </view>
+            <view class="weui-cell weui-cell_switch">
+              <view class="weui-cell__bd">自动播放</view>
+              <view class="weui-cell__ft">
+                <switch checked="{{autoplay}}" bindchange="changeAutoplay" />
+              </view>
+            </view>
+          </view>
+        </view>
+
+        <view class="page-section page-section-spacing">
+          <view class="page-section-title">
+            <text>幻灯片切换时长(ms)</text>
+            <text class="info">{{duration}}</text>
+          </view>
+          <slider bindchange="durationChange" value="{{duration}}" min="500" max="2000" />
+          <view class="page-section-title">
+            <text>自动播放间隔时长(ms)</text>
+            <text class="info">{{interval}}</text>
+          </view>
+          <slider bindchange="intervalChange" value="{{interval}}" min="2000" max="10000" />
+        </view>
+      </view>
+      <view>
+        <tdt id="toastedit">{{toastText}}</tdt>
+        <button type="primary" bindtap="showToast"> showToast! </button>
+      </view>
+      <view>111</view>
+      <view class="sx"></view>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>

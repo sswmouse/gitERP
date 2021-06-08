@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "wux-upload": "/dist/upload/index"
+  },
+
+  "navigationBarTitleText": "新建入库单"
+}
