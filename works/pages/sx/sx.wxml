@@ -1,4 +1,0 @@
-<!--pages/sx/sx.wxml-->
-<view>
-  <mytree model='{{ treeData }}' bind:tapitem='tapItem'></mytree>
-</view>

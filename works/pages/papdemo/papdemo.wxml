@@ -1,7 +1,0 @@
-<!--pages/papdemo/papdemo.wxml-->
-<view class="container">
-  <text>pages/papdemo/papdemo.wxml</text>
-  <button bindtap="bbt">点击我</button>
-  <button bindtap="onPull">点击弹窗</button>
-  <button bindtap="sxx">下拉刷新</button>
-</view>

@@ -1,6 +1,0 @@
-<!--pages/seeimg/seeimg.wxml-->
-<!-- <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text> -->
-<view>
-      <mytree model='{{ treeData }}' bind:tapitem='tapItem'></mytree>
-</view>
