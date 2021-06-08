@@ -10,8 +10,11 @@
 
   <view class="function">
     <view wx:for="{{icon}}" class="flex-item" wx:key='*this'>
-      <image class="icon" src="{{item}}"></image>
-      <view class="icon_text">{{text[index]}}</view>
+      <navigator url="{{url[index]}}">
+        <image class="icon" src="{{item}}"></image>
+        <view class="icon_text">{{text[index]}}</view>
+      </navigator>
     </view>
   </view>
+
 </view>

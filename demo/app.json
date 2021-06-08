@@ -1,41 +1,53 @@
 {
-  "pages":[
+  "pages": [
     "pages/homePage/homePage",
     "pages/goods/goods",
-    "pages/mine/mine"
+    "pages/mine/mine",
+    "pages/index/index",
+    "pages/chuku_gl/chuku_gl",
+    "pages/kucun_gl/kucun_gl",
+    "pages/good_gl/good_gl",
+    "pages/people_gl/people_gl",
+    "pages/ruku_gl/ruku_gl",
+    "pages/kucu_tj/kucn_tj",
+    "pages/ruku_tj/ruku_tj",
+    "pages/chuku_tj/chuku_tj",
+    "pages/yuangong_tj/yuangong_tj",
+    "pages/gongyingshang_tj/gongyingshang_tj",
+    "pages/kehu_tj/kehu_tj"
   ],
-  "tabBar":{
-    "list":[
+  "tabBar": {
+    "list": [
       {
-        "pagePath":"pages/homePage/homePage",
-        "text":"首页",
-        "iconPath":"images/shouye-1.png",
-        "selectedIconPath":"images/shouye.png"
+        "pagePath": "pages/homePage/homePage",
+        "text": "首页",
+        "iconPath": "images/shouye-1.png",
+        "selectedIconPath": "images/shouye.png"
       },
       {
-        "pagePath":"pages/goods/goods",
-        "text":"货品统计",
-        "iconPath":"images/huopin-1.png",
-        "selectedIconPath":"images/huopin.png"
+        "pagePath": "pages/goods/goods",
+        "text": "货品统计",
+        "iconPath": "images/huopin-1.png",
+        "selectedIconPath": "images/huopin.png"
       },
       {
-        "pagePath":"pages/mine/mine",
-        "text":"我的",
-        "iconPath":"images/wode-1.png",
-        "selectedIconPath":"images/wode.png"
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/wode-1.png",
+        "selectedIconPath": "images/wode.png"
       }
     ],
-    "borderStyle":"black",
-    "color":"black",
-    "selectedColor":"#fccd05",
-    "backgroundColor":"white"
+    "borderStyle": "black",
+    "color": "black",
+    "selectedColor": "#fccd05",
+    "backgroundColor": "white",
+    "position": "bottom" 
   },
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "潮玩ERP",
-    "navigationBarTextStyle":"black",
-    "enablePullDownRefresh": true
+    "navigationBarTextStyle": "black"
   },
   "style": "v2",
   "sitemapLocation": "sitemap.json"

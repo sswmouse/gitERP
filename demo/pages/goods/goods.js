@@ -11,20 +11,18 @@ Page({
       [APP.globalUrl.url + "images/statistical1-1.png", APP.globalUrl.url + "images/statistical1-2.png", APP.globalUrl.url + "images/statistical1-3.png"],
       [APP.globalUrl.url + "images/statistical2-1.png", APP.globalUrl.url + "images/statistical2-2.png", APP.globalUrl.url + "images/statistical2-3.png"]
     ],
-    text1:['进销与统计','人员统计'],
-    text2:[
-      ['库存总量','入库数量','出库数量'],
-      ['员工数量','供应商数量','客户数量']
+    text1: ['进销与统计', '人员统计'],
+    text2: [
+      ['库存总量', '入库数量', '出库数量'],
+      ['员工数量', '供应商数量', '客户数量']
     ],
-    jxtj_img: APP.globalUrl.url + "images/statistical1.png",  //进销统计图标
-    kczl_img: APP.globalUrl.url + "images/statistical1-1.png",  //库存总量图标
-    rksl_img: APP.globalUrl.url + "images/" + "statistical1-2.png",  //入库数量图标
-    cksl_img: APP.globalUrl.url + "images/" + "statistical1-3.png",  //出库数量图标
-    rytj_img: APP.globalUrl.url + "images/" + "statistical2.png",  //人员统计图标
-    ygsl_img: APP.globalUrl.url + "images/" + "statistical2-1.png",  //员工数量图标
-    gyssl_img: APP.globalUrl.url + "images/" + "statistical2-2.png",  //供应商数量图标
-    khsl_img: APP.globalUrl.url + "images/" + "statistical2-3.png",  //客户数量图标
-
+    url: [
+      "/pages/kucu_tj/kucn_tj",
+      "/pages/ruku_tj/ruku_tj",
+      "/pages/chuku_tj/chuku_tj",
+      "/pages/yuangong_tj/yuangong_tj",
+      "/pages/gongyingshang_tj/gongyingshang_tj",
+      "/pages/kehu_tj/kehu_tj"]
   },
 
   /**
