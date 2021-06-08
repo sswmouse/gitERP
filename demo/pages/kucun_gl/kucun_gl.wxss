@@ -1,0 +1,122 @@
+/* pages/kucun_gl/kucun_gl.wxss */
+.top{
+  width: 94%;
+  margin: 0 auto;
+}
+/* 顶部 */
+.sousuo{
+  display: flex;
+  margin: 3% 0 3% 0;
+}
+/* 输入框和搜索图标所在的div */
+.inps{
+  flex: 8;
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.05);
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+/* 输入框 */
+.inp{
+  display: inline-block;
+  width: 90%;
+  height: 100%;
+}
+/* 搜索图标 */
+.weui-icon-search{
+  width: 10%;
+  height: 100%;
+  vertical-align: top;
+}
+/* 按钮 */
+.btn{
+  flex: 2;
+  font-size: 12px;
+  margin: 0;
+  padding: 6px;
+  background-color: #FCCD05;
+}
+/* 页面选项 */
+.li{
+  text-align: center;
+  font-size: 12px;
+  margin-right:10% ;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+/* 页面选项点击事件样式 */
+.li_one{
+  border-bottom:3px solid #FCCD05 ;
+}
+
+/* 详情页面 */
+.bottom{
+  width: 100%;
+  height: 90vh;
+  background-color: rgba(0, 0, 0, 0.05);
+  height: 83vh;
+  overflow: scroll;
+}
+
+.bot_center{
+  width: 94%;
+  margin: 0 auto;
+  padding-top: 10px;
+}
+
+.card{
+  background-color: white;
+  padding: 20px 20px 0 20px;
+  margin-bottom: 10px;
+}
+.one{
+  display: flex;
+}
+.left{
+  flex: 1;
+}
+.right{
+  flex: 4;
+  font-size: 12px;
+}
+.img{
+  width: 70px;
+  height: 70px;
+  padding: 10px;
+}
+.two{
+  border-top:1px solid rgba(0, 0, 0, 0.1);
+  border-bottom:1px solid rgba(0, 0, 0, 0.1) ;
+  padding: 3px;
+  font-size: 12px;
+  overflow: hidden;
+}
+.ghs{
+  float: left;
+}
+.datetime{
+  float: right;
+}
+.three{
+  overflow: hidden;
+}
+.three>view{
+  padding: 5px;
+  float: right;
+  font-size: 12px;
+  margin: 10px 0px 10px 10px;
+  border-radius: 3px;
+  padding:5px 10px 5px 10px;
+}
+.bj{
+  background-color: #fcec03;
+}
+.fuzhi{
+  background-color: #fbcd06;
+}
+.buhuo{
+  color: #fcec03 ;
+  border: 1px solid  #fcec03;
+}

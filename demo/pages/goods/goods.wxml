@@ -1,0 +1,17 @@
+<!--pages/find/find.wxml-->
+<view class="huopin">
+  <view class="content">
+    <view wx:for="{{icon1}}" class="one" wx:key='*this'>
+      <image src="{{item}}" class="icon"></image>
+      <text class="text1">{{text1[index]}}</text>
+      <view class="two">
+        <view wx:for="{{icon2[index]}}" wx:key='*this' wx:for-item="item1" wx:for-index='index1' class="three">
+          <navigator url="{{url[index*3+index1]}}">
+            <image src="{{item1}}" class="icon"></image>
+            <text class="text2">{{text2[index][index1]}}</text>
+          </navigator>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

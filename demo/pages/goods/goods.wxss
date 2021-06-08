@@ -1,0 +1,38 @@
+/* pages/find/find.wxss */
+/* 货品统计 */
+.content{
+  width: 90%;
+  margin: 0 auto;
+  padding: 10px 0;
+}
+.one{
+  margin-bottom: 20px;
+}
+.icon{
+  width: 20px;
+  height: 20px;
+  vertical-align: top;
+  margin-right: 10px;
+}
+/* 一级文字样式 */
+.text1{
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.two{
+  width: 80%;
+  margin: 20px auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.three{
+  flex: 0 0 50%;
+  margin-bottom: 20px;
+}
+/* 二级文字 */
+.text2{
+  font-size: 12px;
+  font-weight: bold;
+}
+
