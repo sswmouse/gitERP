@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTitleText": "创建出库单",
+  "navigationBarTextStyle":"black"
+}

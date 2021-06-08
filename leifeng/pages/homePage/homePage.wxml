@@ -1,0 +1,20 @@
+<!--pages/homePage/homePage.wxml-->
+<view class="home">
+  <view class="top">
+    <swiper class="swiper" indicator-dots="true" autoplay="true" interval="3000" duration="500" circular="true">
+      <swiper-item wx:for="{{imgs}}" wx:key="*this">
+        <image class="img" src="{{item}}"></image>
+      </swiper-item>
+    </swiper>
+  </view>
+
+  <view class="function">
+    <view wx:for="{{icon}}" class="flex-item" wx:key='*this'>
+      <image class="icon" src="{{item}}"></image>
+      <view class="icon_text">{{text[index]}}</view>
+    </view>
+  </view>
+
+  
+  <navigator url="/pages/chuku_gl/chuku_gl" hover-class="navigator-hover">货品出库</navigator>
+</view>

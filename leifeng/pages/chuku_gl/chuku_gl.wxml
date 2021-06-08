@@ -1,0 +1,80 @@
+<!--pages/chuku/chuku.wxml-->
+<view class="chuku">
+  <!-- 客户 -->
+  <view class="kehu">
+    <!-- 客户第一行分布 -->
+    <view class="kehu_row">
+      <view class="kehu_row1">
+        <image class="icon_left" src="{{left_icon}}"></image>
+        <text class="text1">客户</text>
+      </view>
+      <view class="kehu_row2">
+        <text class="text_right">张三</text>
+        <image class="icon_arrow" src="{{arrow_icon}}"></image>
+      </view>
+    </view>
+    <!-- 客户第二行分布 -->
+    <view class="kehu_row">
+      <view class="kehu_row34">
+
+        <view>
+          <image class="icon" src="{{add_icon}}"></image>
+          <text class="text2">添加货品</text>
+        </view>
+        
+      </view>|
+      <view class="kehu_row34">
+
+        <view>
+          <image class="icon" src="{{txm_icon}}"></image>
+          <text class="text2">添加货品</text>
+        </view>
+
+      </view>
+    </view>
+  </view>
+  <!-- 货品合计 -->
+  <view class="kehu">
+    <!-- 货品第一行分布 -->
+    <view class="kehu_row">
+      <view class="kehu_row1">
+        <image class="icon_left" src="{{left_icon}}"></image>
+        <text class="text1">货品合计</text>
+      </view>
+      <view class="kehu_row2">
+        <text class="text_right">0.00元</text>
+      </view>
+    </view>
+    <!-- 货品第二行分布 -->
+    <view class="kehu_row">
+      <view class="kehu_row5">
+        <text class="text_left">开单人</text>
+      </view>
+      <view class="kehu_row6">
+        <text class="text_right">李思</text>
+      </view>
+    </view>
+    <!-- 货品第三行分布 -->
+    <view class="kehu_row">
+      <view class="kehu_row5">
+        <text class="text_left">开单日期</text>
+      </view>
+      <view class="kehu_row6">
+        <text class="text_right">2021-06-08</text>
+      </view>
+    </view>
+  </view>
+  <!-- 备注 -->
+  <view class="kehu">
+    <view class="beizhu_row">
+      <image class="icon_left" src="{{left_icon}}"></image>
+      <text class="text1">备注</text>
+    </view>
+    <view class="beizhu_area">
+      <textarea placeholder="请输入" name="" id="" cols="10" rows="3"></textarea>
+    </view>
+  </view>
+  <!-- 保存出库单 -->
+  <view class="bc_btn">保存出库单</view>
+</view>
+
