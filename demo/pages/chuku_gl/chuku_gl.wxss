@@ -63,7 +63,7 @@
 }
 /* 一级标题 */
 .text1{
-  font-size: 18px;
+  font-size: 14px;
   font-weight: 600;
   vertical-align: middle;
 }
@@ -75,12 +75,12 @@
 }
 /* 右侧的文字 */
 .text_right{
-  margin-right: 15px;
+  margin-right: 13px;
   vertical-align: middle;
 }
 /* 左侧的文字 */
 .text_left{
-  margin-left: 15px;
+  margin-left: 13px;
   vertical-align: middle;
 }
 /* 标题以下的图标 */
@@ -108,7 +108,7 @@
   width: 94%;
   margin: 0 auto;
   text-align: center;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
-  padding: 3px 0;
+  padding: 8px 0;
 }
