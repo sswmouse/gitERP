@@ -1,0 +1,192 @@
+/* pages/mine/mine.wxss */
+/* 我的页面 */
+.mine{
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(5, 5, 5,0.05);
+}
+/* 我的卡片背景 */
+.mine_card{
+  width: 100%;
+  /* height: 100px; */
+  /* border: 1px solid white; */
+  /* position: relative; */
+  background-color: #FCCD05;
+  padding: 10px 0;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+.my{
+  width: 97%;
+  /* border: 1px solid red; */
+  display: flex;
+  float: right;
+}
+.my_flex1{
+  flex:3;
+  /* border: 1px solid green; */
+}
+.my_flex2{
+  flex:11;
+  /* border: 1px solid green; */
+}
+.my_flex3{
+  flex:4;
+  /* border: 1px solid green; */
+}
+/* 头像 */
+.head{
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  /* border: 1px solid red; */
+}
+/* 用户名 */
+.name{
+  font-weight: bold;
+  font-size: 17px;
+}
+/* 角色身份 */
+.role{
+  display: inline-block;
+  font-size: 11px;
+  padding: 2px 4px;
+  border-radius: 3px;
+  color: white;
+  background-color: black;
+  margin-left: 6px;
+}
+/* 角色身份的信息 */
+.info{
+  display: block;
+  font-size: 13px;
+  font-weight: bold;
+  margin: 3px 0;
+}
+/* 登录 */
+.login{
+  background-color: #665004;
+  text-align: center;
+  width: 80%;
+  float: right;
+  padding: 5px 3px 5px 4px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  color: #ffffff;
+  font-size: 13px;
+  margin-top: 20%;
+}
+
+/* 信息卡片下方的功能 */
+.function{
+  /* border: 1px solid black; */
+  width: 100%;
+  margin: 0 auto;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: white;
+}
+/* 功能 */
+.fn{
+  display: flex;
+  margin: 20px 0;
+}
+.fn1{
+  flex: 1;
+  /* border: 1px solid orange; */
+}
+.fn2{
+  flex: 1;
+  /* border: 1px solid orange; */
+  text-align: right;
+}
+.icon{
+  width: 20px;
+  height: 20px;
+  vertical-align: top;
+}
+.set_icon{
+  width: 10px;
+  height: 20px;
+  vertical-align: top;
+}
+.icon_text{
+  margin-left: 10px;
+  /* font-weight: bold; */
+  font-size: 15px;
+}
+
+
+
+
+/* 背景下的登录 */
+.login1{
+  /* width: 80px; */
+  padding: 3px 5px 3px 15px;
+  height: 20px;
+  text-align: right;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  /* border: 1px solid red; */
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  margin: auto;
+  background-color: #665004;
+  color: #ffffff;
+}
+/* 功能中心 */
+.cell{
+  border: 1px solid rgba(5, 5, 5,0.05);
+  height: 35px;
+  background-color: white;
+  position: relative;
+}
+/* 功能文本 */
+.text{
+  /* display: inline-block; */
+  line-height: 35px;
+  font-size: 13px;
+}
+/* 帮助中心图标 */
+.help_icon{
+  /* border: 1px solid red; */
+  width: 15px;
+  height: 15px;
+  background-image: url(http://localhost:3000/images/help_icon.png);
+  background-position: center;
+  background-size: cover;
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px;
+}
+/* 设置图标 */
+.set_icon1{
+  /* border: 1px solid red; */
+  width: 15px;
+  height:15px;
+  background-image: url(http://localhost:3000/images/set_icon.png);
+  background-position: center;
+  background-size: cover;
+  display: inline-block;
+  vertical-align: top;
+  margin: 10px;
+}
+/* 箭头图标 */
+.arrow_icon{
+  width: 12px;
+  height: 12px;
+  background-image: url(http://localhost:3000/images/gray_arrow.png);
+  background-position: center;
+  background-size: cover;
+  display: inline-block;
+  vertical-align: top;
+  margin: 12px;
+  position: absolute;
+  right: 3px;
+}
+
+.one{
+  width: 94%;
+  margin: 0 auto;
+}

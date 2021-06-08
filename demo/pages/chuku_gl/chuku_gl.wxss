@@ -1,0 +1,114 @@
+/* pages/chuku/chuku.wxss */
+/* 货品出库页面 */
+.chuku{
+  width: 100vw;
+  height: 100vh;
+  /* border: 1px solid red; */
+  box-sizing: border-box;
+  padding: 10px 0;
+  background-color: rgba(5, 5, 5,0.05);
+}
+/* 客户 和 货品统计*/
+.kehu{
+  width: 94%;
+  /* border: 1px solid green; */
+  margin: 0 auto;
+  margin-bottom: 15px;
+  background-color: white;
+  padding: 3px 0;
+}
+.kehu_row{
+  display: flex;
+  margin-bottom: 10px;
+}
+.kehu_row1{
+  flex: 1;
+  border-bottom: 1px solid rgb(235, 234, 234);
+  /* border: 1px solid darkblue; */
+}
+.kehu_row2{
+  flex: 1;
+  border-bottom: 1px solid rgb(235, 234, 234);
+  /* border: 1px solid darkblue; */
+  text-align: right;
+}
+.kehu_row34{
+  flex: 1;
+  /* border: 1px solid darkblue; */
+  text-align: center;
+}
+.kehu_row5{
+  flex: 1;
+  /* border: 1px solid darkblue; */
+  text-align: left;
+}
+.kehu_row6{
+  flex: 1;
+  /* border: 1px solid darkblue; */
+  text-align: right;
+}
+/* 页面最左侧图标 */
+.icon_left{
+  width: 6px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+/* 右侧箭头图标 */
+.icon_arrow{
+  width: 10px;
+  height: 20px;
+  vertical-align: middle;
+  margin: 0 10px 0 0;
+}
+/* 一级标题 */
+.text1{
+  font-size: 18px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+/* 二级标题 */
+.text2{
+  font-weight: 600;
+  color: rgb(53, 53, 53);
+  vertical-align: middle;
+}
+/* 右侧的文字 */
+.text_right{
+  margin-right: 15px;
+  vertical-align: middle;
+}
+/* 左侧的文字 */
+.text_left{
+  margin-left: 15px;
+  vertical-align: middle;
+}
+/* 标题以下的图标 */
+.icon{
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+  margin: 0 10px;
+}
+
+/* 备注 */
+.beizhu_row{
+  border-bottom: 1px solid rgb(235, 234, 234);
+}
+.beizhu_area{
+  /* border:1px solid blue; */
+  height: 100px;
+  padding: 5px 15px;
+}
+
+/* 保存出库单 */
+.bc_btn{
+  border-radius: 5px;
+  background-color: #fcd005;
+  width: 94%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 3px 0;
+}
