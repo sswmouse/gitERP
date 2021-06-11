@@ -1,0 +1,132 @@
+/* pages/goods_xq/goods_xq.wxss */
+/* 货品详情界面 */
+.huopin{
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+}
+/* 顶部的货品卡片和选择的参数 */
+.top{
+  width: 94%;
+  margin: 1% auto;
+  /* border: 1px solid green; */
+}
+/* 货品卡片 */
+.hp_card{
+  display: flex;
+  border-bottom: 1px solid rgb(235, 234, 234);
+}
+.img{
+  width: 55px;
+  height: 55px;
+  margin-top: 5%;
+  vertical-align: middle;
+}
+.left{
+  flex: 1;
+  text-align: center;
+  /* border: 1px solid blue; */
+}
+.right{
+  flex: 4;
+  font-size: 13px;
+  /* border: 1px solid blue; */
+}
+
+/* 货品颜色 */
+.hp_color{
+  border-bottom: 1px solid rgb(235, 234, 234);
+  font-size: 13px;
+  padding: 2% 0%;
+}
+/* 货品颜色选项 */
+.hp_color_chose{
+  border-bottom: 1px solid rgb(235, 234, 234);
+  padding: 2% 0%;
+}
+.color_chose{
+  font-size: 13px;
+  font-weight: bold;
+  background-color: #FCCD05;
+  padding: 1% 3%;
+  border-radius: 10%;
+  display: inline-block;
+}
+/* 尺码 */
+.chima{
+  display: flex;
+  border-bottom: 1px solid rgb(235, 234, 234);
+  font-size: 13px;
+  padding: 2% 0%;
+}
+.chima_xx_row1{
+  flex: 1;
+  font-size: 14px;
+  /* border: 1px solid red; */
+}
+.chima_xx_row2{
+  text-align: right;
+  flex: 2;
+  /* border: 1px solid red; */
+}
+.chima_cs_row1{
+  flex: 1;
+  padding-left: 1%;
+  margin: auto 0%;
+  font-size: 13px;
+  font-weight: bold;
+  /* border: 1px solid red; */
+}
+.chima_cs_row2{
+  flex: 2;
+  margin: auto 0%;
+  text-align: right;
+  /* border: 1px solid red; */
+}
+.reduce{
+  width: 40px;
+  height: 28px;
+}
+.num{
+  font-size: 15px;
+  vertical-align: top;
+  margin: 0% 15%;
+}
+.add{
+  width: 40px;
+  height: 28px;
+}
+
+/* 底部按钮选好了 */
+.sub_btn{
+  width: 100%;
+  position: absolute;
+  bottom: 0%;
+  /* border-top: 1px solid rgb(177, 177, 177); */
+}
+.sub_content{
+  width: 95%;
+  display: flex;
+  margin: 0% 0% 0% 5%;
+  /* border: 1px solid red; */
+}
+.sub_row1{
+  flex: 1.6;
+  padding: 0% 0% 0% 2%;
+  font-size: 13px;
+  padding: 1% 0% 1% 1%;
+  /* border: 1px solid green; */
+}
+.gong{
+  color: red;
+}
+.sub_row2{
+  flex: 1;
+  /* border: 1px solid green; */
+  text-align: center;
+  background-color: #FCCD05;
+  padding: 4% 0% 4% 0%;
+  font-size: 14px;
+  font-weight: bold;
+}

@@ -17,16 +17,17 @@
     <view class="kehu_row">
       <view class="kehu_row34">
 
-        <view>
+        <view bindtap="add_goods">
           <image class="icon" src="{{add_icon}}"></image>
           <text class="text2">添加货品</text>
         </view>
-
+        
       </view>|
       <view class="kehu_row34">
+
         <view>
           <image class="icon" src="{{txm_icon}}"></image>
-          <text class="text2">添加货品</text>
+          <text class="text2">扫条码</text>
         </view>
 
       </view>
@@ -63,6 +64,7 @@
       </view>
     </view>
   </view>
+  
   <!-- 备注 -->
   <view class="kehu">
     <view class="beizhu_row">
@@ -70,9 +72,10 @@
       <text class="text1">备注</text>
     </view>
     <view class="beizhu_area">
-      <textarea placeholder="请输入" name="" id="" cols="10" rows="3"></textarea>
+      <textarea class="weui-textarea" placeholder="请输入" style="height: 100px" maxlength="50" />
     </view>
   </view>
   <!-- 保存出库单 -->
-  <view class="bc_btn">保存出库单</view>
+  <view bindtap="bc_btn" class="bc_btn_css">保存出库单</view>
 </view>
+

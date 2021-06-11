@@ -1,0 +1,88 @@
+<!--pages/add_goods/add_goods.wxml-->
+<view class="add_goods">
+  <view class="top">
+    <!-- 搜索部分 -->
+    <view class="sousuo">
+      <view class="inps">
+        <i class="weui-icon-search"></i><input class="inp" type="text" search placeholder="请输入货品编号/货品名称" />
+      </view>
+      <button class="add_btn">添加货品</button>
+    </view>
+    <!-- 分类排序 -->
+    <view class="fenlei">
+      <view class="fenlei-row">
+        <view bindtap='zx_px'>
+          <text class="{{zx ? 'text_yes' : 'text_no'}}">最新</text>
+          <image class="icon1" wx:if="{{zx_y==1}}" src="{{px_icon1}}"></image>
+          <image class="icon1" wx:if="{{zx_y==2}}" src="{{px_icon2}}"></image>
+          <image class="icon1" wx:if="{{zx_y==3}}" src="{{px_icon3}}"></image>
+        </view>
+      </view>
+      <view class="fenlei-row">
+        <view bindtap='hh_px'>
+          <text class="{{hh ? 'text_yes' : 'text_no'}}">货号</text>
+          <image class="icon1" wx:if="{{hh_y==1}}" src="{{px_icon1}}"></image>
+          <image class="icon1" wx:if="{{hh_y==2}}" src="{{px_icon2}}"></image>
+          <image class="icon1" wx:if="{{hh_y==3}}" src="{{px_icon3}}"></image>
+        </view>
+      </view>
+      <view class="fenlei-row">
+        <view bindtap='kc_px'> 
+          <text class="{{kc ? 'text_yes' : 'text_no'}}">库存量</text>
+          <image class="icon1" wx:if="{{kc_y==1}}" src="{{px_icon1}}"></image>
+          <image class="icon1" wx:if="{{kc_y==2}}" src="{{px_icon2}}"></image>
+          <image class="icon1" wx:if="{{kc_y==3}}" src="{{px_icon3}}"></image>
+        </view>
+      </view>
+      <view class="fenlei-row"></view>
+      <view class="fenlei-row">
+        <view>
+          <text class="text_no">全部分类</text>
+          <image class="icon2" src="{{all_fl_icon}}"></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 货品详情内容 -->
+  <view class="hp_xq" style='{{"height: " + sx +"px;"}}'>
+    <view class="content">
+      <!-- 卡片封装 -->
+      <view class="hp_card" wx:for="1234">
+        <view class="one" bindtap="ck_hp">
+          <view class="left">
+            <image class="img" src="http://47.117.121.44:3000/images/goods.png"></image>
+          </view>
+          <view class="right">
+            <text>货品名称：干物妹</text>
+            <text>\n</text>
+            <text>货品编号：123456789</text>
+            <text>\n</text>
+            <text>货品数量：10</text>
+            <text>\n</text>
+            <text>货品价格：50</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <!-- 选好了按钮 -->
+  <view class="sub_btn">
+    <view class="sub_content">
+      <view class="sub_row1">
+        <view>出:</view>
+        <view class="gong">共:</view>
+      </view>
+      <view class="sub_row2">
+        <view class="yxz">
+          已选择
+        </view>
+      </view>
+      <view class="sub_row3">
+        <view class="xhl">
+          选好了
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>

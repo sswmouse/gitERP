@@ -15,8 +15,9 @@
     "pages/yuangong_tj/yuangong_tj",
     "pages/gongyingshang_tj/gongyingshang_tj",
     "pages/kehu_tj/kehu_tj",
-    "pages/register/register",
-    "pages/my_xiu/my_xin"
+    "pages/add_goods/add_goods",
+    "pages/goods_xq/goods_xq",
+    "pages/chukudan_bc/chukudan_bc"
   ],
   "tabBar": {
     "list": [

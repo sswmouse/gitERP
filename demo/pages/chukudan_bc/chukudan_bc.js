@@ -1,29 +1,19 @@
-// pages/chuku/chuku.js
+// pages/chukudan_bc/chukudan_bc.js
 const APP = getApp()
 Page({
-  /*** 页面的初始数据*/
+
+  /**
+   * 页面的初始数据
+   */
   data: {
+    share_icon: APP.globalUrl.url + "images/share.png",  //分享图标
     left_icon: APP.globalUrl.url + "images/title_border.png",  //页面左侧图标
     arrow_icon: APP.globalUrl.url + "images/black_arrow.png",  //箭头图标
-    add_icon: APP.globalUrl.url + "images/add_icon_yellow.png",  //添加货品图标
-    txm_icon: APP.globalUrl.url + "images/scan_icon.png",  //扫条码图标
-    
-  },
-  //添加货品按钮
-  add_goods: function () {
-    wx.navigateTo({
-      url: '/pages/add_goods/add_goods',  //跳转页面路径
-    })
-  },
-  //保存出库单按钮
-  bc_btn: function () {
-    console.log("保存出库单")
-    wx.navigateTo({
-      url: '/pages/chukudan_bc/chukudan_bc',  //跳转页面路径
-    })
   },
 
-  /*** 生命周期函数--监听页面加载*/
+  /**
+   * 生命周期函数--监听页面加载
+   */
   onLoad: function (options) {
 
   },

@@ -1,0 +1,196 @@
+/* pages/chukudan_bc/chukudan_bc.wxss */
+/* 出库单保存页面 */
+.chukudan_bc{
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+  background-color: rgb(241, 241, 241);
+}
+.top{
+  width: 100%;
+  background-color: white;
+  /* border: 1px solid purple; */
+  text-align: right;
+}
+.share{
+  width: 94%;
+  margin: 0 auto;
+}
+.share_icon{
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+.share_text{
+  margin: 0% 2%;
+}
+/* 中间内容 */
+.content{
+  width: 94%;
+  height: 75vh;
+  margin: 2% auto;
+  /* border: 1px solid green; */
+  overflow: scroll;
+}
+/* 客户 */
+.chunk{
+  width: 100%;
+  background-color: white;
+  margin: 2% auto;
+}
+.kehu_row{
+  display: flex;
+  padding: 1% 0;
+  border-bottom: 1px solid rgb(235, 234, 234);
+}
+.kehu_row1{
+  flex: 1;
+}
+.kehu_row2{
+  flex: 1;
+  text-align: right;
+}
+/* 页面最左侧图标 */
+.icon_left{
+  width: 6px;
+  height: 20px;
+  vertical-align: middle;
+  margin-right: 15px;
+}
+/* 右侧箭头图标 */
+.icon_arrow{
+  width: 10px;
+  height: 20px;
+  vertical-align: middle;
+  margin: 0 10px;
+}
+/* 一级标题 */
+.text1{
+  font-size: 14px;
+  font-weight: 600;
+  vertical-align: middle;
+}
+/* 客户右侧文字 */
+.text2{
+  font-size: 14px;
+  vertical-align: middle;
+}
+/* 客户栏的已选货品 */
+/* .yixuan_card{
+  overflow: scroll;
+} */
+.yixuan_hp{
+  width: 86%;
+  margin: 2% auto;
+  /* border: 1px solid red; */
+}
+.one{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid rgb(235, 234, 234);
+}
+.left{
+  flex: 2;
+  border: 1px solid blue;
+}
+.right{
+  flex: 1;
+  text-align: right;
+  border: 1px solid blue;
+}
+.img{
+  width: 50px;
+  height: 50px;
+  /* border: 1px solid red; */
+  vertical-align: top;
+}
+.yixuan_cs{
+  display: inline-block;
+  /* border: 1px solid red; */
+}
+.yixuan_sl{
+  justify-content: center;
+}
+.two{
+  /* border: 1px solid red; */
+  margin: 2% auto;
+  border-bottom: 1px solid rgb(235, 234, 234);
+}
+.yixuan_dx{
+  /* float: left; */
+  margin: 2% 20% 2% 2%;
+}
+
+/* 货品合计 */
+/* 右侧的文字 */
+.text_right{
+  margin-right: 13px;
+  vertical-align: middle;
+}
+/* 左侧的文字 */
+.text_left{
+  margin-left: 13px;
+  vertical-align: middle;
+}
+
+/* 备注 */
+.beizhu_row{
+  border-bottom: 1px solid rgb(235, 234, 234);
+}
+.beizhu_area{
+  /* border:1px solid blue; */
+  height: 100px;
+  padding: 5px 15px;
+}
+
+/* 打印出库单按钮 */
+.dy_btn_css{
+  border-radius: 5px;
+  background-color: #A4A4A4;
+  width: 94%;
+  margin: 0 auto;
+  text-align: center;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  padding: 8px 0;
+}
+
+/* 修改 复制 删除 */
+.xg_fz_sc{
+  width: 100%;
+  position: fixed;
+  bottom: 0%;
+  /* border: 1px solid blue; */
+}
+.bottom_row{
+  width: 100%;
+  display: flex;
+}
+.xg_fz_sc_row{
+  flex: 1;
+  text-align: center;
+  /* border: 1px solid blue; */
+}
+.xg{
+  /* border: 1px solid green; */
+  background-color: rgb(252, 236, 3);
+  padding: 8% 0%;
+  font-size: 16px;
+  font-weight: bold;
+}
+.fz{
+  background-color: rgb(252, 205, 5);
+  padding: 8% 0%;
+  font-size: 16px;
+  font-weight: bold;
+}
+.sc{
+  background-color: rgb(222, 10, 9);
+  padding: 8% 0%;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ffffff;
+}

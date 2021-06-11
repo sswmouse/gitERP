@@ -1,0 +1,160 @@
+/* pages/add_goods/add_goods.wxss */
+/* 添加货品页面 */
+.add_goods{
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  border: 1px solid transparent;
+  position: relative;
+}
+/* 顶部 */
+.top{
+  width: 94%;
+  margin: 0 auto;
+  /* border: 1px solid blue; */
+}
+/* 搜索栏 */
+.sousuo{
+  display: flex;
+  margin: 3% 0 3% 0;
+}
+/* 输入框和搜索图标所在的div */
+.inps{
+  flex: 8;
+  display: inline-block;
+  background-color: rgba(0, 0, 0, 0.05);
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+/* 输入框 */
+.inp{
+  display: inline-block;
+  width: 90%;
+  height: 100%;
+}
+/* 搜索图标 */
+.weui-icon-search{
+  width: 10%;
+  height: 100%;
+  vertical-align: top;
+}
+/* 按钮 */
+.add_btn{
+  flex: 2;
+  font-size: 14px;
+  margin: 0;
+  padding: 6px 0;
+  background-color: #FCCD05;
+}
+
+/* 排序分类 */
+.fenlei{
+  display: flex;
+}
+.fenlei-row{
+  flex: 1;
+  /* border: 1px solid blue; */
+}
+.text_no{
+  color: #939393;
+  margin-right: 5px;
+  font-size: 14px;
+}
+.text_yes{
+  color: red;
+  margin-right: 5px;
+  font-size: 14px;
+}
+.icon1{
+  width: 10px;
+  height: 13px;
+  vertical-align: middle;
+}
+.icon2{
+  width: 10px;
+  height: 10px;
+  vertical-align: middle;
+}
+
+/* 货品详情内容 */
+.hp_xq{
+  width: 100%;
+  margin: 0 auto;
+  background-color: rgba(0, 0, 0, 0.05);
+  overflow: scroll;
+  /* border: 1px solid green; */
+  padding: 10px 0;
+}
+.content{
+  width: 94%;
+  margin: 0 auto;
+  /* padding-top: 10px; */
+}
+.hp_card{
+  width: 100%;
+  background-color: white;
+  margin: 10px 0;
+  /* border: 1px solid cyan; */
+}
+.one{
+  display: flex;
+}
+.left{
+  flex: 1;
+  /* border: 1px solid red; */
+}
+.right{
+  flex: 4;
+  font-size: 12px;
+  padding-top: 5px;
+  /* border: 1px solid red; */
+}
+.img{
+  width: 70px;
+  height: 70px;
+  padding: 10px;
+}
+
+/* 选好了按钮 */
+.sub_btn{
+  width: 100%;
+  position: absolute;
+  bottom: 0%;
+  /* border-top: 1px solid rgb(177, 177, 177); */
+}
+.sub_content{
+  width: 95%;
+  display: flex;
+  margin: 0% 0% 0% 5%;
+  /* border: 1px solid red; */
+}
+.sub_row1{
+  flex: 0.6;
+  padding: 0% 0% 0% 2%;
+  font-size: 13px;
+  padding: 1% 0% 1% 1%;
+  /* border: 1px solid green; */
+}
+.gong{
+  color: red;
+}
+.sub_row2{
+  flex: 1;
+  /* border: 1px solid green; */
+  text-align: center;
+  background-color: #FAEC03;
+  padding: 4% 0% 4% 0%;
+  font-size: 14px;
+  font-weight: bold;
+}
+.sub_row3{
+  flex: 1;
+  /* border: 1px solid green; */
+  text-align: center;
+  background-color: #FCCD05;
+  padding: 4% 0% 4% 0%;
+  font-size: 14px;
+  font-weight: bold;
+}

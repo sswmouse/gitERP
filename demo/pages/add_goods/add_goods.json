@@ -1,0 +1,7 @@
+{
+  "usingComponents": {},
+  "backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#fcdd05",
+  "navigationBarTitleText": "选择货品",
+  "navigationBarTextStyle":"black"
+}

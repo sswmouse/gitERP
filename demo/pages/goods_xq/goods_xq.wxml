@@ -1,0 +1,56 @@
+<!--pages/goods_xq/goods_xq.wxml-->
+<view class="huopin">
+  <!-- 顶部的货品卡片和选择的参数 -->
+  <view class="top">
+    <!-- 货品卡片 -->
+    <view class="hp_card">
+      <view class="left">
+        <image class="img" src="http://47.117.121.44:3000/images/goods.png"></image>
+      </view>
+      <view class="right">
+        <text>货品名称：干物妹</text>
+        <text>\n</text>
+        <text>货品编号：123456789</text>
+        <text>\n</text>
+        <text>货品价格：50</text>
+      </view>
+    </view>
+    <!-- 货品颜色 -->
+    <view class="hp_color">货品颜色</view>
+    <!-- 颜色选择 -->
+    <view class="hp_color_chose">
+      <view class="color_chose">玫瑰金</view>
+    </view>
+    <!-- 尺码参数选项 -->
+    <view class="chima">
+      <view class="chima_xx_row1">尺码</view>
+      <view class="chima_xx_row1">库存</view>
+      <view class="chima_xx_row2"></view>
+    </view>
+    <!-- 尺码选项参数 -->
+    <view class="chima">
+      <view class="chima_cs_row1">S码</view>
+      <view class="chima_cs_row1">10</view>
+      <view class="chima_cs_row2">
+        <image class="reduce" src="{{reduce_icon}}"></image>
+        <text class="num">1</text>
+        <image class="add" src="{{add_icon}}"></image>
+      </view>
+    </view>
+  </view>
+  <!-- 底部按钮选好了 -->
+  <view class="sub_btn">
+    <view class="sub_content">
+      <view class="sub_row1">
+        <view>出:</view>
+        <view class="gong">共计:</view>
+      </view>
+      <view class="sub_row2">
+        <view class="xhl">
+          选好了
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
