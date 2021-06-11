@@ -1,0 +1,38 @@
+<!--pages/register/register.wxml-->
+<view class="register">
+  <view class="center">
+    <view class="top">
+      <view class="row">
+        <text class="miaosu">店铺名称</text><input class="input" value="{{mendian}}" placeholder="请输入店铺名称" type="text"
+          bindinput='xiugai' data-index="0" />
+      </view>
+      <view class="row">
+        <text class="miaosu">店铺地址</text><input class="input" value="{{dizi}}" placeholder="请输入店铺地址" type="text"
+          bindinput='xiugai' data-index="1" />
+      </view>
+      <view class="row">
+        <text class="miaosu">姓名</text><input class="input" value="{{name}}" placeholder="请输入姓名" type="text"
+          bindinput='xiugai' data-index="2" />
+      </view>
+      <view class="row">
+        <text class="miaosu">性别</text>
+        <radio-group bindchange="radioChange">
+          <label class="radio" wx:for="{{sex_item}}" wx:key="*this">
+            <radio value="{{item.value}}" checked="true" />
+            <text class="weui-cell__bd">{{item.name}}</text>
+          </label>
+        </radio-group>
+      </view>
+      <view class="row">
+        <text class="miaosu">手机号</text><input class="input" value="{{phone}}" placeholder="请输入手机号" type="number"
+          bindinput='xiugai' data-index="3" maxlength="11"/>
+      </view>
+      <view class="row">
+        <text class="miaosu">验证码</text>
+        <view class="huoqu_yzm">获取验证码</view>
+        <input class="input" type="text" bindinput='xiugai'/>
+      </view>
+    </view>
+    <view class="btn" bindtap="keep">保存</view>
+  </view>
+</view>

@@ -10,5 +10,21 @@ Page({
     this.setData({
       sty:query
     })
+  },
+  ceshi:function(){
+    console.log(111)
+    wx.request({
+      url: 'http://127.0.0.1:3000/ceshi',
+      method: "POST",
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res)
+      }
+    })
+  },
+  xiangqing:function(){
+    console.log(111)
   }
 });

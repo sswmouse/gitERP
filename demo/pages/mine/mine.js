@@ -19,18 +19,43 @@ Page({
     this.setData({ 
       hasUserInfo: false 
     })
+    try {
+      wx.clearStorageSync()
+      console.log(wx.getStorageSync('user') || {});
+    } catch(e) {
+      // Do something when catch error
+    }
   },
-  getUserProfile(e) {
-    // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
-    // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
+  login() {
+    let that = this
     wx.getUserProfile({
-      desc: '登录', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      desc: '获取用户信息用户登录演示', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
-        this.setData({
-          userInfo: res.userInfo,
-          hasUserInfo: true
+        let wxuserinfo = res.userInfo
+        wx.login({
+          success (res) {
+            if (res.code) {
+              wx.request({
+                url: 'http://localhost:3000/onLogin',
+                data: {
+                  code: res.code
+                },
+                method:"POST",
+                success (res) {
+                  let myuserinfo = res.data.detail[0]
+                  that.setData({
+                    //拼接用户注册信息和用户信息
+                    userInfo: Object.assign(myuserinfo, wxuserinfo),
+                    hasUserInfo: true
+                  })
+                  wx.setStorageSync('user', that.data.userInfo)
+                }
+              })
+            } else {
+              console.log('登录失败！' + res.errMsg)
+            }
+          }
         })
-        console.log(res.userInfo)
       }
     })
   },
@@ -41,6 +66,12 @@ Page({
     if (wx.getUserProfile) {
       this.setData({
         canIUseGetUserProfile: true
+      })
+    }
+    if(wx.getStorageSync('user')){
+      this.setData({
+        hasUserInfo:true,
+        userInfo:wx.getStorageSync('user')
       })
     }
   },

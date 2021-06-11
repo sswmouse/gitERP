@@ -5,73 +5,61 @@ App({
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
-
     // 登录
-    wx.removeStorageSync('session_key')
-    var value = wx.getStorageSync('token')
-    if (value) {
-      wx.checkSession({
-        success() {
-          console.log('session_key 未过期，并且在本生命周期一直有效')
-        },
-        fail() {
-          console.log('session_key 已经失效，需要重新执行登录流程')
-          //重新登录  
-          wx.login({
+    this.checksession()
+  },
+  // 检查微信登录状态
+  checksession: function () {
+    let that = this
+    wx.checkSession({
+      success: function (res) {
+        console.log(res, '登录未过期')
+        that.checkuser()
+      },
+      fail: function (res) {
+        console.log(res, '登录过期')
+        that.checkuser()
+      }
+    })
+  },
+  // 检查自定义登录状态
+  checkuser: function () {
+    console.log("调用登录了")
+    wx.login({
+      success(res) {
+        if (res.code) {
+          wx.request({
+            url: 'http://localhost:3000/onLogin',
+            data: {
+              code: res.code
+            },
+            method: "POST",
+            header: {
+              'content-type': 'application/json' // 默认值
+            },
             success(res) {
-              if (res.code) {
-                //发起网络请求
-                wx.request({
-                  url: 'http://127.0.0.1:3000/onLogin',
-                  data: {
-                    code: res.code
-                  },
-                  method: "POST",
-                  header: {
-                    'content-type': 'application/json' // 默认值
-                  },
-                  success(res) {
-                    wx.setStorageSync('token', res.data.desc)
-                  }
-                })
-              } else {
-                console.log('登录失败！' + res.errMsg)
-              }
+              if (res.data.code == 0) wx.navigateTo({ url: '/pages/register/register' })
+              console.log(res.data)
+              console.log(wx.getStorageSync('user'))
+              if (!wx.getStorageSync('user')) wx.switchTab({ url: '/pages/mine/mine' })
+              // if(res.data.code == 1) wx.navigateTo({url: '/pages/index/index'})
+            }, fail() {
+              console.log('后台服务器连接失败')
             }
           })
+        } else {
+          console.log('登录失败！' + res.errMsg)
         }
-      })
-    } else {
-      console.log('session_key 不存在，请先登录')
-      wx.login({
-        success(res) {
-          if (res.code) {
-            //发起网络请求
-            wx.request({
-              url: 'http://127.0.0.1:3000/onLogin',
-              data: {
-                code: res.code
-              },
-              method: "POST",
-              header: {
-                'content-type': 'application/json' // 默认值
-              },
-              success(res) {
-                wx.setStorageSync('token', res.data.desc)
-              }
-            })
-          } else {
-            console.log('登录失败！' + res.errMsg)
-          }
-        }
-      })
-    }
+      }
+    })
   },
+
+
   globalData: {
     userInfo: null
   },
   // 全局数据
-  globalUrl:{
-    url:"http://47.117.121.44:3000/"
-　},
+  globalUrl: {
+    url: "http://47.117.121.44:3000/"
+  },
 })

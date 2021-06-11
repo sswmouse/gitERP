@@ -41,7 +41,7 @@
 /* 页面选项 */
 .li{
   text-align: center;
-  font-size: 12px;
+  font-size: 15px;
   margin-right:10% ;
   display: inline-block;
   margin-bottom: 10px;

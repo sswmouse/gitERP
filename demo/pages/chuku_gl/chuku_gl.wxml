@@ -21,10 +21,9 @@
           <image class="icon" src="{{add_icon}}"></image>
           <text class="text2">添加货品</text>
         </view>
-        
+
       </view>|
       <view class="kehu_row34">
-
         <view>
           <image class="icon" src="{{txm_icon}}"></image>
           <text class="text2">添加货品</text>
@@ -77,4 +76,3 @@
   <!-- 保存出库单 -->
   <view class="bc_btn">保存出库单</view>
 </view>
-

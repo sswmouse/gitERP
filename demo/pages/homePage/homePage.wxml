@@ -16,5 +16,5 @@
       </navigator>
     </view>
   </view>
-
+  <button bindtap="to">注册</button>
 </view>

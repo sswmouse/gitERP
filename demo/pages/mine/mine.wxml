@@ -9,15 +9,16 @@
       </view>
       <view class="my_flex2">
         <view wx:if="{{hasUserInfo}}">
-          <text class="name">{{userInfo.nickName}}</text>
-          <view class="role">超级管理员</view>
-          <text class="info">18164887900</text>
-          <text class="info">{{userInfo.city}}</text>
+          <text class="name">{{userInfo.name}}</text>
+          <view class="role" wx:if="{{userInfo.juese!=null}}">{{userInfo.juese}}</view>
+          <view class="role" wx:else>管理员</view>
+          <text class="info">{{userInfo.phone}}</text>
+          <text class="info">{{userInfo.mendian}}</text>
         </view>
       </view>
       <view class="my_flex3">
         <view wx:if="{{hasUserInfo}}" class="login" bindtap="exit">退出登录</view>
-        <view wx:else class="login" bindtap="getUserProfile">登录</view>
+        <view wx:else class="login" bindtap="login">登录</view>
       </view>
     </view>
   </view>

@@ -16,27 +16,29 @@
   <view class="bottom">
     <view class="bot_center">
       <!-- 卡片 后面封装 -->
-      <view wx:for="1234" class="card">
-        <view class="one">
-          <view class="left">
-            <image class="img" src="http://47.117.121.44:3000/images/goods.png"></image>
+      <view wx:for="1234" class="card" wx:key="*this" bindtap="ceshi">
+        <navigator url="/pages/ruku_gl/ruku_gl?sswmouse='11111'">
+          <view class="one">
+            <view class="left">
+              <image class="img" src="http://47.117.121.44:3000/images/goods.png"></image>
+            </view>
+            <view class="right">
+              <text>货品名称：干物妹</text>
+              <text>\n</text>
+              <text>货品编号：123456789</text>
+              <text>\n</text>
+              <text>货品颜色：红色</text>
+              <text>\n</text>
+              <text>货品尺码：M码</text>
+              <text>\n</text>
+              <text>入库数量：1</text>
+            </view>
           </view>
-          <view class="right">
-            <text>货品名称：干物妹</text>
-            <text>\n</text>
-            <text>货品编号：123456789</text>
-            <text>\n</text>
-            <text>货品颜色：红色</text>
-            <text>\n</text>
-            <text>货品尺码：M码</text>
-            <text>\n</text>
-            <text>入库数量：1</text>
-          </view>
-        </view>
         <view class="two">
           <text class="ghs">供货商姓名：胡一凡</text>
           <text class="datetime">上架时间：2021-6-8</text>
         </view>
+      </navigator>
         <view wx:if="{{sty==0}}" class="three" wx:key="*this">
           <view class="fuzhi">复制上架</view>
           <view class="bj">编辑</view>
@@ -49,6 +51,7 @@
         <view wx:if="{{sty==2}}" class="three">
           <view class="fuzhi">再次入库</view>
         </view>
+
       </view>
     </view>
   </view>

@@ -14,7 +14,8 @@
     "pages/chuku_tj/chuku_tj",
     "pages/yuangong_tj/yuangong_tj",
     "pages/gongyingshang_tj/gongyingshang_tj",
-    "pages/kehu_tj/kehu_tj"
+    "pages/kehu_tj/kehu_tj",
+    "pages/register/register"
   ],
   "tabBar": {
     "list": [
@@ -41,7 +42,7 @@
     "color": "black",
     "selectedColor": "#fccd05",
     "backgroundColor": "white",
-    "position": "bottom" 
+    "position": "bottom"
   },
   "window": {
     "backgroundTextStyle": "light",
