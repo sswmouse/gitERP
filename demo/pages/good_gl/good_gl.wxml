@@ -1,2 +1,18 @@
 <!--pages/good_gl/good_gl.wxml-->
-<text>pages/good_gl/good_gl.wxml</text>
+<view class="container bggg">
+  <view class="carddiv">
+    <view class="cardrow">
+      <button bindtap="newlei" class="fl bgcy">新增货品类别</button>
+      <view class="mybtn fr bgcr v-cen" bindtap="pull">删除</view>
+      <view class="mybtn fr bgcy v-cen" bindtap="navi_ch">修改</view>
+    </view>
+    <view class="cardrow">动漫手办</view>
+    <view class="cardrow">小说</view>
+    <view class="cardrow">游戏</view>
+    <view class="cardrow">游戏周边</view>
+    <view class="cardrow">漫画书</view>
+  </view>
+  <!-- <view class="clear_f">
+    <button bindtap="newlei" class="fr bgcy">新增货品类别</button>
+  </view> -->
+</view>

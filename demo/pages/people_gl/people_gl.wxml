@@ -1,2 +1,25 @@
 <!--pages/people_gl/people_gl.wxml-->
-<text>pages/people_gl/people_gl.wxml</text>
+<view class="home">
+  <view class="function">
+    <!-- <view wx:for="{{icon}}" class="flex-item" wx:key='*this'> -->
+    <view class="flex-item">
+      <navigator url="/pages/gong_gl/gong_gl">
+        <image class="icon" src="/images/statistical2-2.png"></image>
+        <view class="icon_text">供货商管理</view>
+      </navigator>
+    </view>
+    <view class="flex-item">
+      <navigator url="">
+        <image class="icon" src="/images/statistical2-3.png"></image>
+        <view class="icon_text">店员管理</view>
+      </navigator>
+    </view>
+
+    <view class="flex-item">
+      <navigator url="">
+        <image class="icon" src="/images/statistical2-1.png"></image>
+        <view class="icon_text">客户管理</view>
+      </navigator>
+    </view>
+  </view>
+</view>

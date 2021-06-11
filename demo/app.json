@@ -17,7 +17,11 @@
     "pages/kehu_tj/kehu_tj",
     "pages/add_goods/add_goods",
     "pages/goods_xq/goods_xq",
-    "pages/chukudan_bc/chukudan_bc"
+    "pages/chukudan_bc/chukudan_bc",
+    "pages/goods_detail/goods_detail",
+    "pages/em_good_lei/em_good_lei",
+    "pages/newlei/newlei",
+    "pages/gong_gl/gong_gl"
   ],
   "tabBar": {
     "list": [

@@ -1,0 +1,18 @@
+<!--pages/good_gl/good_gl.wxml-->
+<view>
+  <view class="container bggg">
+    <view class="carddiv">
+      <view class="cardrow">类别名称</view>
+      <view class="cardrow">排序</view>
+    </view>
+    <view class="zz_sub" bindtap="pull">保存</view>
+  </view>
+
+  <view class="bk_div" wx:if="{{bk_div}}">
+    <view class="mymodal">
+      <image class="divimg" src="/images/saveres.png"></image>
+      <a class="xxx" bindtap="xxx">x</a>
+    </view>
+  </view>
+
+</view>

@@ -1,4 +1,4 @@
-// pages/good_gl/good_gl.js
+// pages/gong_gl/gong_gl.js
 Page({
 
   /**
@@ -8,30 +8,6 @@ Page({
 
   },
 
-  navi_ch(){
-    wx.navigateTo({
-      url: '/pages/em_good_lei/em_good_lei',
-    })
-  },
-
-  pull(){
-    wx.showModal({
-      title: '是否删除',
-      success (res) {
-        if (res.confirm) {
-          console.log('用户点击确定')
-        } else if (res.cancel) {
-          console.log('用户点击取消')
-        }
-      }
-    })
-  },
-
-  newlei(){
-    wx.navigateTo({
-      url: '/pages/newlei/newlei',
-    })
-  },
   /**
    * 生命周期函数--监听页面加载
    */

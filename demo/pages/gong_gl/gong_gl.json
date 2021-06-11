@@ -1,9 +1,9 @@
 {
   "backgroundTextStyle":"light",
   "navigationBarBackgroundColor": "#FCCD05",
-  "navigationBarTitleText": "人员管理",
+  "navigationBarTitleText": "供货商管理",
   "navigationBarTextStyle":"black",
 
   "usingComponents": {
-}
+  }
 }
