@@ -13,7 +13,7 @@
     </view>
   </view>
 
-  <view class="bottom">
+  <view class="bottom" style="{{'height:'+bot_height+'px'}}">
     <view class="bot_center">
       <!-- 卡片 后面封装 -->
       <view wx:for="1234" class="card" wx:key="*this" bindtap="ceshi">

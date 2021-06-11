@@ -3,17 +3,20 @@
   <!-- 信息卡片 -->
   <view class="mine_card">
     <view class="my">
-      <view class="my_flex1">
-        <image wx:if="{{hasUserInfo}}" class="head" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <view class="my_flex1" bindtap="xiugai">
+        <image wx:if="{{hasUserInfo && userInfo.img}}" class="head" src="{{userInfo.img}}" mode="cover"></image>
+        <image wx:if="{{hasUserInfo && !userInfo.img}}" class="head" src="{{userInfo.avatarUrl}}" mode="cover"></image>
         <image wx:else class="head" src="{{head_img}}"></image>
       </view>
       <view class="my_flex2">
-        <view wx:if="{{hasUserInfo}}">
-          <text class="name">{{userInfo.name}}</text>
-          <view class="role" wx:if="{{userInfo.juese!=null}}">{{userInfo.juese}}</view>
-          <view class="role" wx:else>管理员</view>
-          <text class="info">{{userInfo.phone}}</text>
-          <text class="info">{{userInfo.mendian}}</text>
+        <view style="display: inline-block;" bindtap="xiugai">
+          <view wx:if="{{hasUserInfo}}">
+            <text class="name">{{userInfo.name}}</text>
+            <view class="role" wx:if="{{userInfo.juese}}">{{userInfo.juese}}</view>
+            <view class="role" wx:else>管理员</view>
+            <text class="info">{{userInfo.phone}}</text>
+            <text class="info">{{userInfo.mendian}}</text>
+          </view>
         </view>
       </view>
       <view class="my_flex3">
@@ -37,7 +40,7 @@
         </view>
       </view>
       <!-- 关于我们功能 -->
-      <view  wx:if="{{hasUserInfo}}" class="fn">
+      <view wx:if="{{hasUserInfo}}" class="fn">
         <view class="fn1">
           <image class="icon" src="{{gywm_icon}}"></image>
           <text class="icon_text">关于我们</text>

@@ -1,0 +1,65 @@
+/* pages/my_xiu/my_xin.wxss */
+.my_xiu{
+  border-top: 10px solid rgba(0, 0, 0, 0.05);
+}
+
+.center {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.btn1 {
+  width: 100%;
+  background-color: #fdcc05;
+  text-align: center;
+  padding: 2% 0 2% 0;
+  border-radius: 6px;
+  margin-bottom: 5%;
+}
+.btn2 {
+  width: 100%;
+  background-color: #cecece;
+  text-align: center;
+  padding: 2% 0 2% 0;
+  border-radius: 6px;
+  color: white;
+}
+
+.top {
+  margin-bottom: 15%;
+}
+.row{
+  overflow: hidden;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 3% 1% 3% 1%;
+  font-size: 14px;
+}
+.miaosu {
+  float: left;
+}
+
+.input {
+  float: right;
+  text-align: right;
+}
+
+.radio{
+  float: right;
+  margin-left:5%;
+}
+
+.huoqu_yzm{
+  float: right;
+  color: #fdcc05;
+}
+
+.head{
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.juese{
+  float: right;
+  color: red;
+}

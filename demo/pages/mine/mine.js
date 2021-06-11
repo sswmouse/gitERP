@@ -8,24 +8,25 @@ Page({
   data: {
     userInfo: {},
     hasUserInfo: false,
-    canIUseGetUserProfile: false,
     head_img: APP.globalUrl.url + "images/" + "default_avatar.png",  //头像图片
     help_icon: APP.globalUrl.url + "images/" + "help_icon.png",  //帮助中心图标
     gywm_icon: APP.globalUrl.url + "images/" + "about_us_icon.png",  //关于我们图标
     set_icon: APP.globalUrl.url + "images/" + "set_icon.png",  //设置图标
     arrow_icon: APP.globalUrl.url + "images/" + "gray_arrow.png",  //箭头图标
   },
+  //退出登录
   exit() {
-    this.setData({ 
-      hasUserInfo: false 
+    this.setData({
+      hasUserInfo: false
     })
     try {
       wx.clearStorageSync()
       console.log(wx.getStorageSync('user') || {});
-    } catch(e) {
+    } catch (e) {
       // Do something when catch error
     }
   },
+  //登录
   login() {
     let that = this
     wx.getUserProfile({
@@ -33,15 +34,15 @@ Page({
       success: (res) => {
         let wxuserinfo = res.userInfo
         wx.login({
-          success (res) {
+          success(res) {
             if (res.code) {
               wx.request({
                 url: 'http://localhost:3000/onLogin',
                 data: {
                   code: res.code
                 },
-                method:"POST",
-                success (res) {
+                method: "POST",
+                success(res) {
                   let myuserinfo = res.data.detail[0]
                   that.setData({
                     //拼接用户注册信息和用户信息
@@ -63,19 +64,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    if (wx.getUserProfile) {
-      this.setData({
-        canIUseGetUserProfile: true
+   
+  },
+  xiugai: function () {
+    if (wx.getStorageSync('user')) {
+      wx.navigateTo({
+        url: '/pages/my_xiu/my_xin'
       })
-    }
-    if(wx.getStorageSync('user')){
-      this.setData({
-        hasUserInfo:true,
-        userInfo:wx.getStorageSync('user')
-      })
+    } else {
+      console.log(1111)
     }
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -87,7 +86,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if (wx.getStorageSync('user')) {
+      this.setData({
+        hasUserInfo: true,
+        userInfo: wx.getStorageSync('user')
+      })
+    }else{
+      this.setData({
+        hasUserInfo: false,
+        userInfo: ''
+      })
+    }
   },
 
   /**

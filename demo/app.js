@@ -24,7 +24,6 @@ App({
   },
   // 检查自定义登录状态
   checkuser: function () {
-    console.log("调用登录了")
     wx.login({
       success(res) {
         if (res.code) {
@@ -39,10 +38,7 @@ App({
             },
             success(res) {
               if (res.data.code == 0) wx.navigateTo({ url: '/pages/register/register' })
-              console.log(res.data)
-              console.log(wx.getStorageSync('user'))
               if (!wx.getStorageSync('user')) wx.switchTab({ url: '/pages/mine/mine' })
-              // if(res.data.code == 1) wx.navigateTo({url: '/pages/index/index'})
             }, fail() {
               console.log('后台服务器连接失败')
             }
@@ -53,8 +49,6 @@ App({
       }
     })
   },
-
-
   globalData: {
     userInfo: null
   },

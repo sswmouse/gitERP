@@ -10,7 +10,7 @@ const { join } = require("path");
 var mysql = require('mysql');
 const { match } = require('assert');
 var db = mysql.createConnection({
-    host: '47.117.121.44',
+    host: 'localhost',
     user: 'root',
     password: '123456',
     database: 'ERP'

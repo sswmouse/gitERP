@@ -1,0 +1,40 @@
+<!--pages/my_xiu/my_xin.wxml-->
+<view class="my_xiu">
+  <view class="center">
+    <view class="top">
+      <view class="row">
+        <text class="miaosu">头像</text>
+        <image wx:if="{{userInfo.img}}" class="head" src="{{userInfo.img}}" mode="cover"></image>
+        <image wx:else class="head" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      </view>
+      <view class="row">
+        <text class="miaosu">姓名</text>
+        <input class="input" value="{{name}}" type="text" bindinput='xiugai' data-index="2" value="{{userInfo.name}}" />
+      </view>
+      <view class="row">
+        <text class="miaosu">性别</text>
+        <input class="input" value="{{name}}" type="text" bindinput='xiugai' data-index="2" value="{{userInfo.sex}}" />
+      </view>
+      <view class="row">
+        <text class="miaosu">绑定手机号</text>
+        <input class="input" value="{{phone}}" type="number" bindinput='xiugai' data-index="3" maxlength="11"
+          value="{{userInfo.phone}}" />
+      </view>
+      <view class="row">
+        <text class="miaosu">店铺名称</text>
+        <input class="input" value="{{dizi}}" type="text" bindinput='xiugai' data-index="1" value="{{userInfo.mendian}}"/>
+      </view>
+      <view class="row">
+        <text class="miaosu">店铺地址</text>
+        <input class="input" value="{{dizi}}" type="text" bindinput='xiugai' data-index="1" value="{{userInfo.dizi}}"/>
+      </view>
+      <view class="row">
+        <text class="miaosu">角色权限</text>
+        <view class="juese" wx:if="{{userInfo.juese}}">{{userInfo.juese}}</view>
+        <view class="juese" wx:else>管理员</view>
+      </view>
+    </view>
+    <view class="btn1" bindtap="keep">保存</view>
+    <view class="btn2"  bindtap="exit">退出登录</view>
+  </view>
+</view>
