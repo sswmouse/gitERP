@@ -28,10 +28,11 @@
 .formondiv{
   height: 85vh;
   overflow: auto;
+  border-radius: 10px;
 }
 
 .bggg{
-  background-color: #f9f9f9;
+  background-color: rgba(0, 0, 0, 0.05);
 }
 
 .cc{
@@ -79,6 +80,10 @@ view .weui-form{
 
 .zz_sub{
   width: 90%;
+  height: 40px;
+  margin: auto;
+  line-height: 40px;
+  text-align: center;
   background-color: #fccc04;
   border-radius: 8px;
   font-size: 18px;
@@ -86,4 +91,8 @@ view .weui-form{
 	font-stretch: normal;
 	letter-spacing: 0px;
 	color: #040404;
+}
+
+view .blk{
+  display: block;
 }

@@ -5,13 +5,25 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    formdata: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var mypage = this
+    wx.getStorage({
+      key: "formdata",
+      success(res) {
+        // console.log(res.data)
+        mypage.setData({
+          formdata: res.data
+        })
+        console.log("formdata:...")
+        console.log(this.data.formdata)
+      }
+    })
 
   },
 
@@ -62,5 +74,18 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+  onpull(){
+    wx.showModal({
+      title: '是否删除货品？',
+      success (res) {
+        if (res.confirm) {
+          console.log('用户点击确定')
+        } else if (res.cancel) {
+          console.log('用户点击取消')
+        }
+      }
+    })
   }
 })

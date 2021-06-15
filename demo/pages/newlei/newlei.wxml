@@ -4,12 +4,12 @@
     <view class="carddiv">
       <view class="cardrow">
         类别名称
-        <input class="weui-input myinput" auto-focus placeholder="输入类别名称" />
+        <input class="weui-input myinput" auto-focus placeholder="输入类别名称" bindinput='bindinput1'/>
         
       </view>
       <view class="cardrow">
         排序
-        <input class="weui-input myinput" auto-focus placeholder="输入排序" />
+        <input class="weui-input myinput" auto-focus placeholder="输入排序" bindinput='bindinput2' />
       </view>
     </view>
     <view class="zz_sub" bindtap="pull">保存</view>

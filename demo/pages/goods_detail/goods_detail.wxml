@@ -1,2 +1,130 @@
-<!--pages/goods_detail/goods_detail.wxml-->
-<text>pages/goods_detail/goods_detail.wxml</text>
+<view class="coverdiv">
+  <view class="container bggg">
+    <view class="weui-form formondiv">
+      <view class="weui-cells__group weui-cells__group_form">
+        <view class="weui-cells__title">货品入库信息</view>
+        <view class="weui-cells weui-cells_form">
+            
+          <view class="weui-cell weui-cell_active">
+            <view class="weui-cell__hd">
+              <label class="weui-label">入库货品编号</label>
+            </view>
+            <view class="weui-cell__bd">
+            <text class="weui-label">{{formdata.id}}</text>
+            </view>
+          </view>
+          <view class="weui-cell weui-cell_active">
+            <view class="weui-cell__hd">
+              <label class="weui-label">入库货品名称</label>
+            </view>
+            <view class="weui-cell__bd">
+              <text class="weui-label">{{formdata.nm}}</text>
+            </view>
+          </view>
+          <view class="weui-cell weui-cell_active">
+            <view class="weui-cell__hd">
+              <label class="weui-label">货品类别</label>
+            </view>
+            <view class="weui-cell__bd">
+              <view bindtap="">
+                <span class="weui-input__placeholder">请选择货品类别</span>
+              </view>
+
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_active">
+            <view class="weui-cell__hd">
+              <label class="weui-label">货品数量</label>
+            </view>
+            <view class="weui-cell__bd">
+              <text class="weui-label">{{formdata.num}}</text>
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_active">
+            <view class="weui-cell__hd">
+              <label class="weui-label">货品颜色</label>
+            </view>
+            <view class="weui-cell__bd">
+              <text class="weui-label">{{formdata.clour}}</text>
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_active">
+            <view class="weui-cell__hd">
+              <label class="weui-label">货品尺码</label>
+            </view>
+            <view class="weui-cell__bd">
+              <text class="weui-label">{{formdata.size}}</text>
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_active">
+            <view class="weui-cell__hd">
+              <label class="weui-label">货品价格</label>
+            </view>
+            <view class="weui-cell__bd">
+              <text class="weui-label">{{formdata.money}}</text>
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_active">
+            <view class="weui-cell__hd">
+              <label class="weui-label">上架时间</label>
+            </view>
+            <view class="weui-cell__bd">
+
+            </view>
+          </view>
+
+          <view class="weui-cell weui-cell_active blk">
+            <view class="weui-cell__hd">
+              <label class="weui-label">上架货品</label>
+            </view>
+            <view>
+              <wux-upload listType="picture-card" fileList="{{ fileList }}" controlled
+                url="https://www.skyvow.cn/api/common/file" bind:change="onChange" bind:success="onSuccess"
+                bind:complete="onComplete" bind:preview="onPreview" bind:remove="onRemove">
+                <text>+</text>
+              </wux-upload>
+            </view>
+          </view>
+
+          <view class="weui-cells__title">其他信息</view>
+          <view class="weui-cells weui-cells_form">
+            <view class="weui-cell weui-cell_active">
+              <view class="weui-cell__hd">
+                <label class="weui-label">供货商姓名</label>
+              </view>
+              <view class="weui-cell__bd">
+                <text class="weui-label">{{formdata.gong_nm}}</text>
+              </view>
+            </view>
+
+            <view class="weui-cell weui-cell_active">
+              <view class="weui-cell__hd">
+                <label class="weui-label">供货商手机号</label>
+                
+              </view>
+              <view class="weui-cell__bd">
+              <text class="weui-label">{{formdata.gong_tel}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="footdiv">
+      <view class="foot1">修改</view>
+      <view class="foot2">复制</view>
+      <view class="foot3" bindtap="onpull">删除</view>
+    </view>
+
+  </view>
+  
+  <view class="fu">
+    <view>继续</view>
+    <view>入库</view>
+  </view>
+</view>

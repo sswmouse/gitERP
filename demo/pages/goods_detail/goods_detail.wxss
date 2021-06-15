@@ -1,1 +1,136 @@
-/* pages/goods_detail/goods_detail.wxss */
+/* pages/index/newrklist.wxss */
+.treeye{
+  height: 10px;
+  width: 10px;
+  align-content: center;
+}
+
+.treeye2{
+  height: 6px;
+  width: 10px;
+  align-content: center;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.coverdiv{
+  /* position: absolute; */
+  width: 100%;
+}
+
+.formondiv{
+  /* height: 85vh; */
+  overflow: auto;
+  box-sizing: border-box;
+}
+
+.bggg{
+  background-color: #f9f9f9;
+}
+
+.cc{
+  width: 100%;
+  height: 100%;
+}
+
+.weui-cells__title{
+  font-size: 15px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #040404;
+}
+
+.weui-cells__group_form .weui-label{
+  /* 最大宽度清除 */
+  max-width:none;
+  font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #494848;
+}
+
+view .weui-form{
+  padding: calc(10px + env(safe-area-inset-top)) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+.weui-input{
+  font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #494848;
+}
+
+.weui-input__placeholder{
+  font-size: 12px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #8f8f8f;
+}
+
+.zz_sub{
+  width: 90%;
+  background-color: #fccc04;
+  border-radius: 8px;
+  font-size: 18px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #040404;
+}
+
+view .blk{
+  display: block;
+}
+
+.fu{
+  padding: 5px;
+  box-sizing: border-box;
+  line-height: 25px;
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  right: 20px;
+  bottom: 150px;
+  background-color: #fccc04;
+  border-radius: 50px;
+  text-align: center;
+}
+
+.sss{
+  height: 5vh;
+}
+
+.footdiv{
+  position: fixed;
+  bottom: 0;
+  height: 8vh;
+  width: 100%;
+  display: flex;
+  line-height: 8vh;
+  text-align: center;
+}
+
+.foot1{
+  background-color: yellow;
+  flex: 1;
+}
+
+.foot2{
+  background-color: #fccc04;
+  flex: 1;
+}
+
+.foot3{
+  background-color: red;
+  color: white;
+  flex: 1;
+}

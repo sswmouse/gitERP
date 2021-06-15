@@ -10,16 +10,10 @@ Page({
     uptime: "设置上架时间",
     fileList: [
     ],
+
+    formdata:{id:""}
   },
-  onLoad:function(options){
-    var that = this 
-    wx.showToast({
-      title: '加载中',
-      icon:'loading',
-      duration:1000
-    })
-    console.log(options)
-  },
+
   treeyetab() {
     if (this.data.treeye == 0) {
       this.setData({
@@ -105,6 +99,28 @@ Page({
       urls: fileList.map((n) => n.url),
     })
   },
+
+  zz_sub(){
+    console.log(this.data.formdata)
+    var formdata=this.data.formdata
+    wx.redirectTo({
+      url: '/pages/goods_detail/goods_detail',
+      success:function(res){
+        wx.setStorage({
+          key:"formdata",
+          data:formdata
+        })
+      },
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -152,5 +168,37 @@ Page({
    */
   onShareAppMessage: function () {
 
-  }
+  },
+
+  ch_id:function(e){
+    this.data.formdata.id=e.detail.value
+  },
+
+  ch_nm:function(e){
+    this.data.formdata.nm=e.detail.value
+  },
+
+  ch_num:function(e){
+    this.data.formdata.num=e.detail.value
+  },
+
+  ch_clour:function(e){
+    this.data.formdata.clour=e.detail.value
+  },
+
+  ch_size:function(e){
+    this.data.formdata.size=e.detail.value
+  },
+
+  ch_money:function(e){
+    this.data.formdata.money=e.detail.value
+  },
+
+  ch_gong_nm:function(e){
+    this.data.formdata.gong_nm=e.detail.value
+  },
+
+  ch_gong_tel:function(e){
+    this.data.formdata.gong_tel=e.detail.value
+  },
 })

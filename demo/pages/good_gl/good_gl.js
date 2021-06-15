@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    list:[]
   },
 
   navi_ch(){
@@ -36,6 +36,30 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var that = this 
+    wx.request({
+      url: 'http://localhost:3000/get_classify',
+      data: {
+        code: ''
+      },
+      method: "GET",
+      success(res) {
+        var arr = JSON.parse(res.data.detail);
+        //排序
+        for(var i=0;i<arr.length-1;i++){
+          for(var j=i;j<arr.length-i-1;j++){
+            if(arr[j].id>arr[j+1].id){
+              let aaa = arr[j]
+              arr[j] = arr[j+1]
+              arr[j+1] = arr[j]
+            }
+          }
+        }
+        that.setData({
+          list:arr
+        })
+      }
+    })
 
   },
 

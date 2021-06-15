@@ -5,18 +5,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bk_div:0
+    bk_div: 0
   },
 
-  pull(){
+  pull() {
     this.setData({
-      bk_div:1
+      bk_div: 1
     })
+    console.log(1111)
+    // setTimeout(function(){
+    //   wx.navigateBack({
+    //     delta: 1,
+    //   })
+    // },1000)
   },
 
-  xxx(){
+  xxx() {
     this.setData({
-      bk_div:0
+      bk_div: 0
+    })
+    wx.navigateBack({
+      delta: 1,
     })
   },
 

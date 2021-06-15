@@ -5,18 +5,48 @@ Page({
    * 页面的初始数据
    */
   data: {
-    bk_div:0
+    bk_div: 0,
+    name: '',
+    id: '',
   },
-
-  pull(){
+  pull() {
+    var that = this 
+    if(this.data.id!=''){
+      wx.request({
+        url: 'http://localhost:3000/add_classify',
+        data: {
+          id: that.data.id,
+          name:that.data.name
+        },
+        method: "post",
+        success(res) {
+          console.log(res)
+          if(res.data.code==0){
+            console.log('商品类别添加成功')
+          }else{
+            console.log('商品类别添加失败')
+          }
+        }
+      })
+    }
+  },
+  bindinput1: function (e) {
     this.setData({
-      bk_div:1
+      name: e.detail.value
     })
   },
+  bindinput2: function (e) {
+    var reg = /^[1-9]+[0-9]*]*$/;
+    if (reg.test(e.detail.value)) {
+      this.setData({
+        id: e.detail.value
+      })
+    }
+  },
 
-  xxx(){
+  xxx() {
     this.setData({
-      bk_div:0
+      bk_div: 0
     })
   },
 
@@ -24,7 +54,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+   
   },
 
   /**

@@ -58,7 +58,6 @@
 
 .disflex{
   display: flex;
-  height: 3vh;
 }
 
 .flexinput{
@@ -67,4 +66,12 @@
 
 .flexone{
   flex:1;
+}
+
+.flextwo{
+  flex:2;
+}
+
+.nndiv{
+  flex: 0.2;
 }

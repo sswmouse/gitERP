@@ -4,12 +4,14 @@
       <view class="weui-cells__group weui-cells__group_form">
         <view class="weui-cells__title">货品入库信息</view>
         <view class="weui-cells weui-cells_form">
+
           <view class="weui-cell weui-cell_active">
             <view class="weui-cell__hd">
               <label class="weui-label">入库货品编号</label>
             </view>
             <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="请填写入库货品编号" placeholder-class="weui-input__placeholder" />
+              <input class="weui-input" placeholder="请填写入库货品编号"
+               placeholder-class="weui-input__placeholder" bindinput='ch_id'/>
             </view>
           </view>
           <view class="weui-cell weui-cell_active">
@@ -17,7 +19,8 @@
               <label class="weui-label">入库货品名称</label>
             </view>
             <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="请填写入库货品名称" placeholder-class="weui-input__placeholder" />
+              <input class="weui-input" placeholder="请填写入库货品名称"
+               placeholder-class="weui-input__placeholder" bindinput='ch_nm'/>
             </view>
           </view>
           <view class="weui-cell weui-cell_active">
@@ -39,7 +42,8 @@
               <label class="weui-label">货品数量</label>
             </view>
             <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="请填写入库货品数量" placeholder-class="weui-input__placeholder" />
+              <input class="weui-input" placeholder="请填写入库货品数量" 
+              placeholder-class="weui-input__placeholder" bindinput='ch_num'/>
             </view>
           </view>
 
@@ -48,7 +52,8 @@
               <label class="weui-label">货品颜色</label>
             </view>
             <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="请填写入库货品颜色" placeholder-class="weui-input__placeholder" />
+              <input class="weui-input" placeholder="请填写入库货品颜色"
+               placeholder-class="weui-input__placeholder" bindinput='ch_clour'/>
             </view>
           </view>
 
@@ -57,7 +62,8 @@
               <label class="weui-label">货品尺码</label>
             </view>
             <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="请填写入库货品尺码" placeholder-class="weui-input__placeholder" />
+              <input class="weui-input" placeholder="请填写入库货品尺码"
+               placeholder-class="weui-input__placeholder" bindinput='ch_size'/>
             </view>
           </view>
 
@@ -66,7 +72,8 @@
               <label class="weui-label">货品价格</label>
             </view>
             <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="请填写入库货品价格" placeholder-class="weui-input__placeholder" />
+              <input class="weui-input" placeholder="请填写入库货品价格"
+               placeholder-class="weui-input__placeholder" bindinput='ch_money'/>
             </view>
           </view>
 
@@ -81,7 +88,7 @@
             </view>
           </view>
 
-          <view class="weui-cell weui-cell_active">
+          <view class="weui-cell weui-cell_active blk">
             <view class="weui-cell__hd">
               <label class="weui-label">上架货品</label>
             </view>
@@ -101,7 +108,8 @@
                 <label class="weui-label">供货商姓名</label>
               </view>
               <view class="weui-cell__bd">
-                <input class="weui-input" placeholder="供货商姓名" placeholder-class="weui-input__placeholder" />
+                <input class="weui-input" placeholder="供货商姓名"
+                 placeholder-class="weui-input__placeholder" bindinput='ch_gong_nm'/>
               </view>
             </view>
 
@@ -110,13 +118,19 @@
                 <label class="weui-label">供货商手机号</label>
               </view>
               <view class="weui-cell__bd">
-                <input class="weui-input" placeholder="供货商手机号" placeholder-class="weui-input__placeholder" />
+                <input class="weui-input" placeholder="供货商手机号"
+                 placeholder-class="weui-input__placeholder" bindinput='ch_gong_tel'/>
               </view>
             </view>
           </view>
         </view>
       </view>
     </view>
+    <!-- <navigator open-type="redirectTo" url="/pages/goods_detail/goods_detail"
+      target="miniProgram" extra-data="{{formdata}}">
     <button class="zz_sub">保存</button>
+    </navigator> -->
+    <!-- <button class="zz_sub" bindtap="zz_sub"></button> -->
+    <view class="zz_sub" bindtap="zz_sub">保存</view>
   </view>
 </view>
