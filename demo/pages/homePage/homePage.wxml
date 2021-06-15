@@ -17,4 +17,5 @@
     </view>
   </view>
   <button bindtap="to">注册</button>
+  <card></card>
 </view>

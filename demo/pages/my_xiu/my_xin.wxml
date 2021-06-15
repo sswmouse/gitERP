@@ -4,29 +4,29 @@
     <view class="top">
       <view class="row">
         <text class="miaosu">头像</text>
-        <image wx:if="{{userInfo.img}}" class="head" src="{{userInfo.img}}" mode="cover"></image>
-        <image wx:else class="head" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+        <image wx:if="{{userInfo.img}}" class="head" src="{{userInfo.img}}" mode="cover" bindtap="change_img"></image>
+        <image wx:else class="head" src="{{userInfo.avatarUrl}}" mode="cover" bindtap="change_img"></image>
       </view>
       <view class="row">
         <text class="miaosu">姓名</text>
-        <input class="input" value="{{name}}" type="text" bindinput='xiugai' data-index="2" value="{{userInfo.name}}" />
+        <input class="input" value="{{name}}" type="text" bindinput='xiugai' data-index="0" value="{{userInfo.name}}" />
       </view>
       <view class="row">
         <text class="miaosu">性别</text>
-        <input class="input" value="{{name}}" type="text" bindinput='xiugai' data-index="2" value="{{userInfo.sex}}" />
+        <input class="input" value="{{name}}" type="text" bindinput='xiugai' data-index="1" value="{{userInfo.sex}}" />
       </view>
       <view class="row">
         <text class="miaosu">绑定手机号</text>
-        <input class="input" value="{{phone}}" type="number" bindinput='xiugai' data-index="3" maxlength="11"
+        <input class="input" value="{{phone}}" type="number" bindinput='xiugai' data-index="2" maxlength="11"
           value="{{userInfo.phone}}" />
       </view>
       <view class="row">
         <text class="miaosu">店铺名称</text>
-        <input class="input" value="{{dizi}}" type="text" bindinput='xiugai' data-index="1" value="{{userInfo.mendian}}"/>
+        <input class="input" value="{{dizi}}" type="text" bindinput='xiugai' data-index="3" value="{{userInfo.mendian}}"/>
       </view>
       <view class="row">
         <text class="miaosu">店铺地址</text>
-        <input class="input" value="{{dizi}}" type="text" bindinput='xiugai' data-index="1" value="{{userInfo.dizi}}"/>
+        <input class="input" value="{{dizi}}" type="text" bindinput='xiugai' data-index="4" value="{{userInfo.dizi}}"/>
       </view>
       <view class="row">
         <text class="miaosu">角色权限</text>

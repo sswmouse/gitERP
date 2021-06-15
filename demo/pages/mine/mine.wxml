@@ -6,7 +6,7 @@
       <view class="my_flex1" bindtap="xiugai">
         <image wx:if="{{hasUserInfo && userInfo.img}}" class="head" src="{{userInfo.img}}" mode="cover"></image>
         <image wx:if="{{hasUserInfo && !userInfo.img}}" class="head" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-        <image wx:else class="head" src="{{head_img}}"></image>
+        <image wx:if="{{!hasUserInfo}}" class="head" src="{{head_img}}"></image>
       </view>
       <view class="my_flex2">
         <view style="display: inline-block;" bindtap="xiugai">

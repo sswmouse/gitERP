@@ -1,6 +1,7 @@
 // pages/register/register.js
-Page({
+var app = getApp()
 
+Page({
   /**
    * 页面的初始数据
    */
@@ -8,49 +9,65 @@ Page({
     mendian: "",
     dizi: "",
     name: "",
-    sex_item: [{ value: "女", name: '女' },{ value: "男", name: '男' }],
-    sex:"男",
+    sex_item: [{ value: "女", name: '女' }, { value: "男", name: '男' }],
+    sex: "男",
     phone: ""
   },
   //保存按钮点击事件
   keep: function () {
     var data = {
-      name : this.data.name,
-      mendian:this.data.mendian,
-      dizi:this.data.dizi,
-      sex:this.data.sex,
-      phone:this.data.phone,
+      name: this.data.name,
+      mendian: this.data.mendian,
+      dizi: this.data.dizi,
+      sex: this.data.sex,
+      phone: this.data.phone,
     }
-    wx.login({
-      success (res) {
-        if (res.code) {
-          wx.request({
-            url: 'http://localhost:3000/register',
-            data: {
-              code: res.code,
-              data:data
-            },
-            method:"POST",
-            success (res) {
-              console.log(res)
-            }
-          })
-        } else {
-          console.log('注册失败！' + res.errMsg)
+    if (this.data.name != '' && this.data.mendian != '' && this.data.dizi != '' && this.data.sex != '' && this.data.phone != '') {
+      wx.login({
+        success(res) {
+          if (res.code) {
+            wx.request({
+              url: 'http://localhost:3000/register',
+              data: {
+                code: res.code,
+                data: data
+              },
+              method: "POST",
+              success(res) {
+                wx.setStorageSync('openid',res.data.detail)
+                console.log(wx.getStorageSync('openid'))
+                app.globalData.is_register='true'
+                wx.switchTab({
+                  url: "/pages/homePage/homePage",
+                })
+              }
+            })
+          } else {
+            wx.showToast({
+              title: '注册失败！'+res.errMsg,
+              icon: 'none',
+              duration: 1000//持续的时间
+            })
+          }
         }
-      }
-    })
-    console.log(this.data)
+      })
+    } else {
+      wx.showToast({
+        title: '请完善信息！',
+        icon: 'none',
+        duration: 1000//持续的时间
+      })
+    }
   },
   //输入框数据双向绑定
   xiugai: function (e) {
     if (e.currentTarget.dataset.index == 0) {
       this.data.mendian = e.detail.value
-    }else if (e.currentTarget.dataset.index == 1) {
+    } else if (e.currentTarget.dataset.index == 1) {
       this.data.dizi = e.detail.value
-    }else if (e.currentTarget.dataset.index == 2) {
+    } else if (e.currentTarget.dataset.index == 2) {
       this.data.name = e.detail.value
-    }else if (e.currentTarget.dataset.index == 3) {
+    } else if (e.currentTarget.dataset.index == 3) {
       this.data.phone = e.detail.value
     }
   },

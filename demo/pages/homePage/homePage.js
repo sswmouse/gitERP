@@ -22,6 +22,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+   
     // console.log(APP.globalUrl.url)
   },
 
@@ -36,7 +37,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    if(APP.globalData.is_register=='true'){
+      wx.showToast({
+        title: '注册成功,欢迎使用！',
+        icon: 'none',
+        duration: 2000//持续的时间
+      })
+      APP.globalData.is_register='false'
+    }
   },
 
   /**

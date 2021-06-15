@@ -50,7 +50,8 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    is_register:"false"
   },
   // 全局数据
   globalUrl: {

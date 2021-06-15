@@ -21,7 +21,8 @@
     "pages/goods_detail/goods_detail",
     "pages/em_good_lei/em_good_lei",
     "pages/newlei/newlei",
-    "pages/gong_gl/gong_gl"
+    "pages/gong_gl/gong_gl",
+    "components/card/card"
   ],
   "tabBar": {
     "list": [

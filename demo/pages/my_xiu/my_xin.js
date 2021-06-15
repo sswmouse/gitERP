@@ -1,46 +1,88 @@
 // pages/my_xiu/my_xin.js
+
+
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    userInfo:'',
+    userInfo: '',
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-    this.setData({
-      userInfo:wx.getStorageSync('user')
-    })
+    
   },
   //输入框数据双向绑定
   xiugai: function (e) {
     if (e.currentTarget.dataset.index == 0) {
-      this.data.mendian = e.detail.value
-    }else if (e.currentTarget.dataset.index == 1) {
-      this.data.dizi = e.detail.value
-    }else if (e.currentTarget.dataset.index == 2) {
-      this.data.name = e.detail.value
-    }else if (e.currentTarget.dataset.index == 3) {
-      this.data.phone = e.detail.value
+      this.data.userInfo.name = e.detail.value
+    } else if (e.currentTarget.dataset.index == 1) {
+      this.data.userInfo.sex = e.detail.value
+    } else if (e.currentTarget.dataset.index == 2) {
+      this.data.userInfo.phone = e.detail.value
+    } else if (e.currentTarget.dataset.index == 3) {
+      this.data.userInfo.mendian = e.detail.value
+    } else if (e.currentTarget.dataset.index == 4) {
+      this.data.userInfo.dizi = e.detail.value
     }
+  },
+  //保存按钮点击触发函数
+  keep: function () {
+    var that = this
+    wx.request({
+      url: 'http://localhost:3000/change',
+      data : {
+        openid:wx.getStorageSync('openid'),
+        data_base: this.data.userInfo
+      },
+      method: "POST",
+      success(res) {
+        wx.setStorageSync('user', that.data.userInfo)
+        wx.navigateBack({
+          delta: 1
+        })
+      }
+    })
+  },
+  change_img: function () {
+    var that = this
+    wx.chooseImage({
+      success(res) {
+        var tempFilePaths = res.tempFilePaths
+        console.log(tempFilePaths)
+        that.data.userInfo.img = tempFilePaths
+        wx.setStorageSync('user', that.data.userInfo)
+        that.setData({
+          userInfo: wx.getStorageSync('user')
+        })
+        wx.uploadFile({
+          url: 'http://localhost:3000/change_img', //仅为示例，非真实的接口地址
+          filePath: tempFilePaths[0],
+          name: 'file',
+          formData: {
+            'user': 'img',
+            openid:wx.getStorageSync('openid')
+          },
+          success(res) {
+            console.log(res)
+            const data = res.data
+            //do something
+          }
+        })
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  exit:function(){
+  exit: function () {
     try {
       wx.clearStorageSync()
       wx.navigateBack({
         delta: 1
       })
-    } catch(e) {
+    } catch (e) {
       // Do something when catch error
     }
   },
+
+
   onReady: function () {
 
   },
@@ -49,7 +91,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.setData({
+      userInfo: wx.getStorageSync('user')
+    })
   },
 
   /**
