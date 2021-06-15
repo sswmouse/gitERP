@@ -4,18 +4,10 @@
     <view class="cardrow disflex">
       <button bindtap="newlei" class="flexinput bgcy">新增货品类别</button>
       <view class="nndiv"></view>
-      <view class="mybtn fr bgcy v-cen flexone" bindtap="navi_ch">修改</view>
-      <view class="mybtn fr bgcr v-cen flexone" bindtap="pull">删除</view>
-      
     </view>
-    <view class="cardrow" wx:for="{{list}}" wx:key='*this'>{{item.name}}</view>
-    <!-- <view class="cardrow">动漫手办</view>
-    <view class="cardrow">小说</view>
-    <view class="cardrow">游戏</view>
-    <view class="cardrow">游戏周边</view>
-    <view class="cardrow">漫画书</view> -->
+
+    <wux-swipe-action wx:for="{{list}}" wx:key='*this' bind:click="onClose" data="{{item}}" autoClose right="{{ right }}">
+      <view class="demo-item">{{item.name}}</view>
+    </wux-swipe-action>
   </view>
-  <!-- <view class="clear_f">
-    <button bindtap="newlei" class="fr bgcy">新增货品类别</button>
-  </view> -->
 </view>

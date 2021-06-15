@@ -5,21 +5,39 @@ Page({
    * 页面的初始数据
    */
   data: {
-    list:[]
+    right: [{
+      text: '修改',
+      style: 'background-color: #FCCD05; color: white',
+    },
+    {
+      text: '删除',
+      style: 'background-color: #F4333C; color: white',
+    }],
+    list: [],
   },
 
-  navi_ch(){
+  navi_ch() {
     wx.navigateTo({
       url: '/pages/em_good_lei/em_good_lei',
     })
   },
 
-  pull(){
+  pull(e) {
+    var that = this 
     wx.showModal({
       title: '是否删除',
-      success (res) {
+      success(res) {
         if (res.confirm) {
-          console.log('用户点击确定')
+          wx.request({
+            url: 'http://localhost:3000/delete_classify',
+            data: {
+              id: e.id
+            },
+            method: "POST",
+            success(res) {
+              that.onLoad()
+            }
+          })
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
@@ -27,16 +45,8 @@ Page({
     })
   },
 
-  newlei(){
-    wx.navigateTo({
-      url: '/pages/newlei/newlei',
-    })
-  },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    var that = this 
+  getData:function() {
+    var that = this
     wx.request({
       url: 'http://localhost:3000/get_classify',
       data: {
@@ -46,21 +56,41 @@ Page({
       success(res) {
         var arr = JSON.parse(res.data.detail);
         //排序
-        for(var i=0;i<arr.length-1;i++){
-          for(var j=i;j<arr.length-i-1;j++){
-            if(arr[j].id>arr[j+1].id){
+        for (var i = 0; i < arr.length - 1; i++) {
+          for (var j = i; j < arr.length - i - 1; j++) {
+            if (arr[j].id > arr[j + 1].id) {
               let aaa = arr[j]
-              arr[j] = arr[j+1]
-              arr[j+1] = arr[j]
+              arr[j] = arr[j + 1]
+              arr[j + 1] = arr[j]
             }
           }
         }
         that.setData({
-          list:arr
+          list: arr
         })
       }
     })
+  },
 
+  onClose: function (e) {
+    if (e.detail.index == 0) {
+      wx.navigateTo({
+        url: '/pages/em_good_lei/em_good_lei?data=' + JSON.stringify(e.detail.data),
+      })
+    } else {
+      this.pull(e.detail.data)
+    }
+  },
+  newlei() {
+    wx.navigateTo({
+      url: '/pages/newlei/newlei',
+    })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    this.getData()
   },
 
   /**
@@ -74,7 +104,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getData()
   },
 
   /**

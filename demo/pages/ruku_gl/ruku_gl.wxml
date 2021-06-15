@@ -1,40 +1,50 @@
+<!-- 最外层 -->
 <view class="coverdiv">
+  <!-- 满屏 -->
   <view class="container bggg">
+  <!-- from表单 -->
     <view class="weui-form formondiv">
+      <!-- 表单全部内容 -->
       <view class="weui-cells__group weui-cells__group_form">
+        <!-- 头部标题 -->
         <view class="weui-cells__title">货品入库信息</view>
         <view class="weui-cells weui-cells_form">
-
+          <!-- 入库编号 -->
           <view class="weui-cell weui-cell_active">
             <view class="weui-cell__hd">
               <label class="weui-label">入库货品编号</label>
             </view>
             <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="请填写入库货品编号"
-               placeholder-class="weui-input__placeholder" bindinput='ch_id'/>
+              <input class="weui-input" placeholder="请填写入库货品编号" placeholder-class="weui-input__placeholder"
+                bindinput='ch_id' />
             </view>
           </view>
+          <!-- 入库名称 -->
           <view class="weui-cell weui-cell_active">
             <view class="weui-cell__hd">
               <label class="weui-label">入库货品名称</label>
             </view>
             <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="请填写入库货品名称"
-               placeholder-class="weui-input__placeholder" bindinput='ch_nm'/>
+              <input class="weui-input" placeholder="请填写入库货品名称" placeholder-class="weui-input__placeholder"
+                bindinput='ch_nm' />
             </view>
           </view>
+          <!-- 货品类别 -->
           <view class="weui-cell weui-cell_active">
             <view class="weui-cell__hd">
               <label class="weui-label">货品类别</label>
             </view>
             <view class="weui-cell__bd">
               <view bindtap="treeyetab">
-                <span class="weui-input__placeholder">请选择货品类别{{treeye}}</span>
+                <span class="weui-input__placeholder">请选择货品类别</span>
                 <image wx:if="{{treeye==0}}" class="treeye" src="/images/upper.png"></image>
                 <image wx:if="{{treeye==1}}" class="treeye2" src="/images/down_triangle.png"></image>
               </view>
-
             </view>
+          </view>
+          <!-- 货品类别选项 -->
+          <view wx:if="{{treeye==1}}" class="classify">
+            <view wx:for="{{classList}}" wx:key='*this' class="classList" bindtap="classify" data-index="{{index}}">{{item.name}}</view>
           </view>
 
           <view class="weui-cell weui-cell_active">
@@ -42,8 +52,8 @@
               <label class="weui-label">货品数量</label>
             </view>
             <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="请填写入库货品数量" 
-              placeholder-class="weui-input__placeholder" bindinput='ch_num'/>
+              <input class="weui-input" placeholder="请填写入库货品数量" placeholder-class="weui-input__placeholder"
+                bindinput='ch_num' />
             </view>
           </view>
 
@@ -52,8 +62,8 @@
               <label class="weui-label">货品颜色</label>
             </view>
             <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="请填写入库货品颜色"
-               placeholder-class="weui-input__placeholder" bindinput='ch_clour'/>
+              <input class="weui-input" placeholder="请填写入库货品颜色" placeholder-class="weui-input__placeholder"
+                bindinput='ch_clour' />
             </view>
           </view>
 
@@ -62,8 +72,8 @@
               <label class="weui-label">货品尺码</label>
             </view>
             <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="请填写入库货品尺码"
-               placeholder-class="weui-input__placeholder" bindinput='ch_size'/>
+              <input class="weui-input" placeholder="请填写入库货品尺码" placeholder-class="weui-input__placeholder"
+                bindinput='ch_size' />
             </view>
           </view>
 
@@ -72,8 +82,8 @@
               <label class="weui-label">货品价格</label>
             </view>
             <view class="weui-cell__bd">
-              <input class="weui-input" placeholder="请填写入库货品价格"
-               placeholder-class="weui-input__placeholder" bindinput='ch_money'/>
+              <input class="weui-input" placeholder="请填写入库货品价格" placeholder-class="weui-input__placeholder"
+                bindinput='ch_money' />
             </view>
           </view>
 
@@ -108,8 +118,8 @@
                 <label class="weui-label">供货商姓名</label>
               </view>
               <view class="weui-cell__bd">
-                <input class="weui-input" placeholder="供货商姓名"
-                 placeholder-class="weui-input__placeholder" bindinput='ch_gong_nm'/>
+                <input class="weui-input" placeholder="供货商姓名" placeholder-class="weui-input__placeholder"
+                  bindinput='ch_gong_nm' />
               </view>
             </view>
 
@@ -118,19 +128,15 @@
                 <label class="weui-label">供货商手机号</label>
               </view>
               <view class="weui-cell__bd">
-                <input class="weui-input" placeholder="供货商手机号"
-                 placeholder-class="weui-input__placeholder" bindinput='ch_gong_tel'/>
+                <input class="weui-input" placeholder="供货商手机号" placeholder-class="weui-input__placeholder"
+                  bindinput='ch_gong_tel' />
               </view>
             </view>
           </view>
         </view>
       </view>
     </view>
-    <!-- <navigator open-type="redirectTo" url="/pages/goods_detail/goods_detail"
-      target="miniProgram" extra-data="{{formdata}}">
-    <button class="zz_sub">保存</button>
-    </navigator> -->
-    <!-- <button class="zz_sub" bindtap="zz_sub"></button> -->
+    <!-- 保存按钮 -->
     <view class="zz_sub" bindtap="zz_sub">保存</view>
   </view>
 </view>

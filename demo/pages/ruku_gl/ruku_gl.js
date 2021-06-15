@@ -10,8 +10,8 @@ Page({
     uptime: "设置上架时间",
     fileList: [
     ],
-
-    formdata:{id:""}
+    formdata:{id:""},
+    classList:[]
   },
 
   treeyetab() {
@@ -25,7 +25,7 @@ Page({
       })
     }
   },
-
+  // 上架时间触发事件
   bindDateChange: function (e) {
     this.setData({
       date: e.detail.value
@@ -35,6 +35,7 @@ Page({
     })
   },
 
+  //没调用？
   kindToggle: function (e) {
     var id = e.currentTarget.id,
       list = this.data.list;
@@ -50,6 +51,7 @@ Page({
     });
   },
 
+  //上传商品图片事件（图标改变）
   onChange(e) {
     console.log('onChange', e)
     const {
@@ -72,22 +74,27 @@ Page({
       fileList
     })
   },
+  //上传商品图片事件（图标改变）
   onSuccess(e) {
     console.log('onSuccess', e)
   },
+  //上传商品图片事件（图标改变）
   onFail(e) {
     console.log('onFail', e)
   },
+  //上传商品图片事件（图标改变）
   onComplete(e) {
     console.log('onComplete', e)
     wx.hideLoading()
   },
+  //上传商品图片事件（图标改变）
   onProgress(e) {
     console.log('onProgress', e)
     this.setData({
       progress: e.detail.file.progress,
     })
   },
+  //上传商品图片事件（图标改变）
   onPreview(e) {
     console.log('onPreview', e)
     const {
@@ -100,27 +107,54 @@ Page({
     })
   },
 
+
+  // let 变量名 = 参数名.currentTarget.dataset['index'];
+  
+  //保存按钮
   zz_sub(){
     console.log(this.data.formdata)
+    console.log()
     var formdata=this.data.formdata
-    wx.redirectTo({
-      url: '/pages/goods_detail/goods_detail',
-      success:function(res){
-        wx.setStorage({
-          key:"formdata",
-          data:formdata
-        })
-      },
-    })
+    // wx.redirectTo({
+    //   url: '/pages/goods_detail/goods_detail',
+    //   success:function(res){
+    //     wx.setStorage({
+    //       key:"formdata",
+    //       data:formdata
+    //     })
+    //   },
+    // })
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var that = this 
+    wx.request({
+      url: 'http://localhost:3000/get_classify',
+      data: {
+        code: ''
+      },
+      method: "GET",
+      success(res) {
+        var arr = JSON.parse(res.data.detail);
+        //排序
+        for(var i=0;i<arr.length-1;i++){
+          for(var j=i;j<arr.length-i-1;j++){
+            if(arr[j].id>arr[j+1].id){
+              let aaa = arr[j]
+              arr[j] = arr[j+1]
+              arr[j+1] = arr[j]
+            }
+          }
+        }
+        that.setData({
+          classList:arr
+        })
+      }
+    })
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

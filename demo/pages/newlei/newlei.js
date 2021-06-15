@@ -11,7 +11,7 @@ Page({
   },
   pull() {
     var that = this 
-    if(this.data.id!=''){
+    if(this.data.id!=''&& this.data.name!=''){
       wx.request({
         url: 'http://localhost:3000/add_classify',
         data: {
@@ -23,10 +23,24 @@ Page({
           console.log(res)
           if(res.data.code==0){
             console.log('商品类别添加成功')
+            that.setData({
+              bk_div:1
+            })
           }else{
+            wx.showToast({
+              title: '商品类别添加失败,排序重复', //提示文字
+              icon: 'none', //弹出样式
+              duration: 2000 //持续的时间
+            })
             console.log('商品类别添加失败')
           }
         }
+      })
+    }else{
+      wx.showToast({
+        title: '商品类别添加失败,请输入合法数据', //提示文字
+        icon: 'none', //弹出样式
+        duration: 2000 //持续的时间
       })
     }
   },
@@ -47,6 +61,9 @@ Page({
   xxx() {
     this.setData({
       bk_div: 0
+    })
+    wx.navigateBack({
+      delta: 1,
     })
   },
 
