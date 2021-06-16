@@ -6,7 +6,7 @@
       <view class="nndiv"></view>
     </view>
 
-    <wux-swipe-action wx:for="{{list}}" wx:key='*this' bind:click="onClose" data="{{item}}" autoClose right="{{ right }}">
+    <wux-swipe-action wx:for="{{list}}" wx:key='this' bind:click="onClose" data="{{item}}" autoClose right="{{ right }}">
       <view class="demo-item">{{item.name}}</view>
     </wux-swipe-action>
   </view>

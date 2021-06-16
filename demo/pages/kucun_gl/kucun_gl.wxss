@@ -61,6 +61,11 @@
   overflow: scroll;
 }
 
+/* 滚动条隐藏 */
+.bottom::-webkit-scrollbar {
+  display: none; 
+}
+
 .bot_center{
   width: 94%;
   margin: 0 auto;

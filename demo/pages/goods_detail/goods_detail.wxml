@@ -10,7 +10,7 @@
               <label class="weui-label">入库货品编号</label>
             </view>
             <view class="weui-cell__bd">
-            <text class="weui-label">{{formdata.id}}</text>
+            <text class="weui-label">{{formdata.goods_id}}</text>
             </view>
           </view>
           <view class="weui-cell weui-cell_active">
@@ -18,7 +18,7 @@
               <label class="weui-label">入库货品名称</label>
             </view>
             <view class="weui-cell__bd">
-              <text class="weui-label">{{formdata.nm}}</text>
+              <text class="weui-label">{{formdata.ghs_name}}</text>
             </view>
           </view>
           <view class="weui-cell weui-cell_active">
@@ -26,9 +26,10 @@
               <label class="weui-label">货品类别</label>
             </view>
             <view class="weui-cell__bd">
-              <view bindtap="">
+              <text class="weui-label">{{formdata.goods_leibie}}</text>
+              <!-- <view bindtap="">
                 <span class="weui-input__placeholder">请选择货品类别</span>
-              </view>
+              </view> -->
 
             </view>
           </view>
@@ -38,7 +39,7 @@
               <label class="weui-label">货品数量</label>
             </view>
             <view class="weui-cell__bd">
-              <text class="weui-label">{{formdata.num}}</text>
+              <text class="weui-label">{{formdata.goods_number}}</text>
             </view>
           </view>
 
@@ -47,7 +48,7 @@
               <label class="weui-label">货品颜色</label>
             </view>
             <view class="weui-cell__bd">
-              <text class="weui-label">{{formdata.clour}}</text>
+              <text class="weui-label">{{formdata.goods_color}}</text>
             </view>
           </view>
 
@@ -56,7 +57,7 @@
               <label class="weui-label">货品尺码</label>
             </view>
             <view class="weui-cell__bd">
-              <text class="weui-label">{{formdata.size}}</text>
+              <text class="weui-label">{{formdata.goods_size}}</text>
             </view>
           </view>
 
@@ -65,7 +66,7 @@
               <label class="weui-label">货品价格</label>
             </view>
             <view class="weui-cell__bd">
-              <text class="weui-label">{{formdata.money}}</text>
+              <text class="weui-label">{{formdata.goods_price}}</text>
             </view>
           </view>
 
@@ -74,7 +75,7 @@
               <label class="weui-label">上架时间</label>
             </view>
             <view class="weui-cell__bd">
-
+              <text class="weui-label">{{formdata.goods_date}}</text>
             </view>
           </view>
 
@@ -83,10 +84,7 @@
               <label class="weui-label">上架货品</label>
             </view>
             <view>
-              <wux-upload listType="picture-card" fileList="{{ fileList }}" controlled
-                url="https://www.skyvow.cn/api/common/file" bind:change="onChange" bind:success="onSuccess"
-                bind:complete="onComplete" bind:preview="onPreview" bind:remove="onRemove">
-                <text>+</text>
+              <wux-upload listType="picture-card" fileList="{{img_list}}" controlled max='1'>
               </wux-upload>
             </view>
           </view>
@@ -98,7 +96,7 @@
                 <label class="weui-label">供货商姓名</label>
               </view>
               <view class="weui-cell__bd">
-                <text class="weui-label">{{formdata.gong_nm}}</text>
+                <text class="weui-label">{{formdata.ghs_name}}</text>
               </view>
             </view>
 
@@ -108,7 +106,17 @@
                 
               </view>
               <view class="weui-cell__bd">
-              <text class="weui-label">{{formdata.gong_tel}}</text>
+              <text class="weui-label">{{formdata.ghs_phone}}</text>
+              </view>
+            </view>
+          </view>
+          <text>\n</text>
+          <view class="weui-cells__title">备注</view>
+          <view class="weui-cells weui-cells_form">
+            <!-- 备注 选项 -->
+            <view class="weui-cell weui-cell_active">
+              <view class="weui-cell__bd">
+                <text class="weui-label">{{formdata.goods_beizhu}}</text>
               </view>
             </view>
           </view>
@@ -120,7 +128,6 @@
       <view class="foot2">复制</view>
       <view class="foot3" bindtap="onpull">删除</view>
     </view>
-
   </view>
   
   <view class="fu">

@@ -15,7 +15,7 @@ Page({
   },
   to: function () {
     wx.navigateTo({ 
-      url: '/pages/register/register' 
+      url: "/pages/goods_detail/goods_detail?id=A68" 
     })
   },
   /**

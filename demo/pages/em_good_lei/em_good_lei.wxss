@@ -21,6 +21,7 @@
 }
 
 .cardrow{
+  position: relative;
   height: 70px;
   line-height: 70px;
   padding-left: 30px;
@@ -96,4 +97,13 @@
 .divimg{
   height: 100%;
   width: 100%;
+}
+
+.myinput{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 50%;
 }

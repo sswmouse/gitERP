@@ -5,26 +5,50 @@ Page({
    * 页面的初始数据
    */
   data: {
-    formdata: {}
+    formdata: "",
+    img_list: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var mypage = this
-    wx.getStorage({
-      key: "formdata",
+    var that = this
+    wx.request({
+      url: 'http://localhost:3000/get_goods',
+      data: {
+        goods_id: options.id
+      },
+      method: "POST",
       success(res) {
-        // console.log(res.data)
-        mypage.setData({
-          formdata: res.data
+        //数组对象没被解析出来 在单独解析一下 或者使用字符串替换掉[]外的引号
+        let data = JSON.parse(res.data.detail)[0]
+        data.goods_img = JSON.parse(data.goods_img)
+        let imgs = data.goods_img
+        console.log(imgs)
+        for (var i = 0; i < imgs.length; i++) {
+          let a = { url: 'http://localhost:3000/img/' + imgs[i] }
+          that.data.img_list.push(a)
+        }
+        console.log(that.data.img_list)
+        that.setData({
+          formdata: data,
+          img_list: that.data.img_list
         })
-        console.log("formdata:...")
-        console.log(this.data.formdata)
       }
     })
-
+    // 获得页面中间部位的高度
+    const query = wx.createSelectorQuery()
+    query.select('.coverdiv').boundingClientRect()
+    query.select('.footdiv').boundingClientRect()
+    query.exec(function (res) {
+      console.log(res)
+      var cha_zhi = res[0].height - res[1].height - res[0].height * 0.03
+      // console.log(cha_zhi)
+      that.setData({
+        bot_height: cha_zhi
+      })
+    })
   },
 
   /**
@@ -76,10 +100,10 @@ Page({
 
   },
 
-  onpull(){
+  onpull() {
     wx.showModal({
       title: '是否删除货品？',
-      success (res) {
+      success(res) {
         if (res.confirm) {
           console.log('用户点击确定')
         } else if (res.cancel) {

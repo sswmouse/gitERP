@@ -1,12 +1,12 @@
 <!-- 最外层 -->
-<view class="coverdiv">
+<view class="coverdiv bggg">
   <!-- 满屏 -->
-  <view class="container bggg">
-  <!-- from表单 -->
+  <view class="container" style="{{'height:'+bot_height+'px'}}">
+    <!-- from表单 -->
     <view class="weui-form formondiv">
       <!-- 表单全部内容 -->
       <view class="weui-cells__group weui-cells__group_form">
-        <!-- 头部标题 -->
+        <!-- 货品入库信息 标题 -->
         <view class="weui-cells__title">货品入库信息</view>
         <view class="weui-cells weui-cells_form">
           <!-- 入库编号 -->
@@ -44,9 +44,11 @@
           </view>
           <!-- 货品类别选项 -->
           <view wx:if="{{treeye==1}}" class="classify">
-            <view wx:for="{{classList}}" wx:key='*this' class="classList" bindtap="classify" data-index="{{index}}">{{item.name}}</view>
+            <view wx:for="{{classList}}" wx:key='*this' class="{{is_classList==index?'is_classList':'classList'}}"
+              bindtap="classify" data-index="{{index}}">{{item.name}}</view>
+            <view class="classList" bindtap="to_add" data-index="{{index}}">+</view>
           </view>
-
+          <!-- 货品数量选项 -->
           <view class="weui-cell weui-cell_active">
             <view class="weui-cell__hd">
               <label class="weui-label">货品数量</label>
@@ -56,17 +58,17 @@
                 bindinput='ch_num' />
             </view>
           </view>
-
+          <!-- 货品数量 选项 -->
           <view class="weui-cell weui-cell_active">
             <view class="weui-cell__hd">
-              <label class="weui-label">货品颜色</label>
+              <label class="weui-label">货品数量</label>
             </view>
             <view class="weui-cell__bd">
               <input class="weui-input" placeholder="请填写入库货品颜色" placeholder-class="weui-input__placeholder"
                 bindinput='ch_clour' />
             </view>
           </view>
-
+          <!-- 货品尺码 选项 -->
           <view class="weui-cell weui-cell_active">
             <view class="weui-cell__hd">
               <label class="weui-label">货品尺码</label>
@@ -76,7 +78,7 @@
                 bindinput='ch_size' />
             </view>
           </view>
-
+          <!-- 货品价格 选项 -->
           <view class="weui-cell weui-cell_active">
             <view class="weui-cell__hd">
               <label class="weui-label">货品价格</label>
@@ -86,57 +88,74 @@
                 bindinput='ch_money' />
             </view>
           </view>
-
+          <!-- 上架时间 选项 -->
           <view class="weui-cell weui-cell_active">
             <view class="weui-cell__hd">
               <label class="weui-label">上架时间</label>
             </view>
             <view class="weui-cell__bd">
-              <picker mode="date" value="{{date}}" start="2015-01-01" end="2030-12-31" bindchange="bindDateChange">
+              <picker mode="date" value="{{date}}" start="2015-01-01" end="{{nowTime}}" bindchange="bindDateChange">
                 <text class="weui-input__placeholder">{{uptime}}</text>
               </picker>
             </view>
           </view>
-
+          <!-- 上架货品 选项 -->
           <view class="weui-cell weui-cell_active blk">
             <view class="weui-cell__hd">
               <label class="weui-label">上架货品</label>
             </view>
-            <view>
+            <text>\n</text>
+            <view class="weui-cell__bd">
               <wux-upload listType="picture-card" fileList="{{ fileList }}" controlled
                 url="https://www.skyvow.cn/api/common/file" bind:change="onChange" bind:success="onSuccess"
-                bind:complete="onComplete" bind:preview="onPreview" bind:remove="onRemove">
+                bind:complete="onComplete" bind:preview="onPreview" bind:remove="onRemove" max='3'>
                 <text>+</text>
               </wux-upload>
             </view>
           </view>
+        </view>
 
-          <view class="weui-cells__title">其他信息</view>
-          <view class="weui-cells weui-cells_form">
-            <view class="weui-cell weui-cell_active">
-              <view class="weui-cell__hd">
-                <label class="weui-label">供货商姓名</label>
-              </view>
-              <view class="weui-cell__bd">
-                <input class="weui-input" placeholder="供货商姓名" placeholder-class="weui-input__placeholder"
-                  bindinput='ch_gong_nm' />
-              </view>
+        <!-- 其他信息 标题 -->
+        <text>\n</text>
+        <view class="weui-cells__title">其他信息</view>
+        <view class="weui-cells weui-cells_form">
+          <!-- 供货商姓名 选项 -->
+          <view class="weui-cell weui-cell_active">
+            <view class="weui-cell__hd">
+              <label class="weui-label">供货商姓名</label>
             </view>
+            <view class="weui-cell__bd">
+              <input class="weui-input" placeholder="供货商姓名" placeholder-class="weui-input__placeholder"
+                bindinput='ch_gong_nm' />
+            </view>
+          </view>
+          <!-- 供货商手机号 选项 -->
+          <view class="weui-cell weui-cell_active">
+            <view class="weui-cell__hd">
+              <label class="weui-label">供货商手机号</label>
+            </view>
+            <view class="weui-cell__bd">
+              <input class="weui-input" placeholder="供货商手机号" placeholder-class="weui-input__placeholder"
+                bindinput='ch_gong_tel' />
+            </view>
+          </view>
+        </view>
 
-            <view class="weui-cell weui-cell_active">
-              <view class="weui-cell__hd">
-                <label class="weui-label">供货商手机号</label>
-              </view>
-              <view class="weui-cell__bd">
-                <input class="weui-input" placeholder="供货商手机号" placeholder-class="weui-input__placeholder"
-                  bindinput='ch_gong_tel' />
-              </view>
+        <!-- 备注 标题 -->
+        <text>\n</text>
+        <view class="weui-cells__title">备注</view>
+        <view class="weui-cells weui-cells_form">
+          <!-- 备注 选项 -->
+          <view class="weui-cell weui-cell_active">
+            <view class="weui-cell__bd">
+              <textarea type="text" style="height:100px" class="weui-input" placeholder="请输入"
+                placeholder-class="weui-input__placeholder" bindinput='ch_beizhu' />
             </view>
           </view>
         </view>
       </view>
     </view>
     <!-- 保存按钮 -->
-    <view class="zz_sub" bindtap="zz_sub">保存</view>
   </view>
+  <view class="zz_sub" bindtap="zz_sub">保存</view>
 </view>

@@ -1,113 +1,131 @@
 /* pages/index/newrklist.wxss */
-.treeye{
+
+/* 最外层大div */
+.coverdiv {
+  width: 100%;
+  height: 100vh;
+}
+
+/* 货品类别展开按钮样式1 */
+.treeye {
   height: 10px;
   width: 10px;
   align-content: center;
 }
-
-.treeye2{
+/* 货品类别展开按钮样式2 */
+.treeye2 {
   height: 6px;
   width: 10px;
   align-content: center;
 }
-
+/* 第二层大div */
 .container {
   height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
   padding: 20rpx 20rpx;
   box-sizing: border-box;
+  overflow: scroll;
 }
-
-.coverdiv{
-  /* position: absolute; */
-  width: 100%;
-}
-
-.formondiv{
-  height: 85vh;
-  overflow: auto;
+/* 表单样式 */
+.formondiv {
   border-radius: 10px;
 }
 
-.bggg{
+/* 滚动条隐藏 */
+.container::-webkit-scrollbar {
+  display: none;
+}
+
+/* 滤镜 */
+.bggg {
   background-color: rgba(0, 0, 0, 0.05);
 }
-
-.cc{
-  width: 100%;
-  height: 100%;
-}
-
-.weui-cells__title{
+/* 三大模块标题样式 */
+.weui-cells__title {
   font-size: 15px;
-	font-weight: normal;
-	font-stretch: normal;
-	letter-spacing: 0px;
-	color: #040404;
+  font-weight:normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #040404;
+  border-left: 3px solid #fccc04;
 }
 
-.weui-cells__group_form .weui-label{
+/* 输入框左侧描述 */
+.weui-cells__group_form .weui-label {
   /* 最大宽度清除 */
-  max-width:none;
+  max-width: none;
   font-size: 12px;
-	font-weight: normal;
-	font-stretch: normal;
-	letter-spacing: 0px;
-	color: #494848;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #494848;
 }
-
-view .weui-form{
+/* 顶部距离 */
+view .weui-form {
   padding: calc(10px + env(safe-area-inset-top)) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
 }
-
-.weui-input{
+/* 输入框样式 */
+.weui-input {
   font-size: 12px;
-	font-weight: normal;
-	font-stretch: normal;
-	letter-spacing: 0px;
-	color: #494848;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #494848;
 }
-
-.weui-input__placeholder{
+/* 指定 placeholder 的样式类 */
+.weui-input__placeholder {
   font-size: 12px;
-	font-weight: normal;
-	font-stretch: normal;
-	letter-spacing: 0px;
-	color: #8f8f8f;
+  font-weight: normal;
+  font-stretch: normal;
+  letter-spacing: 0px;
+  color: #8f8f8f;
 }
-
-.zz_sub{
+/* 保存按钮样式 */
+.zz_sub {
   width: 90%;
   height: 40px;
-  margin: auto;
+  display: inline-block;
+  margin-left:5%;
   line-height: 40px;
   text-align: center;
   background-color: #fccc04;
   border-radius: 8px;
   font-size: 18px;
-	font-weight: normal;
-	font-stretch: normal;
-	letter-spacing: 0px;
-	color: #040404;
+  color: #040404;
+  position: fixed;
+  bottom: 2%;
 }
 
-view .blk{
+/* 图标排列样式 */
+view .blk {
   display: block;
 }
 
-.classList{
+/* 商品分类基础样式 */
+.classList {
   float: left;
   border: 1px solid #d5d5d5;
-  margin-right:10px;
-  margin-bottom:10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
   font-size: 12px;
   color: #d5d5d5;
-  border-radius:3px;
+  border-radius: 3px;
   padding: 2px 4px 2px 4px;
 }
-.classify{
+/* 商品分类选中样式 */
+.is_classList {
+  float: left;
+  border: 1px solid #fccc04;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: black;
+  border-radius: 3px;
+  padding: 2px 4px 2px 4px;
+  background-color: #fccc04;
+}
+
+/* 商品分类栏样式 */
+.classify {
   overflow: hidden;
   padding: 16px 32px;
 }
