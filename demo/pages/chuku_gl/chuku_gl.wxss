@@ -8,6 +8,10 @@
   padding: 10px 0;
   background-color: rgba(5, 5, 5,0.05);
 }
+.content{
+  height: 90vh;
+  overflow: scroll;
+}
 /* 客户 和 货品统计*/
 .kehu{
   width: 94%;
@@ -20,15 +24,17 @@
 .kehu_row{
   display: flex;
   margin-bottom: 10px;
+  padding: 5px 0;
+  border-bottom: 1px solid rgb(235, 234, 234);
 }
 .kehu_row1{
   flex: 1;
-  border-bottom: 1px solid rgb(235, 234, 234);
+  /* border-bottom: 1px solid rgb(235, 234, 234); */
   /* border: 1px solid darkblue; */
 }
 .kehu_row2{
   flex: 1;
-  border-bottom: 1px solid rgb(235, 234, 234);
+  /* border-bottom: 1px solid rgb(235, 234, 234); */
   /* border: 1px solid darkblue; */
   text-align: right;
 }
@@ -103,12 +109,86 @@
 
 /* 保存出库单 */
 .bc_btn_css{
+  position: fixed;
+  bottom: 0%;
   border-radius: 5px;
   background-color: #fcd005;
   width: 94%;
-  margin: 0 auto;
+  margin-left: 3%;
   text-align: center;
   font-size: 16px;
   font-weight: bold;
   padding: 8px 0;
+}
+
+.yixuan_hp_card{
+  width: 94%;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+}
+.yixuan_hp_row{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border-bottom: 1px solid rgb(235, 234, 234); */
+}
+.yixuan_hp_row1{
+  flex: 2;
+  /* border: 1px solid blue; */
+}
+.yixuan_hp_row2{
+  flex: 1;
+  text-align: right;
+  /* border: 1px solid blue; */
+}
+.yixuan_hp_row3{
+  flex: 0.3;
+  text-align: right;
+  /* border: 1px solid blue; */
+}
+.yixuan_del{
+  width: 14px;
+  height: 14px;
+}
+.yixuan_hp_row1_img{
+  width: 50px;
+  height: 50px;
+  margin-right: 2%;
+  /* border: 1px solid red; */
+  vertical-align: top;
+}
+.yixuan_name{
+  display: inline-block;
+  /* border: 1px solid red; */
+}
+.yixuan_hp_cs{
+  /* border: 1px solid red; */
+  margin: 2% 0%;
+  padding: 2% 0%;
+  border-top: 1px solid rgb(235, 234, 234);
+  border-bottom: 1px solid rgb(235, 234, 234);
+  display: flex;
+  align-items: center;
+}
+.yixuan_dx{
+  flex: 1;
+}
+.yixuan_jg{
+  flex: 1;
+}
+.yixuan_sl{
+  flex: 1;
+}
+.reduce{
+  width: 40px;
+  height: 28px;
+}
+.num{
+  font-size: 15px;
+  vertical-align: top;
+  margin: 0% 8%;
+}
+.add{
+  width: 40px;
+  height: 28px;
 }

@@ -22,7 +22,7 @@
         </view>
       </view>
       <!-- 已选货品卡片 -->
-      <view wx:for="12" class="yixuan_card">
+      <view wx:for="12" class="yixuan_card" wx:key="this">
         <view class="yixuan_hp">
           <view class="one">
             <view class="left">

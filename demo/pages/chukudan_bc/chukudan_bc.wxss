@@ -93,16 +93,17 @@
 }
 .left{
   flex: 2;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 .right{
   flex: 1;
   text-align: right;
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
 }
 .img{
   width: 50px;
   height: 50px;
+  margin-right: 2%;
   /* border: 1px solid red; */
   vertical-align: top;
 }
