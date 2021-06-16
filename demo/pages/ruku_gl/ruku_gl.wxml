@@ -2,8 +2,8 @@
 <view class="coverdiv bggg">
   <!-- 满屏 -->
   <view class="container" style="{{'height:'+bot_height+'px'}}">
-    <!-- from表单 -->
-    <view class="weui-form formondiv">
+    <!-- 货品入库信息 表单div -->
+    <view class="formondiv">
       <!-- 表单全部内容 -->
       <view class="weui-cells__group weui-cells__group_form">
         <!-- 货品入库信息 标题 -->
@@ -36,9 +36,10 @@
             </view>
             <view class="weui-cell__bd">
               <view bindtap="treeyetab">
-                <span class="weui-input__placeholder">请选择货品类别</span>
-                <image wx:if="{{treeye==0}}" class="treeye" src="/images/upper.png"></image>
-                <image wx:if="{{treeye==1}}" class="treeye2" src="/images/down_triangle.png"></image>
+                <icon class="{{treeye==0?'Icon2':'Icon1'}}"></icon>
+                <span class="weui-input__placeholder naer_left">请选择货品类别</span>
+                <!-- <image wx:if="{{treeye==0}}" class="treeye" src="/images/upper.png"></image>
+                <image wx:if="{{treeye==1}}" class="treeye2" src="/images/down_triangle.png"></image> -->
               </view>
             </view>
           </view>
@@ -58,10 +59,10 @@
                 bindinput='ch_num' />
             </view>
           </view>
-          <!-- 货品数量 选项 -->
+          <!-- 货品颜色 选项 -->
           <view class="weui-cell weui-cell_active">
             <view class="weui-cell__hd">
-              <label class="weui-label">货品数量</label>
+              <label class="weui-label">货品颜色</label>
             </view>
             <view class="weui-cell__bd">
               <input class="weui-input" placeholder="请填写入库货品颜色" placeholder-class="weui-input__placeholder"
@@ -94,7 +95,8 @@
               <label class="weui-label">上架时间</label>
             </view>
             <view class="weui-cell__bd">
-              <picker mode="date" value="{{date}}" start="2015-01-01" end="{{nowTime}}" bindchange="bindDateChange">
+              <picker class="naer_left" mode="date" value="{{date}}" start="2015-01-01" end="{{nowTime}}"
+                bindchange="bindDateChange">
                 <text class="weui-input__placeholder">{{uptime}}</text>
               </picker>
             </view>
@@ -115,8 +117,13 @@
           </view>
         </view>
 
-        <!-- 其他信息 标题 -->
-        <text>\n</text>
+
+      </view>
+    </view>
+
+    <!-- 其他信息 表单div -->
+    <view class="formondiv">
+      <view class="weui-cells__group weui-cells__group_form">
         <view class="weui-cells__title">其他信息</view>
         <view class="weui-cells weui-cells_form">
           <!-- 供货商姓名 选项 -->
@@ -140,21 +147,26 @@
             </view>
           </view>
         </view>
+      </view>
+    </view>
 
+    <!-- 备注 表单div -->
+    <view class="formondiv">
+      <view class="weui-cells__group weui-cells__group_form">
         <!-- 备注 标题 -->
-        <text>\n</text>
         <view class="weui-cells__title">备注</view>
         <view class="weui-cells weui-cells_form">
           <!-- 备注 选项 -->
           <view class="weui-cell weui-cell_active">
             <view class="weui-cell__bd">
-              <textarea type="text" style="height:100px" class="weui-input" placeholder="请输入"
-                placeholder-class="weui-input__placeholder" bindinput='ch_beizhu' />
+              <textarea type="text" style="height:100px" placeholder="请输入" placeholder-class="weui-input__placeholder"
+                bindinput='ch_beizhu' />
             </view>
           </view>
         </view>
       </view>
     </view>
+
     <!-- 保存按钮 -->
   </view>
   <view class="zz_sub" bindtap="zz_sub">保存</view>
