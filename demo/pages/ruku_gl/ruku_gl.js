@@ -5,16 +5,17 @@ Page({
     treeye: 0,
     date: '2021-06-01',
     uptime: "设置上架时间",
-    fileList: [
-    ],
-    formdata: { id: "", img: [] },
-    classList: [],
-    is_classList: [],
-    nowTime: "",
-    i: ''
+    fileList: [], //图片列表
+    formdata: { id: "", img: [] }, //表单数据
+    classList: [], //货品类别数据
+    is_classList: -1, //当前选择类别的下标
+    nowTime: "", //当前系统时间
+    i: '', //用于处理异步操作的变量
   },
-  //
+
+  //货品分类选择展开
   treeyetab() {
+    console.log(this.data.is_classList)
     if (this.data.treeye == 0) {
       this.setData({
         treeye: 1
@@ -35,58 +36,6 @@ Page({
     })
     this.data.formdata.uptime = this.data.date
   },
-  //上传商品图片事件
-  onChange(e) {
-    console.log('onChange', e.detail)
-    const { file, fileList } = e.detail
-    if (file.status === 'uploading') {
-      this.setData({
-        progress: 0,
-      })
-      wx.showLoading()
-    } else if (file.status === 'done') {
-      this.setData({
-        imageUrl: file.url,
-      })
-    }
-
-    // Controlled state should set fileList
-    this.setData({
-      fileList
-    })
-  },
-  //上传商品图片事件
-  onSuccess(e) {
-    // console.log('onSuccess', e)
-  },
-  //上传商品图片事件
-  onFail(e) {
-    // console.log('onFail', e)
-  },
-  //上传商品图片事件
-  onComplete(e) {
-    // console.log('onComplete', e)
-    wx.hideLoading()
-  },
-  //上传商品图片事件
-  onProgress(e) {
-    // console.log('onProgress', e)
-    this.setData({
-      progress: e.detail.file.progress,
-    })
-  },
-  //上传商品图片事件
-  onPreview(e) {
-    // console.log('onPreview', e)
-    const {
-      file,
-      fileList
-    } = e.detail
-    wx.previewImage({
-      current: file.url,
-      urls: fileList.map((n) => n.url),
-    })
-  },
   //选择货品类别
   classify(e) {
     let arr = []
@@ -100,7 +49,6 @@ Page({
   //保存按钮
   zz_sub() {
     console.log(this.data.formdata)
-    console.log(this.data.fileList)
     var formdata = this.data.formdata
     var fileList = this.data.fileList
     var that = this
@@ -122,8 +70,31 @@ Page({
       is_null = false
     }
     if (fileList.length >= 1 && is_null) {
-      this.data.i = 0
-      this.up(formdata, fileList)
+      wx.request({
+        url: 'http://localhost:3000/get_goods',
+        data: {
+          goods_id: formdata.id,
+        },
+        method: "POST",
+        success(res) {
+          if (res.data.detail == '[]') {
+            that.data.i = 0
+            that.up(formdata, fileList)
+          } else {
+            wx.showModal({
+              title: '此货品仓库已有！',
+              content: '',
+              success: function (res) {
+                if (res.confirm) {//这里是点击了确定以后
+                  console.log('用户点击确定')
+                } else {//这里是点击了取消以后
+                  console.log('用户点击取消')
+                }
+              }
+            })
+          }
+        }
+      })
     } else if (!is_null) {
       wx.showToast({
         title: '请完善商品信息', //提示文字
@@ -232,18 +203,18 @@ Page({
       nowTime: time
     })
 
-     // 获得页面中间部位的高度
-     const query = wx.createSelectorQuery()
-     query.select('.coverdiv').boundingClientRect()
-     query.select('.zz_sub').boundingClientRect()
-     query.exec(function (res) {
-       console.log(res)
-       var cha_zhi = res[0].height - res[1].height-res[0].height*0.03
-       // console.log(cha_zhi)
-       that.setData({
-         bot_height: cha_zhi
-       })
-     })
+    // 获得页面中间部位的高度
+    const query = wx.createSelectorQuery()
+    query.select('.coverdiv').boundingClientRect()
+    query.select('.zz_sub').boundingClientRect()
+    query.exec(function (res) {
+      console.log(res)
+      var cha_zhi = res[0].height - res[1].height - res[0].height * 0.03
+      // console.log(cha_zhi)
+      that.setData({
+        bot_height: cha_zhi
+      })
+    })
   },
 
   ch_id: function (e) {
@@ -279,5 +250,57 @@ Page({
   },
   ch_beizhu: function (e) {
     this.data.formdata.beizhu = e.detail.value
+  },
+  //上传商品图片事件
+  onChange(e) {
+    console.log('onChange', e.detail)
+    const { file, fileList } = e.detail
+    if (file.status === 'uploading') {
+      this.setData({
+        progress: 0,
+      })
+      wx.showLoading()
+    } else if (file.status === 'done') {
+      this.setData({
+        imageUrl: file.url,
+      })
+    }
+
+    // Controlled state should set fileList
+    this.setData({
+      fileList
+    })
+  },
+  //上传商品图片事件
+  onSuccess(e) {
+    // console.log('onSuccess', e)
+  },
+  //上传商品图片事件
+  onFail(e) {
+    // console.log('onFail', e)
+  },
+  //上传商品图片事件
+  onComplete(e) {
+    // console.log('onComplete', e)
+    wx.hideLoading()
+  },
+  //上传商品图片事件
+  onProgress(e) {
+    // console.log('onProgress', e)
+    this.setData({
+      progress: e.detail.file.progress,
+    })
+  },
+  //上传商品图片事件
+  onPreview(e) {
+    // console.log('onPreview', e)
+    const {
+      file,
+      fileList
+    } = e.detail
+    wx.previewImage({
+      current: file.url,
+      urls: fileList.map((n) => n.url),
+    })
   },
 })
