@@ -1,4 +1,6 @@
 // pages/index/newrklist.js
+var url = getApp().globalData.server
+
 Page({
   // 页面的初始数据
   data: {
@@ -71,7 +73,7 @@ Page({
     }
     if (fileList.length >= 1 && is_null) {
       wx.request({
-        url: 'http://localhost:3000/get_goods',
+        url: url+'get_goods',
         data: {
           goods_id: formdata.id,
         },
@@ -113,7 +115,7 @@ Page({
   up(formdata, fileList) {
     var that = this
     wx.uploadFile({
-      url: 'http://localhost:3000/add_goods', //仅为示例，非真实的接口地址
+      url: url+'add_goods', //仅为示例，非真实的接口地址
       filePath: fileList[that.data.i].url,
       name: 'file',
       formData: {
@@ -127,7 +129,7 @@ Page({
         }
         console.log(res.data)
         wx.redirectTo({
-          url: '/pages/goods_detail/goods_detail?id=' + formdata.id,
+          url: '/pages/goods_detail/goods_detail?is_show=2&id=' + formdata.id,
         })
       }, fail() {
         console.log(111)
@@ -154,7 +156,7 @@ Page({
           userInfo: wx.getStorageSync('user')
         })
         wx.uploadFile({
-          url: 'http://localhost:3000/change_img', //仅为示例，非真实的接口地址
+          url: url+'change_img', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
           name: 'file',
           formData: {
@@ -175,7 +177,7 @@ Page({
     //获取分类信息
     var that = this
     wx.request({
-      url: 'http://localhost:3000/get_classify',
+      url: url+'get_classify',
       data: {
         code: ''
       },

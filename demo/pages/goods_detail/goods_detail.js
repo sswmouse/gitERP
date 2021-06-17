@@ -1,4 +1,6 @@
 // pages/goods_detail/goods_detail.js
+var url = getApp().globalData.server
+
 Page({
   //数据
   data: {
@@ -12,40 +14,24 @@ Page({
   //生命周期
   onLoad: function (options) {
     //数据获取
-    console.log(options.id)
+    console.log(options)
+    if(options.is_show){
+      wx.showToast({
+        title: '入库成功',
+        icon: 'success',
+        duration: 2000//持续的时间
+      })
+    }
+    var that = this
     this.setData({
       fileList: []
     })
-    var that = this
-    wx.request({
-      url: 'http://localhost:3000/get_goods',
-      data: {
-        goods_id: options.id
-      },
-      method: "POST",
-      success(res) {
-        //数组对象没被解析出来 在单独解析一下 或者使用字符串替换掉[]外的引号
-        let data = JSON.parse(res.data.detail)[0]
-        data.goods_img = JSON.parse(data.goods_img)
-        for (var i = 0; i < data.goods_img.length; i++) {
-          let a = { url: 'http://localhost:3000/img/' + data.goods_img[i] }
-          that.data.fileList.push(a)
-        }
-        that.setData({
-          goods_date: data.goods_date,
-          formdata: data,
-          fileList: that.data.fileList
-        })
-        console.log(data)
-      }
-    })
-
+    this.getdata(options)
     // 获得页面中间部位的高度
     const query = wx.createSelectorQuery()
     query.select('.coverdiv').boundingClientRect()
     query.select('.footdiv').boundingClientRect()
     query.exec(function (res) {
-      console.log(res)
       var cha_zhi = res[0].height - res[1].height
       // console.log(cha_zhi)
       that.setData({
@@ -59,6 +45,31 @@ Page({
       nowTime: time
     })
   },
+  //数据获取
+  getdata(options) {
+    var that = this
+    wx.request({
+      url: url + 'get_goods',
+      data: {
+        goods_id: options.id
+      },
+      method: "POST",
+      success(res) {
+        //数组对象没被解析出来 在单独解析一下 或者使用字符串替换掉[]外的引号
+        let data = JSON.parse(res.data.detail)[0]
+        data.goods_img = JSON.parse(data.goods_img)
+        for (var i = 0; i < data.goods_img.length; i++) {
+          let a = { url: url + 'img/' + data.goods_img[i] }
+          that.data.fileList.push(a)
+        }
+        that.setData({
+          goods_date: data.goods_date,
+          formdata: data,
+          fileList: that.data.fileList
+        })
+      }
+    })
+  },
   //删除货品点击事件
   onpull() {
     var that = this
@@ -69,7 +80,7 @@ Page({
           console.log('用户点击确定')
           console.log(that.data.formdata.goods_id)
           wx.request({
-            url: 'http://localhost:3000/delete_goods',
+            url: url + 'delete_goods',
             data: {
               goods_id: that.data.formdata.goods_id,
             },
@@ -99,74 +110,54 @@ Page({
   //保存修改点击事件
   change_keep() {
     var that = this
-    var formdata = this.data.formdata
     var fileList = this.data.fileList
-    console.log(this.data.fileList)
     wx.showModal({
       title: '是否确定修改！',
       content: '',
       success: function (res) {
         if (res.confirm) {//这里是点击了确定以后
-          wx.request({
-            url: 'http://localhost:3000/get_goods',
-            data: {
-              goods_id: formdata.id,
-            },
-            method: "POST",
-            success(res) {
-              if (res.data.detail == '[]') {
-                that.data.i = 0
-                var fileList_add = []
-                //排除本地读取的数据库图片
-                for (var j = 0; j < fileList.length; j++) {
-                  if (fileList[j].url.indexOf("http://localhost:3000/img/") == -1) {
-                    fileList_add.push(fileList[j])
-                  }
-                }
-                if (fileList_add.length > 0) {
-                  that.up(formdata, fileList_add)
-                } else {
-                  that.up1(formdata)
-                }
-              } else {
-                wx.showModal({
-                  title: '修改失败！',
-                  content: '',
-                  success: function (res) {
-                    if (res.confirm) {//这里是点击了确定以后
-                      console.log('用户点击确定')
-                    } else {//这里是点击了取消以后
-                      console.log('用户点击取消')
-                    }
-                  }
-                })
-              }
+          var fileList_add = []
+          //排除本地读取的数据库图片
+          for (var j = 0; j < fileList.length; j++) {
+            if (fileList[j].url.indexOf(url + "img/") == -1) {
+              fileList_add.push(fileList[j])
             }
+          }
+          that.up_data()
+          if (fileList_add.length > 0) {
+            that.data.i = 0
+            that.up_img(fileList_add)
+          }
+          setTimeout(function () {
+            that.onLoad({id:that.data.formdata.goods_id})
+          },1000)
+          wx.showToast({
+            title: '保存成功',
+            icon: 'success',
+            duration: 2000//持续的时间
           })
         } else {//这里是点击了取消以后
           console.log('用户点击取消')
-          console.log(Promise)
         }
       }
     })
   },
   //修改时有图片变动
-  up(formdata, fileList) {
+  up_img(fileList_add) {
+    var formdata = this.data.formdata
     var that = this
     wx.uploadFile({
-      url: 'http://localhost:3000/change_goods',
-      filePath: fileList[that.data.i].url,
+      url: url + 'change_goods_img',
+      filePath: fileList_add[that.data.i].url,
       name: 'file',
       formData: {
         'user': 'img',
-        formdata: JSON.stringify(formdata)
+        goods_id: formdata.goods_id
       },
       success(res) {
         that.data.i++
-        if (that.data.i < fileList.length) {
-          that.up(formdata, fileList)
-        } else {
-          that.onLoad()
+        if (that.data.i < fileList_add.length) {
+          that.up_img(fileList_add)
         }
       }, fail(err) {
         console.log(err)
@@ -174,16 +165,18 @@ Page({
     })
   },
   //修改时没有图片变动
-  up1(formdata) {
+  up_data() {
+    var that = this
+    var formdata = this.data.formdata
     wx.request({
-      url: 'http://localhost:3000/change_goods',
+      url: url + 'change_goods_data',
       data: {
         formdata: JSON.stringify(formdata)
       },
       method: "POST",
       success(res) {
-        that.onLoad()
-        console.log(res.data.detail)
+        console.log(res)
+        // that.onLoad({ id: formdata.goods_id })
       }, fail(err) {
         console.log(err)
       }
@@ -245,21 +238,20 @@ Page({
   //图片删除事件
   onRemove(e) {
     var that = this
-    console.log(this.data.formdata)
     let str = e.detail.file.url
     var str1 = ""
     for (let j = 26; j < str.length; j++) {
       str1 = str1 + str[j]
     }
     wx.request({
-      url: 'http://localhost:3000/delete_goods_img',
+      url: url + 'delete_goods_img',
       data: {
         goods_id: that.data.formdata.goods_id,
         img: str1
       },
       method: "POST",
       success(res) {
-        that.onLoad()
+        that.onLoad({ id: that.data.formdata.goods_id })
       }
     })
   },

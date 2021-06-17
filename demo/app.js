@@ -51,7 +51,8 @@ App({
   },
   globalData: {
     userInfo: null,
-    is_register:"false"
+    is_register:"false",
+    server:'http://localhost:3000/'
   },
   // 全局数据
   globalUrl: {

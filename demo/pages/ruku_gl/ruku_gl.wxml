@@ -103,7 +103,7 @@
               <label class="weui-label">上架时间</label>
             </view>
             <view class="weui-cell__bd">
-              <picker class="naer_left" mode="date" value="{{date}}" start="2015-01-01" end="{{nowTime}}"
+              <picker class="naer_left" mode="date" value="{{nowTime}}" start="2015-01-01" end="{{nowTime}}"
                 bindchange="bindDateChange">
                 <text class="weui-input__placeholder">{{uptime}}</text>
               </picker>
