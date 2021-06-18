@@ -73,7 +73,7 @@ Page({
     }
     if (fileList.length >= 1 && is_null) {
       wx.request({
-        url: url+'get_goods',
+        url: url + 'get_goods',
         data: {
           goods_id: formdata.id,
         },
@@ -115,7 +115,7 @@ Page({
   up(formdata, fileList) {
     var that = this
     wx.uploadFile({
-      url: url+'add_goods', //仅为示例，非真实的接口地址
+      url: url + 'add_goods', //仅为示例，非真实的接口地址
       filePath: fileList[that.data.i].url,
       name: 'file',
       formData: {
@@ -156,7 +156,7 @@ Page({
           userInfo: wx.getStorageSync('user')
         })
         wx.uploadFile({
-          url: url+'change_img', //仅为示例，非真实的接口地址
+          url: url + 'change_img', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
           name: 'file',
           formData: {
@@ -174,10 +174,28 @@ Page({
   },
   // 生命周期函数--监听页面加载
   onLoad: function (options) {
-    //获取分类信息
     var that = this
+    if (options.id) {
+      wx.request({
+        url: url + 'get_goods',
+        data: {
+          goods_id: options.id
+        },
+        method: "POST",
+        success(res) { 
+          let a = res.data.detail
+          a = a.replace(/\\/g, "");
+          a = a.replace(/:"\[/g, ":[");
+          a = a.replace(/\]"/g, "]");
+          a = JSON.parse(a)
+          that.setData({
+            goodsList:a[0]
+          })
+        }
+      })
+    }
     wx.request({
-      url: url+'get_classify',
+      url: url + 'get_classify',
       data: {
         code: ''
       },

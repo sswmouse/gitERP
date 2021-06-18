@@ -126,3 +126,61 @@
   color: #fcec03 ;
   border: 1px solid  #fcec03;
 }
+
+
+.lvjing{
+  background-color: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+}
+/* 补货弹框 */
+.buhuo_tk{
+  width: 100%;
+  position: fixed;
+  bottom: 0%;
+  box-sizing: border-box;
+  /* border: 1px solid red; */
+}
+.buhuo_tk_top{
+  width: 90%;
+  background-color: #F2F2F2;
+  padding: 2% 5%;
+  display: flex;
+}
+.buhuo_tk_top_row1{
+  flex: 1;
+}
+.buhuo_tk_top_row2{
+  flex: 1;
+  text-align: right;
+}
+.buhuo_tk_bottom{
+  width: 100%;
+  background-color: #ffffff;
+  padding: 3% 5%;
+}
+.buhuo_tk_bottom_add{
+  text-align: center;
+  /* border: 1px solid red; */
+  padding: 2% 0%;
+}
+.reduce{
+  width: 40px;
+  height: 28px;
+}
+.num{
+  font-size: 15px;
+  display: inline-block;
+  vertical-align: top;
+  width: 26%;
+}
+.add{
+  width: 40px;
+  height: 28px;
+}
+.confirm_css{
+  margin-top: 5%;
+  background-color: #FCCD05;
+}

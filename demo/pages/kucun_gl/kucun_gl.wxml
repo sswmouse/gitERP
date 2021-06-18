@@ -15,8 +15,8 @@
   <view class="bottom" style="{{'height:'+bot_height+'px'}}">
     <view class="bot_center">
       <!-- 卡片 后面封装 -->
-      <view wx:for="{{goodsList}}" class="card" wx:key="*this" >
-        <view bindtap="look" data-index="{{item}}">
+      <view wx:for="{{goodsList}}" class="card" wx:key="this">
+        <view bindtap="look" data-item="{{item}}">
           <view class="one">
             <view class="left">
               <image class="img" src="{{url+'img/'+item.goods_img[0]}}"></image>
@@ -32,27 +32,48 @@
               <text>\n</text>
               <text wx:if="{{sty==0}}">入库数量：{{item.goods_number}}</text>
               <text wx:if="{{sty==1}}">库存总量：{{item.goods_number-item.chuku_number}}</text>
-              <text wx:if="{{sty==2}}">入库数量：{{item.chuku_number}}</text>
+              <text wx:if="{{sty==2}}">出库数量：{{item.chuku_number}}</text>
             </view>
           </view>
-        <view class="two">
-          <text class="ghs">供货商姓名：{{item.ghs_name}}</text>
-          <text class="datetime" style="color:#999999">上架时间：{{item.goods_date}}</text>
+          <view class="two">
+            <text class="ghs">供货商姓名：{{item.ghs_name}}</text>
+            <text class="datetime" style="color:#999999">上架时间：{{item.goods_date}}</text>
+          </view>
         </view>
-      </view>
+
         <view wx:if="{{sty==0}}" class="three" wx:key="*this">
           <view class="fuzhi">复制上架</view>
-          <view class="bj">编辑</view>
+          <view class="bj" bindtap="look" data-item="{{item}}">编辑</view>
         </view>
         <view wx:if="{{sty==1}}" class="three">
           <view class="fuzhi">复制上架</view>
-          <view class="bj">编辑</view>
-          <view class="buhuo">补货</view>
+          <view class="bj" bindtap="look" data-item="{{item}}">编辑</view>
+          <view class="buhuo" bindtap="buhuo" data-item="{{item}}">补货</view>
         </view>
         <view wx:if="{{sty==2}}" class="three">
-          <view class="fuzhi">再次入库</view>
+          <view class="fuzhi" bindtap="to_add" data-item="{{item}}">再次入库</view>
         </view>
 
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 补货弹框 -->
+<view wx:if="{{is_add}}" class="lvjing">
+  <view class="buhuo_tk">
+    <view class="buhuo_tk_top">
+      <view class="buhuo_tk_top_row1">请输入补货数量</view>
+      <view class="buhuo_tk_top_row2" bindtap="exit_buhuo">关闭</view>
+    </view>
+    <view class="buhuo_tk_bottom">
+      <view>货品名称: {{buhuoList.goods_name}}</view>
+      <view>货品编号: {{buhuoList.goods_id}}</view>
+      <view class="buhuo_tk_bottom_add">
+        <image class="reduce" src="{{reduce_icon}}" bindtap="reduce_btn"></image>
+        <input type="number" class="num" value="{{reduce_add}}" bindinput="add_number"  />
+        <image class="add" src="{{add_icon}}" bindtap="add_btn"></image>
+        <button class="confirm_css" bindtap="change_number" data-item="{{buhuoList}}">确定</button>
       </view>
     </view>
   </view>
