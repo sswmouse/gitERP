@@ -5,8 +5,7 @@ Page({
   data: {
     sty: 0,//头部选项卡当前选项下标
     list: ['入库流水', '已入库', '已出库'],//头部选项卡
-    goodsList: '',
-    url: url,
+    url: url,//服务器地址
     reduce_icon: APP.globalUrl.url + "images/minus_icon.png",  //减图标
     add_icon: APP.globalUrl.url + "images/plus_icon.png",  //加图标
     reduce_add: 1,  //加减中数字的显示
@@ -15,19 +14,126 @@ Page({
   //生命周期
   onLoad: function (options) {
     var that = this
+    // let p1 = new Promise(function (reslove, reject) {
+    //   that.getdata(reslove, reject)
+    // })
+    // p1.then((data) => {
+    //   console.log(data)
+    // })
+
     this.getdata()
+    this.getdata_into()
+    this.getdata_out()
+    // setTimeout(function () {
+    //   console.log(that.data.goodsList_into)
+    // }, 1000)
     // 获得页面中间部位的高度
     var that = this
     const query = wx.createSelectorQuery()
     query.select('.kucun').boundingClientRect()
     query.select('.top').boundingClientRect()
     query.exec(function (res) {
-      console.log(res)
       var cha_zhi = res[0].height - res[1].height - 5
       // console.log(cha_zhi)
       that.setData({
         bot_height: cha_zhi
       })
+    })
+  },
+  //搜索查询输入框
+  sousuo(e) {
+    var inp_value = e.detail.value
+    //界面1搜索
+    let data_into0 = this.data.goodsList_into1
+    let data0 = []
+    for (var i = 0; i < data_into0.length; i++) {
+      if (data_into0[i].goods_id.indexOf(inp_value) != -1 || data_into0[i].goods_name.indexOf(inp_value) != -1 || data_into0[i].goods_leibie.indexOf(inp_value) != -1) {
+        data0.push(data_into0[i])
+      }
+    }
+    this.setData({
+      goodsList_into: data0
+    })
+    //界面2搜索
+    let data_into1 = this.data.goodsList1
+    let data1 = []
+    for (var i = 0; i < data_into1.length; i++) {
+      if (data_into1[i].goods_id.indexOf(inp_value) != -1 || data_into1[i].goods_name.indexOf(inp_value) != -1 || data_into1[i].goods_leibie.indexOf(inp_value) != -1) {
+        data1.push(data_into1[i])
+      }
+    }
+    this.setData({
+      goodsList: data1
+    })
+    //界面3搜索
+    let data_into2 = this.data.goodsList_out1
+    let data2 = []
+    for (var i = 0; i < data_into2.length; i++) {
+      if (data_into2[i].goods_id.indexOf(inp_value) != -1 || data_into2[i].goods_name.indexOf(inp_value) != -1 || data_into2[i].goods_leibie.indexOf(inp_value) != -1) {
+        data2.push(data_into2[i])
+      }
+    }
+    this.setData({
+      goodsList_out: data2
+    })
+
+  },
+  //商品数据获取
+  getdata(reslove, reject) {
+    var that = this
+    wx.request({
+      url: 'http://127.0.0.1:3000/get_all_goods',
+      method: "get",
+      success(res) {
+        let b = JSON.stringify(res.data.info)
+        b = b.replace(/\\/g, "");
+        b = b.replace(/:"\[/g, ":[");
+        b = b.replace(/\]"/g, "]");
+        b = JSON.parse(b)
+        that.setData({
+          goodsList: b,
+          goodsList1: b
+        })
+        // reslove('成功')
+      }
+    })
+  },
+  //商品入库流水获取
+  getdata_into() {
+    var that = this
+    wx.request({
+      url: 'http://127.0.0.1:3000/get_goods_into',
+      method: "get",
+      success(res) {
+        let b = JSON.stringify(res.data.info)
+        b = b.replace(/\\/g, "");
+        b = b.replace(/:"\[/g, ":[");
+        b = b.replace(/\]"/g, "]");
+        b = JSON.parse(b)
+        that.setData({
+          goodsList_into: b,
+          goodsList_into1: b
+        })
+      }
+    })
+  },
+  //商品出库流水获取
+  getdata_out() {
+    var that = this
+    wx.request({
+      url: 'http://127.0.0.1:3000/get_goods_out',
+      method: "get",
+      success(res) {
+        let b = JSON.stringify(res.data.info)
+        b = b.replace(/\\/g, "");
+        b = b.replace(/:"\[/g, ":[");
+        b = b.replace(/\]"/g, "]");
+        b = JSON.parse(b)
+        that.setData({
+          goodsList_out: b,
+          goodsList_out1: b,
+        })
+      }
     })
   },
   //减去按钮
@@ -61,21 +167,21 @@ Page({
     var that = this
     let query = e.currentTarget.dataset['item'];
     console.log(query.goods_number)
-    query.goods_number = (query.goods_number-0) + this.data.reduce_add
+    query.goods_number = (query.goods_number - 0) + this.data.reduce_add
     console.log(query.goods_id)
     wx.request({
       url: url + 'goods_into',
       method: "POST",
       data: {
         formdata: JSON.stringify(query),
-        into_number:that.data.reduce_add
+        into_number: that.data.reduce_add
       },
       header: {
         'content-type': 'application/json' // 默认值
       },
       success(res) {
         that.setData({
-          is_add:false
+          is_add: false
         })
         wx.showToast({
           title: '补货成功！', //提示文字
@@ -86,11 +192,13 @@ Page({
       }
     })
   },
-  exit_buhuo(){
+  //关闭补货框
+  exit_buhuo() {
     this.setData({
-      is_add:false
+      is_add: false
     })
   },
+  //步进器
   add_number(e) {
     this.setData({
       reduce_add: e.detail.value - 0
@@ -114,7 +222,7 @@ Page({
     }
   },
   //头部选项卡点击事件
-  dianji: function (e) {
+  dianji(e) {
     let query = e.currentTarget.dataset['index'];
     this.setData({
       sty: query
@@ -134,26 +242,4 @@ Page({
       url: '/pages/ruku_gl/ruku_gl?id=' + a.goods_id,
     })
   },
-  //商品数据获取
-  getdata() {
-    var that = this
-    wx.request({
-      url: 'http://127.0.0.1:3000/get_all_goods',
-      method: "get",
-      success(res) {
-        let b = JSON.stringify(res.data.info)
-        b = b.replace(/\\/g, "");
-        b = b.replace(/:"\[/g, ":[");
-        b = b.replace(/\]"/g, "]");
-        b = JSON.parse(b)
-        that.setData({
-          goodsList: b
-        })
-      }
-    })
-  },
-  
-  xiangqing: function () {
-    console.log(111)
-  }
 });
