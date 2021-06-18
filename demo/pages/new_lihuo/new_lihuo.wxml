@@ -1,0 +1,8 @@
+<view>
+  <view class="catdiv">
+    <image class="catimg" src="/images/sharecat.png" mode="aspectFit" />
+  </view>
+  <view class="hhh">邀您加入玩物ERP店铺</view>
+  <view class="zz_sub bgy" bindtap="yes">立即加入</view>
+  <view class="zz_sub bgg" bindtap="no">暂不加入</view>
+</view>

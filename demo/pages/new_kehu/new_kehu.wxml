@@ -1,0 +1,35 @@
+<!--pages/good_gl/good_gl.wxml-->
+<view>
+  <view class="container bggg">
+    <view class="carddiv">
+      <view class="cardrow">
+        店铺地址
+        <input class="weui-input myinput" bindinput="input1" auto-focus placeholder="输入店铺地址" />
+        
+      </view>
+      <view class="cardrow">
+        客户姓名
+        <input class="weui-input myinput" bindinput="input2" auto-focus placeholder="输入客户姓名" />
+      </view>
+
+      <view class="cardrow">
+        客户手机号
+        <input class="weui-input myinput" bindinput="input3" auto-focus placeholder="输入客户手机号" />
+      </view>
+
+      <view class="cardrow">
+        验证码
+        <input class="weui-input myinput" bindinput="input4" auto-focus placeholder="输入验证码" />
+      </view>
+    </view>
+    <view class="zz_sub" bindtap="pull">保存</view>
+  </view>
+
+  <view class="bk_div" wx:if="{{bk_div}}">
+    <view class="mymodal">
+      <image class="divimg" src="/images/saveres.png"></image>
+      <a class="xxx" bindtap="xxx">x</a>
+    </view>
+  </view>
+
+</view>

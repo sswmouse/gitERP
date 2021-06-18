@@ -22,7 +22,16 @@
     "pages/em_good_lei/em_good_lei",
     "pages/newlei/newlei",
     "pages/gong_gl/gong_gl",
-    "components/card/card"
+    "components/card/card",
+    "pages/kehu_gl/kehu_gl",
+    "pages/dy_gl/dy_gl",
+    "pages/new_gong/new_gong",
+    "pages/new_kehu/new_kehu",
+    "pages/new_lihuo/new_lihuo",
+    "pages/new_lihuo_yes/new_lihuo_yes",
+    "pages/ch_gong/ch_gong",
+    "pages/ch_kehu/ch_kehu",
+    "pages/ch_dy/ch_dy"
   ],
   "tabBar": {
     "list": [

@@ -15,10 +15,6 @@
   position: relative;
 }
 
-.flexsx{
-  flex:1.5;
-}
-
 .leftcen{
   position: absolute;
   top: 0;
@@ -29,6 +25,10 @@
 
 .flexone{
   flex:1;
+}
+
+.flexsx{
+  flex:1.5;
 }
 
 .nndiv{
@@ -93,6 +93,10 @@
   display:flex;
   justify-content:center;
   align-items:center;
+}
+
+.sxbtn{
+  width: 200px;
 }
 
 view{

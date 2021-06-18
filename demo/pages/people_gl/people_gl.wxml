@@ -9,14 +9,14 @@
       </navigator>
     </view>
     <view class="flex-item">
-      <navigator url="">
+      <navigator url="/pages/dy_gl/dy_gl">
         <image class="icon" src="/images/statistical2-3.png"></image>
         <view class="icon_text">店员管理</view>
       </navigator>
     </view>
 
     <view class="flex-item">
-      <navigator url="">
+      <navigator url="/pages/kehu_gl/kehu_gl">
         <image class="icon" src="/images/statistical2-1.png"></image>
         <view class="icon_text">客户管理</view>
       </navigator>

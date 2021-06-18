@@ -1,0 +1,109 @@
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20rpx 20rpx;
+  box-sizing: border-box;
+}
+
+.bggg{
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.carddiv{
+  border-radius: 10px;
+  background-color: white;
+}
+
+.fr{
+  float: right;
+}
+
+.cardrow{
+  position: relative;
+  height: 70px;
+  line-height: 70px;
+  padding-left: 30px;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.05);
+}
+
+.mybtn{
+  height: 100%;
+  width: 22%;
+  text-align: center;
+  color: white;
+}
+
+.bgcy{
+  background-color: #FCCD05;
+}
+
+.bgcr{
+  background-color: #d52929;
+}
+
+.clear_f{
+  overflow: auto;
+}
+
+.v-cen{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.zz_sub{
+  width: 90%;
+  height: 40px;
+  margin: auto;
+  line-height: 40px;
+  text-align: center;
+  background-color: #fccc04;
+  border-radius: 8px;
+  font-size: 18px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #040404;
+}
+
+.bk_div{
+  top: 0;
+  height: 100vh;
+  width: 100%;
+  position: absolute;
+  z-index: 10;
+  background-color: rgba(0, 0, 0,0.3);
+}
+
+.mymodal{
+  height: 25%;
+  width: 60%;
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.xxx{
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.divimg{
+  height: 100%;
+  width: 100%;
+}
+
+.myinput{
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  width: 50%;
+}

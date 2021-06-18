@@ -95,10 +95,6 @@
   align-items:center;
 }
 
-view{
-  font-size: 12px;
-}
-
 .warn{
   background-color: #fa5151;
   color: white;

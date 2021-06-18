@@ -1,4 +1,3 @@
-// pages/gong_gl/gong_gl.js
 const app=getApp()
 Page({
 
@@ -6,16 +5,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    gong_li:[],
-    all_gong:[],
+    kehu_li:[],
+    all_kehu:[]
   },
 
-  get_gong(){
+  /**
+   * 生命周期函数--监听页面加载
+   */
+
+  get_kehu(){
     var that=this
     wx.request({
-      url: app.globalData.server+'get_gong',
+      url: app.globalData.server+'get_kehu',
       data: {
-        code:"code"
       },
       header: {
         'content-type': 'application/json'
@@ -23,24 +25,24 @@ Page({
       success (res) {
         // console.log(res.data)
         that.setData({
-          // gong_li:JSON.parse(res.data)
-          gong_li:res.data,
-          all_gong:res.data
+          // kehu_li:JSON.parse(res.data)
+          kehu_li:res.data,
+          all_kehu:res.data
         })
-        console.log(that.data.gong_li)
+        console.log(that.data.kehu_li)
       }
     })
   },
 
   dele(e){
-    console.log(e)
     var id=e.currentTarget.dataset.id
+    console.log(id)
     var that=this
     wx.request({
       url: app.globalUrl.url+'del_peo',
       data: {
-        formdata:{gong_id:id},
-        para:"1"
+        formdata:{kehu_id:id},
+        para:"2"
       },
       method:"POST",
       header: {
@@ -48,35 +50,35 @@ Page({
       },
       success (res) {
         console.log(res.data)
-        that.get_gong()
+        that.get_kehu()
       }
     })
   },
 
-  sel_gong(e){
+  sel_kehu(e){
     var x=e.detail.value
-    var all_gong=this.data.all_gong
+    var all_kehu=this.data.all_kehu
     var showli=[]
     if(x!=""){
-      for(var i=0;i<all_gong.length;i++){
-        if(all_gong[i].gong_name.search(x)!=-1||all_gong[i].gong_tel.search(x)!=-1){
-          showli.push(all_gong[i])
+      for(var i=0;i<all_kehu.length;i++){
+        if(all_kehu[i].kehu_name.search(x)!=-1||all_kehu[i].kehu_tel.search(x)!=-1){
+          showli.push(all_kehu[i])
         }
       }
       this.setData({
-        gong_li:showli
+        kehu_li:showli
       })
     }
     else{
       this.setData({
-        gong_li:this.data.all_gong
+        kehu_li:this.data.all_kehu
       })
     }
   },
 
   ch_peo(e){
     wx.navigateTo({
-      url: '/pages/ch_gong/ch_gong',
+      url: '/pages/ch_kehu/ch_kehu',
       events: {
       },
       success: function(res) {
@@ -86,12 +88,8 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-    // this.get_gong()
-    console.log("this is onLoad")
+    // this.get_kehu()
   },
 
   /**
@@ -105,8 +103,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log(app)
-    this.get_gong()
+    this.get_kehu()
   },
 
   /**

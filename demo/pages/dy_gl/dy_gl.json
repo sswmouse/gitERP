@@ -1,0 +1,9 @@
+{
+  "backgroundTextStyle":"light",
+  "navigationBarBackgroundColor": "#FCCD05",
+  "navigationBarTitleText": "店员管理",
+  "navigationBarTextStyle":"black",
+
+  "usingComponents": {
+  }
+}

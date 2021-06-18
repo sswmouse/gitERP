@@ -1,0 +1,23 @@
+<view class="container">
+  <view class="padl info1">
+    <image class="divimg" src="/images/join.png"></image>
+    <view class="inline">
+      <view class="hhy">加入成功</view>
+      <view>请完善下列个人信息</view>
+    </view>
+  </view>
+  <view class="padl padr info2">
+    <view class="rowdiv h4">
+      理货员信息
+    </view>
+    <view class="rowdiv">
+      姓名
+      <input class="weui-input myinput" bindinput="input1" auto-focus placeholder="输入姓名" />
+    </view> 
+    <view class="rowdiv">
+      手机号
+      <input class="weui-input myinput" bindinput="input2" auto-focus placeholder="输入手机号" />
+    </view>
+  </view>
+  <view class="zz_sub" bindtap="pull">确认</view>
+</view>

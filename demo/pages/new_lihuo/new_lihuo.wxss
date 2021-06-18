@@ -1,0 +1,38 @@
+/* pages/new_lihuo/new_lihuo.wxss */
+.catdiv{
+  height: 25vh;
+  text-align: center;
+}
+
+.catimg{
+  width: 70%;
+  height: 25vh;
+}
+
+.hhh{
+  text-align: center;
+  font-size: 20px;
+  line-height: 40px;
+}
+
+.zz_sub{
+  width: 90%;
+  height: 40px;
+  margin: 20px auto;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 18px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #040404;
+}
+
+.bgy{
+  background-color: #fccc04;
+}
+
+.bgg{
+  background-color: rgba(0, 0, 0, 0.5)
+}

@@ -1,0 +1,32 @@
+<view class="container">
+  <view class="weui-cells weui-cells_after-title">
+    <view class="disflex">
+      <view class="weui-cell weui-cell_input flexinput bgg padl">
+        <icon class="icon-small" type="search" size="20"></icon>
+        <input class="weui-input" bindinput="sel_dy" auto-focus placeholder="请输入理货员名称" />
+      </view>
+      <view class="nndiv"></view>
+      <navigator class="flexsx " url="/pages/new_lihuo/new_lihuo">
+        <view class="bgcy lh btndiv">添加理货员</view>
+      </navigator>
+
+    </view>
+  </view>
+  <view class="lh red">共计店员数量{{dy_li.length}}人</view>
+
+  <view>
+    <view wx:for="{{dy_li}}" wx:key="*this" class="display_flex myrowbb pad1">
+      <view bindtap="ch_peo" data-peo="{{item}}" class="flexinput">
+        <view decode="nbsp" class="hh">
+          {{item.dy_name}} {{item.dy_tel}}
+        </view>
+        <view class="grey">角色权限：{{item.dy_right}}</view>
+        <view class="grey">创建时间：{{item.dy_intime}}</view>
+      </view>
+      <view class="flexone">
+        <button class="mini-btn warn" bindtap="dele" data-id="{{item.dy_id}}" size="mini">删除</button>
+      </view>
+    </view>
+  </view>
+
+</view>

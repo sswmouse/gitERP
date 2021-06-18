@@ -1,45 +1,36 @@
 <view class="container">
   <view class="weui-cells weui-cells_after-title">
     <view class="disflex">
-      <view class="weui-cell weui-cell_input flexinput bgg padl">
+      <view class="weui-cell weui-cell_input flexinput bgg">
         <icon class="icon-small" type="search" size="20"></icon>
-        <input class="weui-input" auto-focus placeholder="请输入理货店名称" />
+        <input class="weui-input" bindinput="sel_gong" auto-focus placeholder="请输入供货商名称/手机号" />
       </view>
       <view class="nndiv"></view>
-      <button class="flexone bgcy">添加理货员</button>
+      <navigator class="flexsx " url="/pages/new_gong/new_gong">
+        <view class="bgcy lh btndiv">添加供货商</view>
+      </navigator>
     </view>
   </view>
-  <view class="lh red">共计供货商数量150人</view>
+  <view class="lh red">共计供货商数量{{gong_li.length}}人</view>
 
   <view>
-    <view class="display_flex myrowbb pad1">
-      <view class="flexinput">
-        <view class="hh">上海A动漫有限公司</view>
-        <view class="grey">供货商姓名：张三</view>
+
+    <view wx:for="{{gong_li}}" wx:key="*this" class="display_flex myrowbb pad1">
+      <view bindtap="ch_peo" data-peo="{{item}}" class="flexinput">
+        <view class="hh">{{item.company}}</view>
+        <view class="grey">供货商姓名：{{item.gong_name}}</view>
         <view>
           <span class="grey">供货商手机号：</span>
-          <span class="yellow">12345678 </span>
+          <span class="yellow">{{item.gong_tel}} </span>
           <span>一键拨打</span>
         </view>
       </view>
       <view class="flexone">
-        <button class="mini-btn" type="warn" size="mini">删除</button>
+        <button class="mini-btn warn" size="mini" bindtap="dele" data-id="{{item.gong_id}}">删除</button>
       </view>
     </view>
-    <view class="display_flex myrowbb pad1">
-      <view class="flexinput">
-        <view class="hh">上海A动漫有限公司</view>
-        <view class="grey">供货商姓名：张三</view>
-        <view>
-          <span class="grey">供货商手机号：</span>
-          <span class="yellow">12345678 </span>
-          <span>一键拨打</span>
-        </view>
-      </view>
-      <view class="flexone">
-        <button class="mini-btn" type="warn" size="mini">删除</button>
-      </view>
-    </view>
+
+
   </view>
 
 </view>
