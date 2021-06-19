@@ -20,9 +20,9 @@ Page({
       "/pages/kucu_tj/kucn_tj",
       "/pages/ruku_tj/ruku_tj",
       "/pages/chuku_tj/chuku_tj",
-      "/pages/yuangong_tj/yuangong_tj",
-      "/pages/gongyingshang_tj/gongyingshang_tj",
-      "/pages/kehu_tj/kehu_tj"]
+      "/pages/dy_gl/dy_gl",
+      "/pages/gong_gl/gong_gl",
+      "/pages/kehu_gl/kehu_gl"]
   },
 
   /**

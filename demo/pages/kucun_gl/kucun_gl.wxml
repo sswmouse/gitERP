@@ -41,7 +41,8 @@
             </view>
           </view>
           <view class="three" wx:key="*this">
-            <view class="fuzhi">复制上架</view>
+            <view wx:if="{{item.goods_date==''}}" class="fuzhi" bindtap="shangjia" data-item='{{item}}' data-index='shang'>复制上架</view>
+            <view wx:else class="fuzhi" bindtap="shangjia" data-item='{{item}}' data-index='xia'>下架</view>
             <view class="bj" bindtap="look" data-item="{{item}}">编辑</view>
           </view>
         </view>
@@ -71,7 +72,8 @@
             </view>
           </view>
           <view class="three">
-            <view class="fuzhi">复制上架</view>
+            <view wx:if="{{item.goods_date==''}}" class="fuzhi" bindtap="shangjia" data-item='{{item}}' data-index='shang'>复制上架</view>
+            <view wx:else class="fuzhi" bindtap="shangjia" data-item='{{item}}' data-index='xia'>下架</view>
             <view class="bj" bindtap="look" data-item="{{item}}">编辑</view>
             <view class="buhuo" bindtap="buhuo" data-item="{{item}}">补货</view>
           </view>
@@ -102,7 +104,7 @@
             </view>
           </view>
           <view class="three">
-            <view class="fuzhi" bindtap="to_add" data-item="{{item}}">再次入库</view>
+            <view class="fuzhi" bindtap="buhuo" data-item="{{item}}">再次入库</view>
           </view>
         </view>
       </view>

@@ -28,7 +28,7 @@ Page({
     wx.request({
       url: 'http://localhost:3000/change',
       data : {
-        openid:wx.getStorageSync('openid'),
+        openid:wx.getStorageSync('user').openid,
         data_base: this.data.userInfo
       },
       method: "POST",
@@ -45,7 +45,6 @@ Page({
     wx.chooseImage({
       success(res) {
         var tempFilePaths = res.tempFilePaths
-        console.log(tempFilePaths)
         that.data.userInfo.img = tempFilePaths
         wx.setStorageSync('user', that.data.userInfo)
         that.setData({
@@ -57,7 +56,7 @@ Page({
           name: 'file',
           formData: {
             'user': 'img',
-            openid:wx.getStorageSync('openid')
+            openid:wx.getStorageSync('user').openid
           },
           success(res) {
             console.log(res)

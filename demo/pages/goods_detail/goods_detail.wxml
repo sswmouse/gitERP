@@ -1,5 +1,31 @@
 <!-- 最外层 -->
 <view class="coverdiv bggg">
+  <!-- 顶部分享 -->
+  <view class="top">
+    <view class="share" bindtap="fenxiang">
+      <image class="share_icon" src="{{share_icon}}"></image>
+      <text class="share_text">分享</text>
+    </view>
+  </view>
+
+  <view wx:if="{{is_fenxiang}}" class="lvjing" style="{{'height:'+bot_height1+'px'}}">
+    <view class="fenxiang">
+      <view style="overflow: hidden;">
+        <view class="fx_left">
+        <image class="icon" src="{{sharelinks}}"></image>
+        <view>分享群链接</view> 
+      </view>
+      <view class="fx_right">
+        <image class="icon" src="{{storeCode}}"></image>
+        <view>生成二维码</view> 
+      </view>
+      </view>
+      <view class="fx_bottom">
+        <view bindtap="exit_fx">关闭</view>
+      </view>
+    </view>
+  </view>
+
   <!-- 满屏 -->
   <view class="container" style="{{'height:'+bot_height+'px'}}">
     <!-- 货品入库信息 表单div -->
@@ -85,6 +111,14 @@
                 bindchange="bindDateChange">
                 <text class="weui-input__placeholder">{{goods_date}}</text>
               </picker>
+            </view>
+          </view>
+          <view class="weui-cell weui-cell_active">
+            <view class="weui-cell__hd">
+              <label class="weui-label">上架办理人</label>
+            </view>
+            <view class="weui-cell__bd">
+              <text class="weui-input__placeholder to_right">{{formdata.user_name}}</text>
             </view>
           </view>
 

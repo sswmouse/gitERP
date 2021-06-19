@@ -33,6 +33,7 @@ Page({
       desc: '获取用户信息用户登录演示', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
         let wxuserinfo = res.userInfo
+        console.log(wxuserinfo)
         wx.login({
           success(res) {
             if (res.code) {
@@ -44,6 +45,7 @@ Page({
                 method: "POST",
                 success(res) {
                   let myuserinfo = res.data.detail[0]
+                  console.log(myuserinfo)
                   that.setData({
                     //拼接用户注册信息和用户信息
                     userInfo: Object.assign(myuserinfo, wxuserinfo),

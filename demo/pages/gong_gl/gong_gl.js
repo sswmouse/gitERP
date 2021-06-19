@@ -37,7 +37,7 @@ Page({
     var id=e.currentTarget.dataset.id
     var that=this
     wx.request({
-      url: app.globalUrl.url+'del_peo',
+      url: app.globalData.server+'del_peo',
       data: {
         formdata:{gong_id:id},
         para:"1"

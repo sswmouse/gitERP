@@ -39,7 +39,7 @@ Page({
     console.log(id)
     var that=this
     wx.request({
-      url: app.globalUrl.url+'del_peo',
+      url: app.globalData.server+'del_peo',
       data: {
         formdata:{kehu_id:id},
         para:"2"

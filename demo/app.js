@@ -2,9 +2,9 @@
 App({
   onLaunch() {
     // 展示本地存储能力
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
+    // const logs = wx.getStorageSync('logs') || []
+    // logs.unshift(Date.now())
+    // wx.setStorageSync('logs', logs)
     // 登录
     this.checksession()
   },
@@ -38,7 +38,7 @@ App({
             },
             success(res) {
               if (res.data.code == 0) wx.navigateTo({ url: '/pages/register/register' })
-              if (!wx.getStorageSync('user')) wx.switchTab({ url: '/pages/mine/mine' })
+              else if (!wx.getStorageSync('user')) wx.switchTab({ url: '/pages/mine/mine' })
             }, fail() {
               console.log('后台服务器连接失败')
             }

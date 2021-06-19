@@ -1,21 +1,26 @@
 // pages/goods_detail/goods_detail.js
 var url = getApp().globalData.server
+var APP = getApp()
 
 Page({
   //数据
   data: {
+    share_icon: APP.globalUrl.url + "images/share.png",  //分享图标
     date: '',
     nowTime: "",//当前系统时间
     formdata: "",
     fileList: [],//图片暂存地址
     goods_date: '',
-    i: 0
+    i: 0,
+    is_fenxiang: false,
+    sharelinks: APP.globalUrl.url + 'images/sharelinks.png', //分享链接图标
+    storeCode: APP.globalUrl.url + 'images/storeCode.png' //分享二维码图标
   },
   //生命周期
   onLoad: function (options) {
     //数据获取
     console.log(options)
-    if(options.is_show){
+    if (options.is_show) {
       wx.showToast({
         title: '入库成功',
         icon: 'success',
@@ -27,15 +32,18 @@ Page({
       fileList: []
     })
     this.getdata(options)
-    // 获得页面中间部位的高度
+    // 获得页面中间部位的高度
     const query = wx.createSelectorQuery()
     query.select('.coverdiv').boundingClientRect()
     query.select('.footdiv').boundingClientRect()
+    query.select('.top').boundingClientRect()
     query.exec(function (res) {
-      var cha_zhi = res[0].height - res[1].height
-      // console.log(cha_zhi)
+      var cha_zhi = res[0].height - res[1].height - res[2].height
+      var cha_zhi1 = res[0].height - res[2].height
+      // console.log(cha_zhi)
       that.setData({
-        bot_height: cha_zhi
+        bot_height: cha_zhi,
+        bot_height1: cha_zhi1
       })
     })
     //获取当前系统时间
@@ -51,6 +59,7 @@ Page({
     wx.request({
       url: url + 'get_goods',
       data: {
+        // options.id
         goods_id: options.id
       },
       method: "POST",
@@ -129,8 +138,8 @@ Page({
             that.up_img(fileList_add)
           }
           setTimeout(function () {
-            that.onLoad({id:that.data.formdata.goods_id})
-          },1000)
+            that.onLoad({ id: that.data.formdata.goods_id })
+          }, 1000)
           wx.showToast({
             title: '保存成功',
             icon: 'success',
@@ -182,7 +191,11 @@ Page({
       }
     })
   },
-
+  exit_fx(){
+    this.setData({
+      is_fenxiang:false
+    })
+  },
   //上传商品图片事件
   onChange(e) {
     // console.log('onChange', e.detail)
@@ -235,6 +248,12 @@ Page({
       urls: fileList.map((n) => n.url),
     })
   },
+  //分享点击事件
+  fenxiang() {
+    this.setData({
+      is_fenxiang: !this.data.is_fenxiang
+    })
+  },
   //图片删除事件
   onRemove(e) {
     var that = this
@@ -255,8 +274,8 @@ Page({
       }
     })
   },
+  //返回入库界面
   to_ruku() {
-    console.log(111)
     wx.navigateTo({
       url: '/pages/ruku_gl/ruku_gl',
     })

@@ -14,13 +14,6 @@ Page({
   //生命周期
   onLoad: function (options) {
     var that = this
-    // let p1 = new Promise(function (reslove, reject) {
-    //   that.getdata(reslove, reject)
-    // })
-    // p1.then((data) => {
-    //   console.log(data)
-    // })
-
     this.getdata()
     this.getdata_into()
     this.getdata_out()
@@ -76,7 +69,46 @@ Page({
     this.setData({
       goodsList_out: data2
     })
-
+  },
+  shangjia(e){
+    var that = this
+    if(e.currentTarget.dataset['index']=='xia'){
+      let data = e.currentTarget.dataset['item']
+      data.goods_date=''
+      console.log(data)
+      wx.request({
+        url: url + 'change_goods_data',
+        data: {
+          formdata: JSON.stringify(data)
+        },
+        method: "POST",
+        success(res) {
+          console.log(res)
+          that.onLoad()
+        }, fail(err) {
+          console.log(err)
+        }
+      })
+    }else if(e.currentTarget.dataset['index']=='shang'){
+      let data = e.currentTarget.dataset['item']
+      let myDate = new Date()
+      let time = myDate.toLocaleDateString()
+      data.goods_date= time
+      console.log(data)
+      wx.request({
+        url: url + 'change_goods_data',
+        data: {
+          formdata: JSON.stringify(data)
+        },
+        method: "POST",
+        success(res) {
+          console.log(res)
+          that.onLoad()
+        }, fail(err) {
+          console.log(err)
+        }
+      })
+    }
   },
   //商品数据获取
   getdata(reslove, reject) {

@@ -31,7 +31,7 @@
       <view class="row">
         <text class="miaosu">角色权限</text>
         <view class="juese" wx:if="{{userInfo.juese}}">{{userInfo.juese}}</view>
-        <view class="juese" wx:else>管理员</view>
+        <view class="juese" wx:else>超级管理员</view>
       </view>
     </view>
     <view class="btn1" bindtap="keep">保存</view>

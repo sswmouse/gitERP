@@ -1,2 +1,199 @@
-<!--pages/ruku_tj/ruku_tj.wxml-->
-<text>pages/ruku_tj/ruku_tj.wxml</text>
+<!--pages/kucu_tj/kucn_tj.wxml-->
+<view class="ruku_tj">
+  <view class="top">
+    <!-- 顶部的选择日期 -->
+    <view class="top_one">
+      <view bindtap="time_chose_btn">
+        {{show_time_chose}}
+        <image class="chose_icon" src="{{chose_icon}}"></image>
+      </view>
+    </view>
+    <!-- 选择查询日期弹框的 -->
+    <view hidden='{{showhidden}}' class="time" style='{{"height: " + tk +"px;"}}'>
+      <view class="time_box">
+        <view class="time_aroow"></view>
+        <view class="time_box_one">
+          <view class="time_s_e_c">查询日期</view> 
+          <view class="time_s_e">
+            <picker mode="date" value="{{date_start}}" start="2015-09-01" end="2021-07-01" bindchange="bindDateChange1">
+              {{date_start}} <image class="rili_icon_css" src="{{rili_icon}}"></image>
+            </picker>
+          </view>
+          <view class="">-</view>
+          <view class="time_s_e">
+            <picker mode="date" value="{{date_end}}" start="2015-09-01" end="2021-07-01" bindchange="bindDateChange2">
+              {{date_end}} <image class="rili_icon_css" src="{{rili_icon}}"></image>
+            </picker>
+          </view>
+        </view>
+        <view class="time_box_two">
+          <button bindtap="confirm_btn" class="confirm_css" size="mini">确定</button>
+          <button bindtap="reset_btn" class="reset_css" size="mini">重置</button>
+        </view>
+      </view>
+    </view>
+    <!-- 顶部的选择时间段 -->
+    <view class="top_two">
+      <view class="{{jt ?'chose':'top_two_row'}}" bindtap="jt_chose">今日</view>
+      <view class="{{zt ?'chose':'top_two_row'}}" bindtap="zt_chose">昨日</view>
+      <view class="{{jqt ?'chose':'top_two_row'}}" bindtap="jqt_chose">近7天</view>
+      <view class="{{jsst ?'chose':'top_two_row'}}" bindtap="jsst_chose">近30天</view>
+    </view>
+    <!-- 顶部总数统计 -->
+    <view class="top_three">
+      <view class="top_three">
+      <view wx:if="{{jt}}" class="top_three_row">
+        <view class="top_three_num">{{now_all_number}}</view>
+        <view class="top_three_text">今日入库数量</view>
+      </view>
+      <view wx:if="{{zt}}" class="top_three_row">
+        <view class="top_three_num">{{b1_all_number}}</view>
+        <view class="top_three_text">昨日入库数量</view>
+      </view>
+      <view wx:if="{{jqt}}" class="top_three_row">
+        <view class="top_three_num">{{b7_all_number}}</view>
+        <view class="top_three_text">近7天入库数量</view>
+      </view>
+      <view wx:if="{{jsst}}" class="top_three_row">
+        <view class="top_three_num">{{b30_all_number}}</view>
+        <view class="top_three_text">近30天入库数量</view>
+      </view>
+      <view wx:if="{{cha}}" class="top_three_row">
+        <view class="top_three_num">{{cha_all_number}}</view>
+        <view class="top_three_text">查询入库数量</view>
+      </view>
+      <view class="top_three_row">
+        <view class="top_three_num">{{b365_all_number}}</view>
+        <view class="top_three_text">本年入库总量</view>
+      </view>
+    </view>
+      
+    </view>
+  </view>
+  <view class="bottom" style='{{"height: " + bottom +"px;"}}'>
+    <view wx:if="{{jt}}">
+      <view class="card" wx:for="{{nowtime}}" wx:key="this">
+        <view class="card_top">
+          <view class="card_top_left">
+            <image class="img" src="{{url+'img/'+item.goods_img[0]}}"></image>
+          </view>
+          <view class="card_top_right">
+            <text>货品名称：{{item.goods_name}}</text>
+            <text>\n</text>
+            <text>货品编号：{{item.goods_id}}</text>
+            <text>\n</text>
+            <text>货品颜色：{{item.goods_color}}</text>
+            <text>\n</text>
+            <text>货品尺码：{{item.goods_size}}</text>
+            <text>\n</text>
+            <text>入库数量：{{item.into_number}}</text>
+          </view>
+        </view>
+        <view class="card_bottom">
+          <text class="card_bottom_left">供货商姓名：{{item.ghs_name}}</text>
+          <text class="card_bottom_right">入库时间：{{item.into_date1}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{zt}}">
+      <view class="card" wx:for="{{berfortime_1}}" wx:key="this">
+        <view class="card_top">
+          <view class="card_top_left">
+            <image class="img" src="{{url+'img/'+item.goods_img[0]}}"></image>
+          </view>
+          <view class="card_top_right">
+            <text>货品名称：{{item.goods_name}}</text>
+            <text>\n</text>
+            <text>货品编号：{{item.goods_id}}</text>
+            <text>\n</text>
+            <text>货品颜色：{{item.goods_color}}</text>
+            <text>\n</text>
+            <text>货品尺码：{{item.goods_size}}</text>
+            <text>\n</text>
+            <text>入库数量：{{item.into_number}}</text>
+          </view>
+        </view>
+        <view class="card_bottom">
+          <text class="card_bottom_left">供货商姓名：{{item.ghs_name}}</text>
+          <text class="card_bottom_right">入库时间：{{item.into_date1}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{jqt}}">
+      <view class="card" wx:for="{{berfortime_7}}" wx:key="this">
+        <view class="card_top">
+          <view class="card_top_left">
+            <image class="img" src="{{url+'img/'+item.goods_img[0]}}"></image>
+          </view>
+          <view class="card_top_right">
+            <text>货品名称：{{item.goods_name}}</text>
+            <text>\n</text>
+            <text>货品编号：{{item.goods_id}}</text>
+            <text>\n</text>
+            <text>货品颜色：{{item.goods_color}}</text>
+            <text>\n</text>
+            <text>货品尺码：{{item.goods_size}}</text>
+            <text>\n</text>
+            <text>入库数量：{{item.into_number}}</text>
+          </view>
+        </view>
+        <view class="card_bottom">
+          <text class="card_bottom_left">供货商姓名：{{item.ghs_name}}</text>
+          <text class="card_bottom_right">入库时间：{{item.into_date1}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{jsst}}">
+      <view class="card" wx:for="{{berfortime_30}}" wx:key="this">
+        <view class="card_top">
+          <view class="card_top_left">
+            <image class="img" src="{{url+'img/'+item.goods_img[0]}}"></image>
+          </view>
+          <view class="card_top_right">
+            <text>货品名称：{{item.goods_name}}</text>
+            <text>\n</text>
+            <text>货品编号：{{item.goods_id}}</text>
+            <text>\n</text>
+            <text>货品颜色：{{item.goods_color}}</text>
+            <text>\n</text>
+            <text>货品尺码：{{item.goods_size}}</text>
+            <text>\n</text>
+            <text>入库数量：{{item.into_number}}</text>
+          </view>
+        </view>
+        <view class="card_bottom">
+          <text class="card_bottom_left">供货商姓名：{{item.ghs_name}}</text>
+          <text class="card_bottom_right">入库时间：{{item.into_date1}}</text>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{cha}}">
+      <view class="card" wx:for="{{chaxun}}" wx:key="this">
+        <view class="card_top">
+          <view class="card_top_left">
+            <image class="img" src="{{url+'img/'+item.goods_img[0]}}"></image>
+          </view>
+          <view class="card_top_right">
+            <text>货品名称：{{item.goods_name}}</text>
+            <text>\n</text>
+            <text>货品编号：{{item.goods_id}}</text>
+            <text>\n</text>
+            <text>货品颜色：{{item.goods_color}}</text>
+            <text>\n</text>
+            <text>货品尺码：{{item.goods_size}}</text>
+            <text>\n</text>
+            <text>入库数量：{{item.into_number}}</text>
+          </view>
+        </view>
+        <view class="card_bottom">
+          <text class="card_bottom_left">供货商姓名：{{item.ghs_name}}</text>
+          <text class="card_bottom_right">入库时间：{{item.into_date1}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

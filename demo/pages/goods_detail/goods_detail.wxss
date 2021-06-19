@@ -1,5 +1,13 @@
 /* pages/index/newrklist.wxss */
 
+@keyframes hua{
+  0%{
+    bottom: -50%;
+  }
+  100%{
+    bottom: 0;
+  }
+}
 /* 最外层大div */
 .coverdiv {
   width: 100%;
@@ -13,6 +21,7 @@
   box-sizing: border-box;
   overflow: scroll;
 }
+
 /* 表单样式 */
 .formondiv {
   border-radius: 3px;
@@ -31,10 +40,11 @@
 .bggg {
   background-color: rgba(0, 0, 0, 0.05);
 }
+
 /* 三大模块标题样式 */
 .weui-cells__title {
   font-size: 15px;
-  font-weight:normal;
+  font-weight: normal;
   font-stretch: normal;
   letter-spacing: 0px;
   color: #040404;
@@ -49,7 +59,8 @@
 
   color: #494848;
 }
-.to_right{
+
+.to_right {
   float: right;
   text-align: end;
 }
@@ -60,13 +71,15 @@
   color: #494848;
   text-align: end;
 }
+
 /* 指定 placeholder 的样式类 */
 .weui-input__placeholder {
   font-size: 12px;
   text-align: end;
   color: #8f8f8f;
 }
-.naer_left{
+
+.naer_left {
   float: right;
 }
 
@@ -87,6 +100,7 @@ view .blk {
   border-radius: 3px;
   padding: 2px 4px 2px 4px;
 }
+
 /* 商品分类选中样式 */
 .is_classList {
   float: left;
@@ -107,7 +121,7 @@ view .blk {
 }
 
 /* 悬停按钮样式 */
-.fu{
+.fu {
   padding: 5px;
   box-sizing: border-box;
   line-height: 25px;
@@ -123,7 +137,7 @@ view .blk {
 
 
 /* 底部按钮 */
-.footdiv{
+.footdiv {
   position: fixed;
   bottom: 0;
   height: 8vh;
@@ -132,27 +146,90 @@ view .blk {
   line-height: 8vh;
   text-align: center;
 }
-.foot1{
+
+.foot1 {
   background-color: yellow;
   flex: 1;
 }
-.foot2{
+
+.foot2 {
   background-color: #fccc04;
   flex: 1;
 }
-.foot3{
+
+.foot3 {
   background-color: red;
   color: white;
   flex: 1;
 }
 
-.dayin{
+.dayin {
   width: 100%;
-  margin:auto;
+  margin: auto;
   font-size: 15px;
   border-radius: 5px;
   text-align: center;
   color: white;
   background-color: #a4a4a4;
   padding: 2% 0 2% 0;
+}
+
+/* 头部分享样式 */
+.top {
+  width: 100%;
+  background-color: white;
+  /* border: 1px solid purple; */
+  text-align: right;
+  padding-bottom: 2%;
+}
+
+.share {
+  width: 94%;
+  margin: 0 auto;
+}
+
+.share_icon {
+  width: 20px;
+  height: 20px;
+  vertical-align: middle;
+}
+
+.share_text {
+  margin: 0% 2%;
+}
+/* 底部分享栏 */
+.lvjing{
+  position: fixed;
+  width: 100vw;
+  background-color: rgba(0, 0, 0, 0.3);
+  z-index: 999;
+}
+.fenxiang{
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  background-color: #e2e2e2;
+  animation: hua 0.25s linear 1;
+}
+.fx_left{
+  text-align: center;
+  width: 50%;
+  float: left;
+}
+.fx_right{
+  text-align: center;
+  width: 50%;
+  float: left;
+}
+.fx_bottom{
+  text-align: center;
+  background-color: white;
+  padding: 3% 0;
+  margin-top: 50px;
+}
+.icon{
+  border-radius: 50%;
+  width: 77px;
+  height: 77px;
+  margin-top: 50px;
 }

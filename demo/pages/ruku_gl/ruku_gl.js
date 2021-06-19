@@ -8,7 +8,7 @@ Page({
     date: '2021-06-01',
     uptime: "设置上架时间",
     fileList: [], //图片列表
-    formdata: { id: "", img: [] }, //表单数据
+    formdata: { id: "", img: [],user_name:'' }, //表单数据
     classList: [], //货品类别数据
     is_classList: -1, //当前选择类别的下标
     nowTime: "", //当前系统时间
@@ -55,6 +55,10 @@ Page({
     var fileList = this.data.fileList
     var that = this
     var is_null = true
+    // if(this.data.formdata.id=='' || !this.data.formdata.nm 
+    // || !this.data.formdata.classList || !this.data.formdata.num ){
+    //   is_null = false
+    // } 
     // 查询数据中是否存在空值
     for (let key in formdata) {
       let num = 0
@@ -67,7 +71,7 @@ Page({
       }
     }
     var arr = Object.keys(formdata);
-    if (arr.length != 12) {
+    if (arr.length != 13) {
       console.log('数据量不够', arr.length)
       is_null = false
     }
@@ -174,26 +178,18 @@ Page({
   },
   // 生命周期函数--监听页面加载
   onLoad: function (options) {
+    var user = wx.getStorageSync('user')
+    this.data.formdata.user_name = user.name
     var that = this
-    if (options.id) {
-      wx.request({
-        url: url + 'get_goods',
-        data: {
-          goods_id: options.id
-        },
-        method: "POST",
-        success(res) { 
-          let a = res.data.detail
-          a = a.replace(/\\/g, "");
-          a = a.replace(/:"\[/g, ":[");
-          a = a.replace(/\]"/g, "]");
-          a = JSON.parse(a)
-          that.setData({
-            goodsList:a[0]
-          })
-        }
-      })
-    }
+    wx.request({
+      url: url + 'get_gong',
+      method: "get",
+      success(res) {
+        that.setData({
+          gongList: res.data
+        })
+      }
+    })
     wx.request({
       url: url + 'get_classify',
       data: {
