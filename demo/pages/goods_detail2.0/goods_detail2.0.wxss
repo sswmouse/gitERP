@@ -1,0 +1,71 @@
+/* pages/goods_detail2.0/goods_detail2.0.wxss */
+view{
+  font-size: 15px;
+}
+
+.container {
+  height: 100vh;
+  padding: 20rpx 20rpx;
+  box-sizing: border-box;
+}
+
+.bgg{
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.carddiv{
+  background-color: white;
+  border-radius: 10px;
+  position: relative;
+  padding: 20px;
+}
+
+.hh3{
+  font-size: 18px;
+}
+
+.disflex{
+  display: flex;
+  flex-direction: row ;
+  justify-content: space-between;
+}
+
+.mart{
+  margin-top: 20px;
+}
+
+.flexone{
+  flex: 1;
+}
+
+.imgdiv{
+  height: 20vw;
+  width: 20vw;
+}
+
+.carddata{
+  padding: 20px 0;
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+  display: flex;
+}
+
+.textright{
+  text-align: right;
+}
+
+.red{
+  color: red;
+}
+
+.yyy{
+  color: #FCCD05;
+}
+
+.tag1{
+  position: absolute;
+  left: 0;
+  top: 20px;
+  width: 5px;
+  height: 20px;
+  background-color: #FCCD05;
+}

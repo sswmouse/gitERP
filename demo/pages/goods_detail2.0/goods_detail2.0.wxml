@@ -1,0 +1,39 @@
+<view class="container bgg">
+  <view class="carddiv">
+    <view class="hh3"><view class="tag1"></view>货品图片</view>
+    <view class="disflex mart">
+      <view class="imgdiv">
+        <image style="width: 100%; height: 100%;" mode="scaleToFill" src="/images/avatar.png"></image>
+      </view>
+      <view class="imgdiv">
+        <image style="width: 100%; height: 100%;" mode="scaleToFill" src="/images/avatar.png"></image>
+      </view>
+      <view class="imgdiv">
+        <image style="width: 100%; height: 100%;" mode="scaleToFill" src="/images/avatar.png"></image>
+      </view>
+    </view>
+  </view>
+
+  <view class="carddiv mart">
+    <view class="hh3"><view class="tag1"></view>供货商</view>
+    <div class="carddata mart">
+      <view class="flexone">供货商姓名</view>
+      <view class="flexone textright">张三</view>
+    </div>
+    <div class="carddata">
+      <view class="flexone">供货商手机号</view>
+      <view class="flexone disflex">
+        <!-- <text decode="nbsp" space="emsp">18745454</text>
+        <text class="yyy">一键拨打</text> -->
+        <view class="flexone">187454544</view>
+        <view class="flexone yyy textright">一键拨打</view>
+      </view>
+    </div>
+    <div class="carddata">
+      <view class="flexone">货品价格</view>
+      <view class="flexone textright red">80.00</view>
+    </div>
+  </view>
+
+  <view class="mart textright">*需要购买可以直接联系供货商</view>
+</view>
