@@ -1,19 +1,27 @@
 // pages/goods_detail2.0/goods_detail2.0.js
+var url = getApp().globalData.server
+var APP = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    url,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const scene=encodeURIComponent(options.scene)
-    console.log(options)
+    let b = options.formdata
+    b = b.replace(/\\/g, "");
+    b = b.replace(/:"\[/g, ":[");
+    b = b.replace(/\]"/g, "]");
+    this.setData({
+      formdata: JSON.parse(b)
+    })
+    console.log(this.data.formdata)
   },
 
   /**

@@ -299,4 +299,10 @@ Page({
   ch_beizhu: function (e) {
     this.data.formdata.goods_beizhu = e.detail.value
   },
+  erweima(){
+    let data = this.data.formdata
+    wx.navigateTo({
+      url: '/pages/goods_detail2.0/goods_detail2.0?formdata='+JSON.stringify(data),
+    })
+  }
 })

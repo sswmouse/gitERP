@@ -31,7 +31,8 @@
     "pages/new_lihuo_yes/new_lihuo_yes",
     "pages/ch_gong/ch_gong",
     "pages/ch_kehu/ch_kehu",
-    "pages/ch_dy/ch_dy"
+    "pages/ch_dy/ch_dy",
+    "pages/goods_detail2.0/goods_detail2.0"
   ],
   "tabBar": {
     "list": [

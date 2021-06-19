@@ -16,7 +16,7 @@
         <view>分享群链接</view> 
       </view>
       <view class="fx_right">
-        <image class="icon" src="{{storeCode}}"></image>
+        <image bindtap="erweima" class="icon" src="{{storeCode}}"></image>
         <view>生成二维码</view> 
       </view>
       </view>
