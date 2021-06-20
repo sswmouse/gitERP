@@ -90,6 +90,9 @@
   /* border: 1px solid green; */
   padding: 10px 0;
 }
+.hp_xq::-webkit-scrollbar{
+  display: none;
+}
 .content{
   width: 94%;
   margin: 0 auto;
@@ -177,6 +180,9 @@
 /* 已选择按钮 */
 .weui-half-screen-dialog{
   overflow: scroll;
+}
+.weui-half-screen-dialog::-webkit-scrollbar{
+  display: none;
 }
 .weui-half-screen-dialog__bd{
   padding: 2% 0%;

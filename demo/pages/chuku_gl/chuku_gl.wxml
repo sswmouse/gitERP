@@ -16,33 +16,33 @@
       </view>
       <!-- 客户第三行分布 -->
       <view class="yixuan_hp_card">
-        <view class="yixuan_hp" wx:for="12" wx:key="*this">
+        <view class="yixuan_hp" wx:for="{{goods_xh}}" wx:key="*this">
           <view class="yixuan_hp_row">
             <view class="yixuan_hp_row1">
-              <image class="yixuan_hp_row1_img" src="http://47.117.121.44:3000/images/goods.png"></image>
+              <image class="yixuan_hp_row1_img" src="{{url+'img/'+item.goods_img[0]}}"></image>
               <view class="yixuan_name">
-                <text>货品名称: 干物妹</text><text>\n</text>
-                <text>货品编号: 123456789</text>
+                <text>货品名称: {{item.goods_name}}</text><text>\n</text>
+                <text>货品编号: {{item.goods_id}}</text>
               </view>
             </view>
             <view class="yixuan_hp_row2">
-              <text>出: 1</text>
+              <text>出: {{item.num}}</text>
             </view>
             <view class="yixuan_hp_row3">
-              <image class="yixuan_del" src="{{del_icon}}" bindtap="del_btn"></image>
+              <image class="yixuan_del" src="{{del_icon}}" bindtap="del_btn" data-item="{{item}}"></image>
             </view>
           </view>
           <view class="yixuan_hp_cs">
             <view class="yixuan_dx">
-              <text>M码</text>
+              <text>{{item.goods_size}}</text>
             </view>
             <view class="yixuan_jg">
-              <text>价格: 50.00</text>
+              <text>价格: {{item.goods_price}}</text>
             </view>
             <view class="yixuan_sl">
-              <image class="reduce" src="{{reduce_icon}}" bindtap="reduce_btn"></image>
-              <text class="num">{{reduce_add}}</text>
-              <image class="add" src="{{add_icon}}" bindtap="add_btn"></image>
+              <image class="reduce" src="{{reduce_icon}}" bindtap="reduce_btn" data-item="{{item}}"></image>
+              <text class="num">{{item.num}}</text>
+              <image class="add" src="{{add_icon}}" bindtap="add_btn" data-item="{{item}}"></image>
             </view>
           </view>
         </view>
@@ -76,7 +76,7 @@
           <text class="text1">货品合计</text>
         </view>
         <view class="kehu_row2">
-          <text class="text_right">0.00元</text>
+          <text class="text_right">{{goods_xh_price}} 元</text>
         </view>
       </view>
       <!-- 货品第二行分布 -->

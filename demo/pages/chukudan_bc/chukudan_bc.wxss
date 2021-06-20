@@ -33,6 +33,12 @@
   /* border: 1px solid green; */
   overflow: scroll;
 }
+.content::-webkit-scrollbar{
+  display: none;
+}
+.content::-webkit-scrollbar{
+  display: none;
+}
 /* 客户 */
 .chunk{
   width: 100%;

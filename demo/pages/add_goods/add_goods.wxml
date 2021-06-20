@@ -4,7 +4,8 @@
     <!-- 搜索部分 -->
     <view class="sousuo">
       <view class="inps">
-        <i class="weui-icon-search"></i><input class="inp" type="text" search placeholder="请输入货品编号/货品名称" />
+        <i class="weui-icon-search"></i>
+        <input bindinput="bindinput" value="{{inputValue}}" class="inp" type="text" search placeholder="请输入货品编号/货品名称" />
       </view>
       <button class="add_btn">添加货品</button>
     </view>
@@ -47,11 +48,11 @@
   <view class="hp_xq" style='{{"height: " + sx +"px;"}}'>
     <view class="content">
       <!-- 卡片封装 -->
-      <view class="hp_card" wx:for="{{goods}}" wx:key="*this">
-        <view class="one" bindtap="ck_hp" data-index="{{item}}">
+      <view class="hp_card" wx:for="{{goods}}" wx:key="this">
+        <view class="one" bindtap="ck_hp" data-item="{{item}}">
           <view class="left">
-            <image class="img" src="http://47.117.121.44:3000/images/goods.png"></image>
-            <view class="hp_sl">{{yixuanze_sl}}</view>
+            <image class="img" src="{{url+'img/'+item.goods_img[0]}}"></image>
+            <view wx:if="{{item.num}}" class="hp_sl">{{item.num}}</view>
           </view>
           <view class="right">
             <text>货品名称：{{item.goods_name}}</text>
@@ -70,11 +71,11 @@
   <view class="sub_btn">
     <view class="sub_content">
       <view class="sub_row1">
-        <view>出: {{total}}</view>
-        <view class="gong">共:  {{total}}</view>
+        <view>出: {{goods_xh_zongshu}}</view>
+        <view class="gong">共: {{goods_xh_price}} 元</view>
       </view>
       <view class="sub_row2">
-        <view class="yxz" bindtap="yxz_btn">已选择 {{yixuanze}}</view>
+        <view class="yxz" bindtap="yxz_btn">已选择 ({{goods_xh_zongshu}})</view>
       </view>
       <view class="sub_row3">
         <view class="xhl" bindtap="xhl_btn">选好了</view>
@@ -90,52 +91,40 @@
         <view class="weui-half-screen-dialog__hd__side" bindtap="close">
           <a class="weui-icon-btn">关闭<i class="weui-icon-close-thin"></i></a>
         </view>
-        <!-- <view class="weui-half-screen-dialog__hd__main">
-          <strong class="weui-half-screen-dialog__title">标题</strong>
-        </view> -->
       </view>
       <view class="weui-half-screen-dialog__bd">
-        <view class="yixuan_hp" wx:for="123456">
+        <view class="yixuan_hp" wx:for="{{goods_xh}}" wx:key="this">
           <view class="yixuan_hp_row">
             <view class="yixuan_hp_row1">
-              <image class="yixuan_hp_row1_img" src="http://47.117.121.44:3000/images/goods.png"></image>
+              <image class="yixuan_hp_row1_img" src="{{url+'img/'+item.goods_img[0]}}"></image>
               <view class="yixuan_name">
-                <text>货品名称: 干物妹</text><text>\n</text>
-                <text>货品编号: 123456789</text>
+                <text>货品名称: {{item.goods_name}}</text><text>\n</text>
+                <text>货品编号: {{item.goods_id}}</text>
               </view>
             </view>
             <view class="yixuan_hp_row2">
-              <text>出: 1</text>
+              <text>出: {{item.num}}</text>
             </view>
             <view class="yixuan_hp_row3">
-              <image class="yixuan_del" src="{{del_icon}}" bindtap="del_btn"></image>
+              <image class="yixuan_del" src="{{del_icon}}" bindtap="del_btn" data-item="{{item}}"></image>
             </view>
           </view>
           <view class="yixuan_hp_cs">
             <view class="yixuan_dx">
-              <text>M码</text>
+              <text>{{item.goods_size}}</text>
             </view>
             <view class="yixuan_jg">
-              <text>价格: 50.00</text>
+              <text>价格: {{item.goods_price}}</text>
             </view>
             <view class="yixuan_sl">
-              <image class="reduce" src="{{reduce_icon}}" bindtap="reduce_btn"></image>
-              <text class="num">{{reduce_add}}</text>
-              <image class="add" src="{{add_icon}}" bindtap="add_btn"></image>
+              <image class="reduce" src="{{reduce_icon}}" bindtap="reduce_btn" data-item="{{item}}"></image>
+              <text class="num">{{item.num}}</text>
+              <image class="add" src="{{add_icon}}" bindtap="add_btn" data-item="{{item}}"></image>
             </view>
           </view>
         </view>
+
       </view>
-      <!-- <view class="weui-half-screen-dialog__ft">
-        <view class="weui-half-screen-dialog__btn-area">
-          <a class="weui-btn weui-btn_default" bindtap="close">辅助操作</a>
-          <a class="weui-btn weui-btn_primary" bindtap="close">主操作</a>
-        </view>
-        <view class="weui-half-screen-dialog__attachment-area">
-          <a class="weui-link" href="javacript:;">附加操作</a>
-        </view>
-      </view> -->
     </view>
   </view>
-
 </view>
