@@ -14,7 +14,11 @@ Page({
     reduce_add: 1,  //已选择按钮中的加减数字的显示
     goods: [],  //页面加载时请求本获取地数据库的数据
     show: false,
-    url
+    url,
+    beizhu: '',
+    kehu_show: false,  //客户选择框 
+    kehu_arr: [],  //所有客户
+    kehu_arr_name: '请选择客户',  //选择客户的显示
   },
   /*** 生命周期函数--监听页面加载*/
   onLoad: function (options) {
@@ -31,11 +35,7 @@ Page({
     })
     //获取货品数据
     wx.request({
-      url: 'http://localhost:3000/get_all_goods',
-      data: {
-        x: '',
-        y: ''
-      },
+      url: url + 'get_all_goods',
       method: 'GET',
       success(res) {
         let a = JSON.stringify(res.data.info)
@@ -43,10 +43,10 @@ Page({
         a = a.replace(/:"\[/g, ":[");
         a = a.replace(/\]"/g, "]");
         let goods = JSON.parse(a)
-        let goods1 =[]
+        let goods1 = []
         //排除非上架商品
-        for(var i=0;i<goods.length;i++){
-          if(goods[i].goods_date!=""){
+        for (var i = 0; i < goods.length; i++) {
+          if (goods[i].goods_date != "") {
             goods1.push(goods[i])
           }
         }
@@ -56,11 +56,36 @@ Page({
         that.show()
       }
     })
+    let user = wx.getStorageSync('user')
+    let myData = new Date()
+    myData = myData.toLocaleDateString()
+    myData = myData.replace(/\//g, '-')
+    this.setData({
+      kaidan_name: user.name,
+      myData
+    })
+    //获取客户信息
+    wx.request({
+      url: url + 'get_kehu',
+      method: 'GET',
+      success(res) {
+        console.log(res.data)
+        that.setData({
+          kehu_arr: res.data
+        })
+      }
+    })
   },
   //添加货品按钮
   add_goods: function () {
     wx.navigateTo({
       url: '/pages/add_goods/add_goods',  //跳转页面路径
+    })
+  },
+  //备注
+  change_beizhu(e) {
+    this.setData({
+      beizhu: e.detail.value
     })
   },
   //保存出库单按钮
@@ -74,14 +99,17 @@ Page({
         icon: 'none',
         duration: 1000
       })
-    } else {
+    } else if (this.data.kehu_arr_name !== '请选择客户') {
       var goodsList = JSON.parse(wx.getStorageSync('goodsList'))
       for (var i = 0; i < goodsList.length; i++) {
         goodsList[i].order_id = order_id
+        goodsList[i].order_people = this.data.kehu_arr_name
+        goodsList[i].beizhu = this.data.beizhu
+        goodsList[i].kaidan_people = this.data.kaidan_name
       }
       console.log(goodsList)
       wx.request({
-        url: 'http://localhost:3000/keep_goods_out',
+        url: url + 'keep_goods_out',
         data: {
           goodsList: JSON.stringify(goodsList)
         },
@@ -90,10 +118,15 @@ Page({
           console.log("保存成功")
           if (res.data[0].desc == '订单添加成功') {
             wx.showToast({
-              title: '订单添加成功',
+              title: '订单保存成功',
               icon: 'success',
               duration: 1000
             })
+            setTimeout(function () {
+              wx.navigateTo({
+                url: '/pages/chukudan_bc/chukudan_bc?order_id='+order_id,  //跳转页面路径
+              })
+            }, 1000)
           } else {
             wx.showToast({
               title: '订单保存失败',
@@ -101,12 +134,14 @@ Page({
               duration: 1000
             })
           }
-          setTimeout(function () {
-            wx.navigateTo({
-              url: '/pages/chukudan_bc/chukudan_bc',  //跳转页面路径
-            })
-          }, 1000)
+
         }
+      })
+    } else {
+      wx.showToast({
+        title: '还未选择客户',
+        icon: 'none',
+        duration: 1000
       })
     }
   },
@@ -176,15 +211,7 @@ Page({
       duration: 1000
     })
   },
-
-
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
+  //数据刷新
   show() {
     var that = this
     let goodsList = JSON.parse(wx.getStorageSync('goodsList'))
@@ -199,14 +226,36 @@ Page({
           that.data.goods[i].total = goodsList[j].total
           goods_xh.push(that.data.goods[i])
           number = number + (goodsList[j].reduce_add - 0)
-          money = money + (goodsList[j].total - 0)
+          money = money + (goodsList[j].total - 0) * (goodsList[j].reduce_add - 0)
         }
       }
     }
+    console.log(111)
     that.setData({
       goods_xh: goods_xh,
       goods_xh_zongshu: number,
       goods_xh_price: money
+    })
+  },
+  //选择客户名按钮
+  kehu_chose_btn() {
+    // console.log("客户名")
+    if (this.data.kehu_show == false) {
+      this.setData({
+        kehu_show: true
+      })
+    } else {
+      this.setData({
+        kehu_show: false
+      })
+    }
+  },
+  //所有客户的点击事件
+  chose_kehu_btn(e) {
+    // console.log(e.currentTarget.dataset['item'])
+    this.setData({
+      kehu_arr_name: e.currentTarget.dataset['item'],
+      kehu_show: false
     })
   },
   /**
@@ -214,7 +263,7 @@ Page({
    */
   onShow: function () {
     this.setData({
-      goodsList:JSON.parse(wx.getStorageSync('goodsList'))
+      goodsList: JSON.parse(wx.getStorageSync('goodsList'))
     })
     var pages = getCurrentPages();
     var currPage = pages[pages.length - 1];

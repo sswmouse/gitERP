@@ -1,4 +1,5 @@
 // pages/new_lihuo_yes/new_lihuo_yes.js
+const url = getApp().globalData.server
 Page({
 
   /**
@@ -12,7 +13,7 @@ Page({
     var that=this
     console.log(this.data.formdata)
     wx.request({
-      url: 'http://localhost:3000/add_peo',
+      url: url+'add_peo',
       data: {
         formdata:that.data.formdata,
         para:"3"

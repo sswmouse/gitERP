@@ -8,6 +8,7 @@ Page({
     px_icon3: APP.globalUrl.url + "images/sort_up_red.png",  //向上排序图标
     hh_icon: APP.globalUrl.url + "images/sort_default_gary.png",  //货号 未排序图标
     all_fl_icon: APP.globalUrl.url + "images/down_triangle.png",  //全部分类图标
+    all_fl_icon1: APP.globalUrl.url + "images/upper.png",  //全部分类图标
     zx: false,  //最新排序文字样式判断
     hh: false,  //货号排序文字样式判断
     kc: false,  //库存量排序文字样式判断
@@ -22,13 +23,16 @@ Page({
     reduce_add: 0,  //已选择按钮中的加减数字的显示
     goods: [],  //页面加载时请求本获取地数据库的数据
     url,
+    is_fenglei: false,
+    classify_show: false,  //客户选择框 
+    xz_classify: '全部分类',
   },
   //监听界面加载
   onLoad: function (options) {
     var that = this
     //获取货品数据
     wx.request({
-      url: url+'get_all_goods',
+      url: url + 'get_all_goods',
       method: 'GET',
       success(res) {
         let a = JSON.stringify(res.data.info)
@@ -39,7 +43,7 @@ Page({
         let goods1 = []
         //排除非上架商品
         for (var i = 0; i < goods.length; i++) {
-          if (goods[i].goods_date != "") {
+          if (goods[i].goods_date != "" && goods[i].goods_number != '0') {
             goods1.push(goods[i])
           }
         }
@@ -50,29 +54,20 @@ Page({
         that.show()
       }
     })
-    // wx.request({
-    //   url: url+'get_all_goods',
-    //   method: 'GET',
-    //   success(res) {
-    //     let a = JSON.stringify(res.data.info)
-    //     a = a.replace(/\\/g, "");
-    //     a = a.replace(/:"\[/g, ":[");
-    //     a = a.replace(/\]"/g, "]");
-    //     let goods = JSON.parse(a)
-    //     let goods1 = []
-    //     //排除非上架商品
-    //     for (var i = 0; i < goods.length; i++) {
-    //       if (goods[i].goods_date != "") {
-    //         goods1.push(goods[i])
-    //       }
-    //     }
-    //     that.setData({
-    //       goods: goods1,
-    //       goods_bei: goods1,
-    //     })
-    //     that.show()
-    //   }
-    // })
+    //获取分类信息
+    wx.request({
+      url: url + 'get_classify',
+      method: 'GET',
+      success(res) {
+        let classify = JSON.parse(res.data.detail)
+        classify.unshift({ id: -1, name: '全部分类' })
+        that.setData({
+          classify: classify
+        })
+        console.log(JSON.parse(res.data.detail))
+      }
+    })
+
     // 获得页面中间部位的高度
     const query = wx.createSelectorQuery()
     query.select('.add_goods').boundingClientRect()
@@ -128,7 +123,7 @@ Page({
       kc: kc
     })
     //商品排序
-    let goods = this.data.goods_bei
+    let goods = this.data.goods
     if (y == 2) {
       for (var i = 0; i < goods.length - 1; i++) {
         for (var j = 0; j < goods.length - i - 1; j++) {
@@ -261,7 +256,6 @@ Page({
         goods: data
       })
     }
-    console.log(data)
   },
   //库存量排序的点击事件
   kc_px: function () {
@@ -288,14 +282,12 @@ Page({
     })
     let goods = this.data.goods
     if (y == 2) {
-      console.log(111)
       for (var i = 0; i < goods.length - 1; i++) {
         for (var j = 0; j < goods.length - i - 1; j++) {
           if ((goods[j].goods_number - 0) < (goods[j + 1].goods_number - 0)) {
             let tmp = goods[j]
             goods[j] = goods[j + 1]
             goods[j + 1] = tmp
-            console.log('交换', j)
           }
         }
       }
@@ -303,7 +295,6 @@ Page({
         goods: goods
       })
     } else if (y == 3) {
-      console.log(222)
       for (var i = 0; i < goods.length - 1; i++) {
         for (var j = 0; j < goods.length - i - 1; j++) {
           if ((goods[j].goods_number - 0) > (goods[j + 1].goods_number - 0)) {
@@ -318,6 +309,20 @@ Page({
       })
     }
 
+  },
+  fl_px: function () {
+    this.setData({
+      is_fenglei: !this.data.is_fenglei
+    })
+    if (this.data.is_fenglei == true) {
+      this.setData({
+        classify_show: true
+      })
+    } else {
+      this.setData({
+        classify_show: false
+      })
+    }
   },
   //查看货品的点击事件
   ck_hp: function (e) {
@@ -357,7 +362,6 @@ Page({
   reduce_btn: function (e) {
     let id = e.currentTarget.dataset['item'].goods_id
     let goodsList = this.data.goodsList
-    console.log(goodsList)
     var k = 0
     for (var i = 0; i < goodsList.length; i++) {
       if (id == goodsList[i].goods_id) {
@@ -368,7 +372,6 @@ Page({
     goodsList[k].reduce_add = goodsList[k].reduce_add - 1
     wx.setStorageSync('goodsList', JSON.stringify(goodsList))
     this.show()
-    console.log(goodsList)
   },
   //增加按钮
   add_btn: function (e) {
@@ -435,7 +438,6 @@ Page({
       show: true
     })
   },
-
   //刷新函数 为了构建选好列表
   show() {
     var that = this
@@ -464,7 +466,7 @@ Page({
           that.data.goods[i].total = goodsList[j].total
           goods_xh.push(that.data.goods[i])
           number = number + (goodsList[j].reduce_add - 0)
-          money = money + (goodsList[j].total - 0)
+          money = money + (goodsList[j].total - 0) * (goodsList[j].reduce_add - 0)
         }
       }
     }
@@ -477,6 +479,27 @@ Page({
       title: '加载中...',
       icon: 'loading',
       duration: 500
+    })
+  },
+  //所有客户的点击事件
+  xuan_classify(e) {
+    var goods_fl = []
+    let goods = this.data.goods_bei
+    if (e.currentTarget.dataset['item']=='全部分类') {
+      goods_fl = goods
+    } else {
+      for (var i = 0; i < goods.length; i++) {
+        console.log(goods[i].goods_leibie, e.currentTarget.dataset['item'])
+        if (goods[i].goods_leibie == e.currentTarget.dataset['item']) {
+          goods_fl.push(goods[i])
+        }
+      }
+    }
+    this.setData({
+      xz_classify: e.currentTarget.dataset['item'],
+      classify_show: false,
+      is_fenglei: false,
+      goods: goods_fl
     })
   },
 })

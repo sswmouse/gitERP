@@ -1,6 +1,6 @@
 // pages/register/register.js
 var app = getApp()
-
+const url = getApp().globalData.server
 Page({
   /**
    * 页面的初始数据
@@ -27,7 +27,7 @@ Page({
         success(res) {
           if (res.code) {
             wx.request({
-              url: 'http://localhost:3000/register',
+              url: url+'register',
               data: {
                 code: res.code,
                 data: data

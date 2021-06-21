@@ -1,4 +1,5 @@
 // pages/em_good_lei/em_good_lei.js
+const url = getApp().globalData.server
 Page({
 
   /**
@@ -13,7 +14,7 @@ Page({
     var that = this 
     if(this.data.id!=''&& this.data.name!=''){
       wx.request({
-        url: 'http://localhost:3000/add_classify',
+        url: url+'add_classify',
         data: {
           id: that.data.id,
           name:that.data.name

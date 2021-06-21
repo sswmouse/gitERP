@@ -1,4 +1,5 @@
 const app=getApp()
+const url = getApp().globalData.server
 Page({
 
   /**
@@ -27,7 +28,7 @@ Page({
   pull(){
     var that=this
     wx.request({
-      url: app.globalData.server+'add_peo',
+      url: url+'add_peo',
       data: {
         formdata:that.data.formdata,
         para:"1"

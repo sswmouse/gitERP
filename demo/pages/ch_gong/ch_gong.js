@@ -1,5 +1,6 @@
 // pages/ch_gong/ch_gong.js
 const app=getApp()
+const url = getApp().globalData.server
 Page({
 
   /**
@@ -12,7 +13,7 @@ Page({
   pull(){
     var that=this
     wx.request({
-      url: app.globalUrl.url+'ch_peo',
+      url: url+'ch_peo',
       data: {
         formdata:that.data.peo,
         para:"1"

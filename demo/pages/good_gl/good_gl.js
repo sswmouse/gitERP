@@ -1,4 +1,5 @@
 // pages/good_gl/good_gl.js
+const url = getApp().globalData.server
 Page({
 
   /**
@@ -29,7 +30,7 @@ Page({
       success(res) {
         if (res.confirm) {
           wx.request({
-            url: 'http://localhost:3000/delete_classify',
+            url: url+'delete_classify',
             data: {
               id: e.id
             },
@@ -48,7 +49,7 @@ Page({
   getData:function() {
     var that = this
     wx.request({
-      url: 'http://localhost:3000/get_classify',
+      url: url+'get_classify',
       data: {
         code: ''
       },

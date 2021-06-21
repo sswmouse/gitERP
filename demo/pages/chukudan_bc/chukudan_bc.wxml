@@ -17,8 +17,8 @@
           <text class="text1">客户</text>
         </view>
         <view class="kehu_row2">
-          <text class="text2">张三</text>
-          <image class="icon_arrow" src="{{arrow_icon}}"></image>
+          <text class="text2">{{goods[0].order_people}}</text>
+          <!-- <image class="icon_arrow" src="{{arrow_icon}}"></image> -->
         </view>
       </view>
       <!-- 已选货品卡片 -->
@@ -61,7 +61,7 @@
           <text class="text_left">开单人</text>
         </view>
         <view class="kehu_row2">
-          <text class="text_right">李思</text>
+          <text class="text_right">{{goods[0].kaidan_people}}</text>
         </view>
       </view>
       <!-- 货品第三行分布 -->
@@ -70,7 +70,7 @@
           <text class="text_left">开单日期</text>
         </view>
         <view class="kehu_row2">
-          <text class="text_right">2021-06-08</text>
+          <text class="text_right">{{goods[0].out_date1}}</text>
         </view>
       </view>
     </view>
@@ -90,6 +90,11 @@
   <view class="dy_btn_css">打印出库单</view>
   <!-- 修改 复制 删除 -->
   <view class="xg_fz_sc">
+      <view class="xg_fz_sc_row">
+        <view class="xg" bindtap="xg_btn">返回首页</view>
+      </view>
+  </view>
+  <!-- <view class="xg_fz_sc">
     <view class="bottom_row">
       <view class="xg_fz_sc_row">
         <view class="xg" bindtap="xg_btn">修改</view>
@@ -101,6 +106,5 @@
         <view class="sc">删除</view>
       </view>
     </view>
-
-  </view>
+  </view> -->
 </view>

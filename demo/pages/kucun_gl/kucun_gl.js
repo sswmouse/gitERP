@@ -8,7 +8,7 @@ Page({
     url: url,//服务器地址
     reduce_icon: APP.globalUrl.url + "images/minus_icon.png",  //减图标
     add_icon: APP.globalUrl.url + "images/plus_icon.png",  //加图标
-    reduce_add: 1,  //加减中数字的显示
+    reduce_add: 0,  //加减中数字的显示
     is_add: false, //补货框控制变量
   },
   //生命周期
@@ -114,7 +114,7 @@ Page({
   getdata(reslove, reject) {
     var that = this
     wx.request({
-      url: 'http://127.0.0.1:3000/get_all_goods',
+      url: url+'get_all_goods',
       method: "get",
       success(res) {
         let b = JSON.stringify(res.data.info)
@@ -134,7 +134,7 @@ Page({
   getdata_into() {
     var that = this
     wx.request({
-      url: 'http://127.0.0.1:3000/get_goods_into',
+      url: url+'get_goods_into',
       method: "get",
       success(res) {
         let b = JSON.stringify(res.data.info)
@@ -153,7 +153,7 @@ Page({
   getdata_out() {
     var that = this
     wx.request({
-      url: 'http://127.0.0.1:3000/get_goods_out',
+      url: url+'get_goods_out',
       method: "get",
       success(res) {
         let b = JSON.stringify(res.data.info)
@@ -198,9 +198,7 @@ Page({
   change_number(e) {
     var that = this
     let query = e.currentTarget.dataset['item'];
-    console.log(query.goods_number)
     query.goods_number = (query.goods_number - 0) + this.data.reduce_add
-    console.log(query.goods_id)
     wx.request({
       url: url + 'goods_into',
       method: "POST",
@@ -213,7 +211,8 @@ Page({
       },
       success(res) {
         that.setData({
-          is_add: false
+          is_add: false,
+          reduce_add:0
         })
         wx.showToast({
           title: '补货成功！', //提示文字

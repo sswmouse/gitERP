@@ -1,4 +1,5 @@
 const app=getApp()
+const url = getApp().globalData.server
 Page({
 
   /**
@@ -16,7 +17,7 @@ Page({
   get_kehu(){
     var that=this
     wx.request({
-      url: app.globalData.server+'get_kehu',
+      url: url+'get_kehu',
       data: {
       },
       header: {
@@ -39,7 +40,7 @@ Page({
     console.log(id)
     var that=this
     wx.request({
-      url: app.globalData.server+'del_peo',
+      url: url+'del_peo',
       data: {
         formdata:{kehu_id:id},
         para:"2"

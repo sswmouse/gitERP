@@ -1,4 +1,5 @@
 // pages/mine/mine.js
+const url = getApp().globalData.server
 const APP = getApp()
 Page({
 
@@ -38,7 +39,7 @@ Page({
           success(res) {
             if (res.code) {
               wx.request({
-                url: 'http://localhost:3000/onLogin',
+                url: url+'onLogin',
                 data: {
                   code: res.code
                 },

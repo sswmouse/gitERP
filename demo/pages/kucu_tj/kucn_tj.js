@@ -76,7 +76,4 @@ Page({
       is_shang: false,
     })
   },
-
-
-
 })

@@ -1,5 +1,6 @@
 // pages/gong_gl/gong_gl.js
 const app=getApp()
+const url = getApp().globalData.server
 Page({
 
   /**
@@ -13,7 +14,7 @@ Page({
   get_gong(){
     var that=this
     wx.request({
-      url: app.globalData.server+'get_gong',
+      url: url+'get_gong',
       data: {
         code:"code"
       },
@@ -37,7 +38,7 @@ Page({
     var id=e.currentTarget.dataset.id
     var that=this
     wx.request({
-      url: app.globalData.server+'del_peo',
+      url: url+'del_peo',
       data: {
         formdata:{gong_id:id},
         para:"1"

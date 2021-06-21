@@ -1,4 +1,5 @@
 // pages/new_kehu/new_kehu.js
+const url = getApp().globalData.server
 Page({
 
   /**
@@ -24,7 +25,7 @@ Page({
     var that=this
     console.log(this.data.formdata)
     wx.request({
-      url: 'http://localhost:3000/add_peo',
+      url: url+'add_peo',
       data: {
         formdata:that.data.formdata,
         para:"2"

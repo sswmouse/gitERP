@@ -1,6 +1,5 @@
 // pages/my_xiu/my_xin.js
-
-
+const url = getApp().globalData.server
 Page({
   data: {
     userInfo: '',
@@ -26,7 +25,7 @@ Page({
   keep: function () {
     var that = this
     wx.request({
-      url: 'http://localhost:3000/change',
+      url: url+'change',
       data : {
         openid:wx.getStorageSync('user').openid,
         data_base: this.data.userInfo
@@ -51,7 +50,7 @@ Page({
           userInfo: wx.getStorageSync('user')
         })
         wx.uploadFile({
-          url: 'http://localhost:3000/change_img', //仅为示例，非真实的接口地址
+          url: url+'change_img', //仅为示例，非真实的接口地址
           filePath: tempFilePaths[0],
           name: 'file',
           formData: {

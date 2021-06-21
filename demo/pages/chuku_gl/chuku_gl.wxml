@@ -1,5 +1,14 @@
 <!--pages/chuku/chuku.wxml-->
 <view class="chuku">
+  <!-- 选择客户的弹框 -->
+  <view class="kehu_chose_tk_css" wx:if="{{kehu_show}}">
+    <view class="aroow_css"></view>
+    <view class="name_css">
+      <view wx:for="{{kehu_arr}}" wx:key="this" bindtap="chose_kehu_btn" data-item="{{item.kehu_name}}">
+        {{item.kehu_name}}
+      </view>
+    </view>
+  </view>
   <view class="content">
     <!-- 客户 -->
     <view class="kehu">
@@ -10,8 +19,10 @@
           <text class="text1">客户</text>
         </view>
         <view class="kehu_row2">
-          <text class="text_right">张三</text>
-          <image class="icon_arrow" src="{{arrow_icon}}"></image>
+          <view bindtap="kehu_chose_btn">
+            <text class="text_right">{{kehu_arr_name}}</text>
+            <image class="icon_arrow" src="{{arrow_icon}}"></image>
+          </view>
         </view>
       </view>
       <!-- 客户第三行分布 -->
@@ -34,7 +45,7 @@
           </view>
           <view class="yixuan_hp_cs">
             <view class="yixuan_dx">
-              <text>{{item.goods_size}}</text>
+              <text>尺码：{{item.goods_size}}</text>
             </view>
             <view class="yixuan_jg">
               <text>价格: {{item.goods_price}}</text>
@@ -85,7 +96,7 @@
           <text class="text_left">开单人</text>
         </view>
         <view class="kehu_row6">
-          <text class="text_right">李思</text>
+          <text class="text_right">{{kaidan_name}}</text>
         </view>
       </view>
       <!-- 货品第三行分布 -->
@@ -94,7 +105,7 @@
           <text class="text_left">开单日期</text>
         </view>
         <view class="kehu_row6">
-          <text class="text_right">2021-06-08</text>
+          <text class="text_right">{{myData}}</text>
         </view>
       </view>
     </view>
@@ -106,7 +117,8 @@
         <text class="text1">备注</text>
       </view>
       <view class="beizhu_area">
-        <textarea class="weui-textarea" placeholder="请输入" style="height: 100px" maxlength="50" />
+        <textarea class="weui-textarea" placeholder="请输入" bindinput="change_beizhu" style="height: 100px"
+          maxlength="50" />
       </view>
     </view>
   </view>

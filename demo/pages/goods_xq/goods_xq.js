@@ -69,14 +69,14 @@ Page({
       for (var i = 0; i < goodsList.length; i++) {
         if (goodsList[i].goods_id == this.data.list.goods_id) {
           goodsList[i].reduce_add = this.data.reduce_add
-          goodsList[i].total = this.data.total
+          goodsList[i].total = this.data.list.goods_price
           is_you = true
           break
         }
       }
       if (is_you == false && this.data.reduce_add != 0) {
         goodsList.push({
-          goods_id: this.data.list.goods_id, reduce_add: this.data.reduce_add, total: this.data.total
+          goods_id: this.data.list.goods_id, reduce_add: this.data.reduce_add, total: this.data.list.goods_price
         })
       }
     }

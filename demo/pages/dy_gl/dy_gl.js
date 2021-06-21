@@ -1,4 +1,5 @@
 // pages/dy_gl/dy_gl.js
+const url = getApp().globalData.server
 Page({
 
   /**
@@ -12,7 +13,7 @@ Page({
   get_dy() {
     var that = this
     wx.request({
-      url: 'http://localhost:3000/get_dy',
+      url: url+'get_dy',
       data: {
       },
       header: {
@@ -66,7 +67,7 @@ Page({
     var id = e.currentTarget.dataset.id
     var that = this
     wx.request({
-      url: 'http://localhost:3000/del_peo',
+      url: url+'del_peo',
       data: {
         formdata: { dy_id: id },
         para: "3"

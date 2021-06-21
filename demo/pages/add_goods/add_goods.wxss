@@ -52,13 +52,15 @@
 /* 排序分类 */
 .fenlei{
   display: flex;
+  /* margin-bottom: 2%; */
 }
 .fenlei-row{
   flex: 1;
   /* border: 1px solid blue; */
 }
 .fenlei-row-all{
-  flex: 1.2;
+  flex: 2;
+  text-align: center;
 }
 .text_no{
   color: #939393;
@@ -75,10 +77,27 @@
   height: 13px;
   vertical-align: middle;
 }
-.icon2{
-  width: 10px;
-  height: 10px;
-  vertical-align: middle;
+
+.Icon1{
+  width: 0px;
+  height: 0px;
+  border-top: 5px solid black;
+  border-left: 5px solid rgba(0, 0, 0, 0);
+  border-right: 5px solid rgba(0, 0, 0, 0);
+  border-bottom: 5px solid rgba(0, 0, 0, 0);
+  margin-bottom: -3px;
+  display: inline-block;
+}
+/* 分类选项图标2 */
+.Icon2{
+    width: 0px;
+    height: 0px;
+    border-top: 5px solid rgba(0, 0, 0, 0);
+    border-left: 5px solid rgba(0, 0, 0, 0);
+    border-right: 5px solid rgba(0, 0, 0, 0);
+    border-bottom: 5px solid black;
+    margin-bottom: 4px;
+    display: inline-block;
 }
 
 /* 货品详情内容 */
@@ -256,3 +275,30 @@
   height: 28px;
 }
 
+/* 选择分类弹框 */
+.kehu_chose_tk_css {
+  /* border: 1px solid darkgray; */
+  background-color: #fcd005;
+  position: fixed;
+  right: 0%;
+  top: 14%;
+  text-align: center;
+}
+.name_css {
+  /* border: 1px solid red; */
+  /* margin: 2% 0%; */
+  max-height: 165px;
+  overflow: scroll;
+}
+
+.aroow_css {
+  position: fixed;
+  right: 11%;
+  top: 11%;
+  width: 0%;
+  height: 0%;
+  border-bottom: 10px solid #fcd005;
+  border-left: 10px solid rgba(0, 0, 0, 0);
+  border-right: 10px solid rgba(0, 0, 0, 0);
+  border-top: 10px solid rgba(0, 0, 0, 0);
+}

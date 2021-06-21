@@ -37,9 +37,18 @@
       </view>
       <view class="fenlei-row"></view>
       <view class="fenlei-row-all">
-        <view>
-          <text class="text_no">全部分类</text>
-          <image class="icon2" src="{{all_fl_icon}}"></image>
+        <view bindtap='fl_px'>
+          <text class="text_no">{{xz_classify}}</text>
+          <view class="{{is_fenglei?'Icon1':'Icon2'}}"></view>
+        </view>
+      </view>
+    </view>
+    <!-- 选择客户的弹框 -->
+    <view class="kehu_chose_tk_css" wx:if="{{classify_show}}">
+      <view class="aroow_css"></view>
+      <view class="name_css">
+        <view wx:for="{{classify}}" wx:key="this" bindtap="xuan_classify" data-item="{{item.name}}">
+          {{item.name}}
         </view>
       </view>
     </view>

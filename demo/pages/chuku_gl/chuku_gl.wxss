@@ -196,3 +196,31 @@
   height: 28px;
 }
 
+/* 选择客户弹框 */
+.kehu_chose_tk_css {
+  /* border: 1px solid darkgray; */
+  background-color: #fcd005;
+  width: 20%;
+  position: fixed;
+  right: 4%;
+  top: 9%;
+  text-align: center;
+}
+.name_css {
+  /* border: 1px solid red; */
+  /* margin: 2% 0%; */
+  max-height: 165px;
+  overflow: scroll;
+}
+
+.aroow_css {
+  position: fixed;
+  right: 11%;
+  top: 6.2%;
+  width: 0%;
+  height: 0%;
+  border-bottom: 10px solid #fcd005;
+  border-left: 10px solid rgba(0, 0, 0, 0);
+  border-right: 10px solid rgba(0, 0, 0, 0);
+  border-top: 10px solid rgba(0, 0, 0, 0);
+}

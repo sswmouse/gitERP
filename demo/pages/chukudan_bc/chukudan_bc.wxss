@@ -81,6 +81,7 @@
 .text2{
   font-size: 14px;
   vertical-align: middle;
+  margin-right: 13%;
 }
 /* 客户栏的已选货品 */
 /* .yixuan_card{
@@ -176,15 +177,12 @@
   width: 100%;
   display: flex;
 }
-.xg_fz_sc_row{
-  flex: 1;
-  text-align: center;
-  /* border: 1px solid blue; */
-}
+
 .xg{
+  text-align: center;
   /* border: 1px solid green; */
   background-color: rgb(252, 236, 3);
-  padding: 8% 0%;
+  padding: 3% 0%;
   font-size: 16px;
   font-weight: bold;
 }

@@ -15,7 +15,7 @@ Page({
     var that = this 
     if(this.data.id!=''&& this.data.name!=''){
       wx.request({
-        url: 'http://localhost:3000/change_classify',
+        url: ulr+'change_classify',
         data: {
           id: that.data.id,
           name:that.data.name,

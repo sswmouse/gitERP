@@ -15,41 +15,40 @@ Page({
   },
   //修改按钮
   xg_btn() {
-    console.log("修改按钮")
     wx.navigateBack({
-      delta: 1
+      delta: 2
     })
-  }, 
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log(options.order_id)
+    let goodsList = JSON.parse(wx.getStorageSync('goodsList'))
     var that = this
     //获取货品数据
     wx.request({
-      url: 'http://localhost:3000/get_all_goods',
-      data: {
-        x: '',
-        y: ''
-      },
+      url: url + 'get_goods_out',
       method: 'GET',
       success(res) {
         let a = JSON.stringify(res.data.info)
         a = a.replace(/\\/g, "");
         a = a.replace(/:"\[/g, ":[");
         a = a.replace(/\]"/g, "]");
-        let goods = JSON.parse(a)
-        let goods1 =[]
+        let order = JSON.parse(a)
+        console.log(goodsList,order)
+        let order1 = []
         //排除非上架商品
-        for(var i=0;i<goods.length;i++){
-          if(goods[i].goods_date!=""){
-            goods1.push(goods[i])
+        for (var i = 0; i < order.length; i++) {
+          if (order[i].order_id == options.order_id) {
+            order1.push(order[i])
           }
         }
         that.setData({
-          goods: goods1,
+          goods: order1,
         })
+        console.log(that.data.goods)
       }
     })
     //获取chuku 保存出库单按钮传过来的show
@@ -109,7 +108,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    wx.removeStorageSync('goodsList')
   },
 
   /**

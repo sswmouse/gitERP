@@ -153,7 +153,6 @@
   /* border: 1px solid red; */
   width: 15px;
   height: 15px;
-  background-image: url(http://localhost:3000/images/help_icon.png);
   background-position: center;
   background-size: cover;
   display: inline-block;
@@ -165,7 +164,6 @@
   /* border: 1px solid red; */
   width: 15px;
   height:15px;
-  background-image: url(http://localhost:3000/images/set_icon.png);
   background-position: center;
   background-size: cover;
   display: inline-block;
@@ -176,7 +174,6 @@
 .arrow_icon{
   width: 12px;
   height: 12px;
-  background-image: url(http://localhost:3000/images/gray_arrow.png);
   background-position: center;
   background-size: cover;
   display: inline-block;
